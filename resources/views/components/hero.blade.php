@@ -27,8 +27,8 @@
         </svg>
       </h1>
       <p class="max-w-3xl text-white">
-        Welcome to a dining experience where flavor, freshness, and hospitality come together. Whether it's your
-        first visit or your hundredth, every plate is made to impress.
+        Dengan semangat inovasi dan integritas, SMA Negeri 10 Pontianak terus berupaya menciptakan lingkungan belajar
+        yang unggul, berkarakter, dan berdaya saing global.
       </p>
       <a class="btn btn-primary btn-gradient btn-lg" href="#">
         Lihat Selengkapnya <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
