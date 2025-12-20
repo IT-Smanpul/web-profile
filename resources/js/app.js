@@ -1,5 +1,8 @@
 import "flyonui/flyonui";
 
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+import { Fancybox } from "@fancyapps/ui/dist/fancybox";
 document.addEventListener("DOMContentLoaded", () => {
   function counter(id, start, end, duration, suffix = "") {
     let obj = document.getElementById(id),
@@ -70,3 +73,5 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 });
+
+Fancybox.bind("[data-fancybox]", {});

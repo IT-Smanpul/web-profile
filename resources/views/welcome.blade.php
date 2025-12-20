@@ -57,10 +57,10 @@
       </nav>
     </header>
     <main>
-      <section id="home">
+      <section id="beranda">
         <x-hero />
       </section>
-      <section id="about-us">
+      <section id="profil">
         <x-about />
       </section>
       {{--      <!-- Blog Component --> --}}

@@ -14,9 +14,10 @@
       </div>
       <!-- Video player and stats -->
       <div class="lg:h-161 relative mb-8 h-full w-full rounded-xl max-lg:space-y-6 sm:mb-16 lg:mb-24">
-        <img class="h-full w-full rounded-xl object-cover" src="{{ asset('img/restaurant-about-us.png') }}"
-          alt="about-us" />
-        <!-- Stats card overlapping the video section -->
+        <a data-fancybox data-width="100%" data-height="100%" href="{{ asset('videos/video-1.mp4') }}">
+          <img class="h-full w-full rounded-xl object-cover" src="{{ asset('img/restaurant-about-us.png') }}"
+            alt="about-us" />
+        </a>
         <div
           class="bg-base-100 border-base-content/20 rounded-box lg:-bottom-25 intersect:motion-preset-fade intersect:motion-opacity-0 intersect:motion-duration-800 grid gap-10 border px-10 py-8 sm:max-lg:grid-cols-2 lg:absolute lg:left-1/2 lg:w-3/4 lg:-translate-x-1/2 lg:grid-cols-4 xl:w-max">
           <!-- Stats items - Years of Experience -->
