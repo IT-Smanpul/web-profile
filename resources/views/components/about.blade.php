@@ -19,8 +19,7 @@
             alt="about-us" />
         </a>
         <div
-          class="bg-base-100 border-base-content/20 rounded-box lg:-bottom-25 intersect:motion-preset-fade intersect:motion-opacity-0 intersect:motion-duration-800 grid gap-10 border px-10 py-8 sm:max-lg:grid-cols-2 lg:absolute lg:left-1/2 lg:w-3/4 lg:-translate-x-1/2 lg:grid-cols-4 xl:w-max">
-          <!-- Stats items - Years of Experience -->
+          class="bg-base-100 border-base-content/20 rounded-box lg:-bottom-25 intersect:motion-preset-fade intersect:motion-opacity-0 intersect:motion-duration-800 grid gap-10 sm:gap-0 border px-10 py-8 sm:max-lg:grid-cols-2 lg:absolute lg:left-1/2 lg:w-3/4 lg:-translate-x-1/2 lg:grid-cols-4 xl:w-max">
           <div class="flex flex-col items-center justify-center gap-6">
             <!-- Document icon SVG -->
             <svg class="text-primary" xmlns="http://www.w3.org/2000/svg" width="43" height="42"
@@ -37,10 +36,9 @@
             </svg>
             <div class="space-y-2 text-center">
               <span class="text-primary text-3xl font-semibold" id="count1"></span>
-              <p class="text-base-content/80">Years of Experience</p>
+              <p class="text-base-content/80">Guru & Tenaga Pendidik</p>
             </div>
           </div>
-          <!-- Stats items - Dishes -->
           <div class="flex flex-col items-center justify-center gap-6">
             <!-- Projects icon SVG -->
             <svg class="text-primary" xmlns="http://www.w3.org/2000/svg" width="43" height="42"
@@ -69,10 +67,9 @@
             </svg>
             <div class="space-y-2 text-center">
               <span class="text-primary text-3xl font-semibold" id="count2"></span>
-              <p class="text-base-content/80">Dishes in Our Menu</p>
+              <p class="text-base-content/80">Peserta Didik Aktif</p>
             </div>
           </div>
-          <!-- Stats items - Customer Reviews -->
           <div class="flex flex-col items-center justify-center gap-6">
             <!-- Star icon SVG -->
             <svg class="text-primary" xmlns="http://www.w3.org/2000/svg" width="43" height="42"
@@ -92,10 +89,9 @@
             </svg>
             <div class="space-y-2 text-center">
               <span class="text-primary text-3xl font-semibold" id="count3"></span>
-              <p class="text-base-content/80">Customer Reviews</p>
+              <p class="text-base-content/80">Prestasi Akademik & Non-Akademik</p>
             </div>
           </div>
-          <!-- Stats items - Happy Customer -->
           <div class="flex flex-col items-center justify-center gap-6">
             <!-- Award icon SVG -->
             <svg class="text-primary" xmlns="http://www.w3.org/2000/svg" width="43" height="42"
@@ -138,7 +134,7 @@
             </svg>
             <div class="space-y-2 text-center">
               <span class="text-primary text-3xl font-semibold" id="count4"></span>
-              <p class="text-base-content/80">Happy Customers</p>
+              <p class="text-base-content/80">Ekstrakurikuler Aktif</p>
             </div>
           </div>
         </div>
