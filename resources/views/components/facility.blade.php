@@ -87,35 +87,64 @@
   ];
 @endphp
 
-<div class="bg-base-100 py-8 sm:py-16 lg:py-24">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mb-12 space-y-4 text-center sm:mb-16 lg:mb-24">
-      <h2 class="text-base-content text-2xl font-semibold md:text-3xl lg:text-4xl">
-        Fasilitas Kami
+<div class="bg-base-100 relative overflow-hidden py-12 sm:py-20 lg:py-28">
+  <!-- Background shapes -->
+  <div class="bg-primary/15 pointer-events-none absolute -right-32 -top-32 h-[26rem] w-[26rem] rounded-full blur-3xl">
+  </div>
+  <div
+    class="pointer-events-none absolute -bottom-32 -left-32 h-[30rem] w-[30rem] rounded-full bg-green-400/15 blur-3xl">
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="mb-14 space-y-5 text-center sm:mb-20 lg:mb-24">
+      <h2 class="text-base-content text-3xl font-bold md:text-4xl lg:text-5xl">
+        Fasilitas Sekolah
       </h2>
-      <p class="text-base-content/80 text-xl">
-        From unforgettable flavors to seamless service, we’re here to make every meal feel special. Whether you dine in,
-        take out, or order online we’ve got your cravings covered.
+      <p class="text-base-content/80 mx-auto max-w-3xl text-lg leading-relaxed md:text-xl">
+        Berbagai fasilitas pendukung disediakan untuk menciptakan
+        lingkungan belajar yang nyaman, aman, dan mendukung
+        pengembangan potensi peserta didik secara optimal.
       </p>
     </div>
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+    <!-- Facilities grid -->
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       @foreach ($facilities as $facility)
-        <div class="card card-border shadow-none">
-          <figure>
-            <img src="{{ asset($facility['image']) }}" alt="{{ $facility['title'] }}" />
-          </figure>
-          <div class="card-body gap-3">
-            <h5 class="card-title text-xl">{{ $facility['title'] }}</h5>
-            <p class="mb-5">{{ $facility['description'] }}</p>
-            <div class="card-actions">
-              <a class="btn btn-primary btn-gradient" href="#">
-                Read More
-                <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
-              </a>
-            </div>
+        <div
+          class="bg-base-100 group relative overflow-hidden rounded-3xl shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+
+          <!-- Glow hover -->
+          <div class="absolute inset-0 opacity-0 transition group-hover:opacity-100">
+            <div class="bg-primary/20 absolute -right-20 -top-20 h-40 w-40 rounded-full blur-2xl"></div>
           </div>
+
+          <!-- Image -->
+          <figure class="relative h-56 overflow-hidden">
+            <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              src="{{ asset($facility['image']) }}" alt="{{ $facility['title'] }}" />
+          </figure>
+
+          <!-- Content -->
+          <div class="relative space-y-4 p-6">
+            <h3 class="text-xl font-semibold">
+              {{ $facility['title'] }}
+            </h3>
+
+            <p class="text-base-content/80 text-sm leading-relaxed">
+              {{ $facility['description'] }}
+            </p>
+
+            <a class="text-primary inline-flex items-center gap-2 text-sm font-medium" href="{{ $facility['link'] }}">
+              Lihat Detail
+              <span class="icon-[tabler--arrow-right] size-4 rtl:rotate-180"></span>
+            </a>
+          </div>
+
         </div>
       @endforeach
     </div>
+
   </div>
 </div>
