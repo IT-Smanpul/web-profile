@@ -1,0 +1,31 @@
+@extends('root')
+
+@section('content')
+  <x-ui.navbar />
+  <main>
+    <section id="beranda">
+      <x-beranda.hero />
+    </section>
+    <section id="profil">
+      <x-beranda.profil />
+    </section>
+    <section id="akademik">
+      <x-beranda.akademik />
+    </section>
+    <section id="fasilitas">
+      <x-beranda.fasilitas />
+    </section>
+    <section id="prestasi">
+      <x-beranda.prestasi />
+    </section>
+    <section id="berita">
+      <x-beranda.berita />
+    </section>
+  </main>
+  <x-ui.footer />
+  <button
+    class="btn btn-circle btn-soft btn-secondary/20 bottom-15 end-15 motion-preset-slide-right motion-duration-800 motion-delay-100 z-3 fixed hidden"
+    id="scrollToTopBtn" aria-label="Circle Soft Icon Button">
+    <span class="icon-[tabler--chevron-up] size-5 shrink-0"></span>
+  </button>
+@endsection

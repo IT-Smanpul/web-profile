@@ -1,5 +1,8 @@
 import "flyonui/flyonui";
 
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+import { Fancybox } from "@fancyapps/ui/dist/fancybox";
 document.addEventListener("DOMContentLoaded", () => {
   function counter(id, start, end, duration, suffix = "") {
     let obj = document.getElementById(id),
@@ -23,10 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }, step);
   }
 
-  counter("count1", 100, 7, 5000, "+");
-  counter("count2", 100, 30, 5000, "+");
+  counter("count1", 500, 40, 5000, "+");
+  counter("count2", 100, 950, 5000, "+");
   counter("count3", 0, 500, 5000, "+");
-  counter("count4", 100, 10, 5000, "k+");
+  counter("count4", 100, 10, 5000, "+");
 });
 
 const sections = document.querySelectorAll("section");
@@ -70,3 +73,5 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 });
+
+Fancybox.bind("[data-fancybox]", {});
