@@ -20,8 +20,8 @@
         class="lg:navbar-center transition-height collapse hidden grow overflow-hidden font-medium duration-300 lg:flex"
         id="navbar-block-4">
         <div class="text-base-content flex gap-6 text-base max-lg:mt-4 max-lg:flex-col lg:items-center">
-          <a class="hover:text-primary nav-link" href="#beranda">Beranda</a>
-          <a class="hover:text-primary nav-link" href="#profil">Profil Sekolah</a>
+          <a class="hover:text-primary nav-link" href="/">Beranda</a>
+          <a class="hover:text-primary nav-link" href="{{ route('profil') }}">Profil Sekolah</a>
           <a class="hover:text-primary nav-link" href="#akademik">Akademik</a>
           <a class="hover:text-primary nav-link" href="#fasilitas">Fasilitas</a>
           <a class="hover:text-primary nav-link" href="#prestasi">Prestasi</a>
