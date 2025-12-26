@@ -1,4 +1,4 @@
-<section class="bg-base-100 relative overflow-hidden py-16 sm:py-20">
+<section class="bg-base-200 relative overflow-hidden py-16 sm:py-20">
   <div class="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-green-400/20 blur-3xl"></div>
   <div class="bg-primary/20 pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full blur-3xl"></div>
   <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
