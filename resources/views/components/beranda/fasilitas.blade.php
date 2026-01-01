@@ -1,97 +1,9 @@
-@php
-  $facilities = [
-      [
-          'image' => 'img/free-blog-1.png',
-          'title' => 'Buffet Service',
-          'description' =>
-              'Navigate effortlessly with our intuitive design, optimized for all devices. Enjoy a seamless experience whether you\'re on a computer or mobile device.',
-          'link' => '#',
-      ],
-      [
-          'image' => 'img/free-blog-2.png',
-          'title' => 'Food delivery',
-          'description' =>
-              'Enjoy a safe shopping experience with multiple payment options and SSL encryption. Your personal and financial information is always protected.',
-          'link' => '#',
-      ],
-      [
-          'image' => 'img/free-blog-3.png',
-          'title' => 'Cafeteria',
-          'description' =>
-              'Find products quickly with advanced filters, sorting options, and suggestion. Save time and effortlessly locate exactly what you need with ease.',
-          'link' => '#',
-      ],
-      [
-          'image' => 'img/free-blog-1.png',
-          'title' => 'Buffet Service',
-          'description' =>
-              'Navigate effortlessly with our intuitive design, optimized for all devices. Enjoy a seamless experience whether you\'re on a computer or mobile device.',
-          'link' => '#',
-      ],
-      [
-          'image' => 'img/free-blog-2.png',
-          'title' => 'Food delivery',
-          'description' =>
-              'Enjoy a safe shopping experience with multiple payment options and SSL encryption. Your personal and financial information is always protected.',
-          'link' => '#',
-      ],
-      [
-          'image' => 'img/free-blog-3.png',
-          'title' => 'Cafeteria',
-          'description' =>
-              'Find products quickly with advanced filters, sorting options, and suggestion. Save time and effortlessly locate exactly what you need with ease.',
-          'link' => '#',
-      ],
-      [
-          'image' => 'img/free-blog-1.png',
-          'title' => 'Buffet Service',
-          'description' =>
-              'Navigate effortlessly with our intuitive design, optimized for all devices. Enjoy a seamless experience whether you\'re on a computer or mobile device.',
-          'link' => '#',
-      ],
-      [
-          'image' => 'img/free-blog-2.png',
-          'title' => 'Food delivery',
-          'description' =>
-              'Enjoy a safe shopping experience with multiple payment options and SSL encryption. Your personal and financial information is always protected.',
-          'link' => '#',
-      ],
-      [
-          'image' => 'img/free-blog-3.png',
-          'title' => 'Cafeteria',
-          'description' =>
-              'Find products quickly with advanced filters, sorting options, and suggestion. Save time and effortlessly locate exactly what you need with ease.',
-          'link' => '#',
-      ],
-      [
-          'image' => 'img/free-blog-1.png',
-          'title' => 'Buffet Service',
-          'description' =>
-              'Navigate effortlessly with our intuitive design, optimized for all devices. Enjoy a seamless experience whether you\'re on a computer or mobile device.',
-          'link' => '#',
-      ],
-      [
-          'image' => 'img/free-blog-2.png',
-          'title' => 'Food delivery',
-          'description' =>
-              'Enjoy a safe shopping experience with multiple payment options and SSL encryption. Your personal and financial information is always protected.',
-          'link' => '#',
-      ],
-      [
-          'image' => 'img/free-blog-3.png',
-          'title' => 'Cafeteria',
-          'description' =>
-              'Find products quickly with advanced filters, sorting options, and suggestion. Save time and effortlessly locate exactly what you need with ease.',
-          'link' => '#',
-      ],
-  ];
-@endphp
+@use('App\Models\Facility')
 
 <div class="bg-base-100 relative overflow-hidden py-12 sm:py-20 lg:py-28">
-  <div class="bg-primary/15 pointer-events-none absolute -right-32 -top-32 h-[26rem] w-[26rem] rounded-full blur-3xl">
+  <div class="bg-primary/15 size-104 pointer-events-none absolute -right-32 -top-32 rounded-full blur-3xl">
   </div>
-  <div
-    class="pointer-events-none absolute -bottom-32 -left-32 h-[30rem] w-[30rem] rounded-full bg-green-400/15 blur-3xl">
+  <div class="size-120 pointer-events-none absolute -bottom-32 -left-32 rounded-full bg-green-400/15 blur-3xl">
   </div>
   <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="mb-14 space-y-6 text-center sm:mb-20 lg:mb-24">
@@ -110,7 +22,7 @@
       </p>
     </div>
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      @foreach ($facilities as $facility)
+      @foreach (Facility::all()->take(6) as $facility)
         <div
           class="bg-base-100 group relative overflow-hidden rounded-3xl shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
           <div class="absolute inset-0 opacity-0 transition group-hover:opacity-100">
@@ -118,22 +30,24 @@
           </div>
           <figure class="relative h-56 overflow-hidden">
             <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-              src="{{ asset($facility['image']) }}" alt="{{ $facility['title'] }}" />
+              src="{{ asset("storage/$facility->image") }}" alt="{{ $facility->name }}" />
           </figure>
           <div class="relative space-y-4 p-6">
             <h3 class="text-xl font-semibold">
-              {{ $facility['title'] }}
+              {{ $facility->name }}
             </h3>
             <p class="text-base-content/80 text-sm leading-relaxed">
-              {{ $facility['description'] }}
+              {{ $facility->description }}
             </p>
-            <a class="text-primary inline-flex items-center gap-2 text-sm font-medium" href="{{ $facility['link'] }}">
-              Lihat Detail
-              <span class="icon-[tabler--arrow-right] size-4 rtl:rotate-180"></span>
-            </a>
           </div>
         </div>
       @endforeach
+    </div>
+    <div class="mt-14 text-center">
+      <a class="btn btn-primary btn-gradient btn-lg" href="{{ route('fasilitas') }}">
+        Lihat Semua Fasilitas
+        <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
+      </a>
     </div>
   </div>
 </div>
