@@ -3,33 +3,50 @@ import "flyonui/flyonui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 import { Fancybox } from "@fancyapps/ui/dist/fancybox";
+
+function counter(id, start, end, duration, suffix = "") {
+  let obj = document.getElementById(id),
+    current = start,
+    range = end - start,
+    increment = end > start ? 1 : -1,
+    step = Math.abs(Math.floor(duration / range)),
+    timer = setInterval(() => {
+      current += increment;
+      let formattedNumber = current;
+
+      // Check if the number is 1000 or more to add "k+" (for thousands)
+      if (current >= 1000) {
+        formattedNumber = (current / 1000).toFixed(1) + "k"; // Adding the "k" suffix
+      }
+
+      obj.textContent = formattedNumber + suffix;
+      if (current === end) {
+        clearInterval(timer);
+      }
+    }, step);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  function counter(id, start, end, duration, suffix = "") {
-    let obj = document.getElementById(id),
-      current = start,
-      range = end - start,
-      increment = end > start ? 1 : -1,
-      step = Math.abs(Math.floor(duration / range)),
-      timer = setInterval(() => {
-        current += increment;
-        let formattedNumber = current;
+  const count1 = document.getElementById("count1");
+  const count2 = document.getElementById("count2");
+  const count3 = document.getElementById("count3");
+  const count4 = document.getElementById("count4");
 
-        // Check if the number is 1000 or more to add "k+" (for thousands)
-        if (current >= 1000) {
-          formattedNumber = (current / 1000).toFixed(1) + "k"; // Adding the "k" suffix
-        }
-
-        obj.textContent = formattedNumber + suffix;
-        if (current === end) {
-          clearInterval(timer);
-        }
-      }, step);
+  if (count1) {
+    counter("count1", 500, 40, 5000, "+");
   }
 
-  counter("count1", 500, 40, 5000, "+");
-  counter("count2", 100, 950, 5000, "+");
-  counter("count3", 0, 500, 5000, "+");
-  counter("count4", 100, 10, 5000, "+");
+  if (count2) {
+    counter("count2", 100, 950, 5000, "+");
+  }
+
+  if (count3) {
+    counter("count3", 0, 500, 5000, "+");
+  }
+
+  if (count4) {
+    counter("count4", 100, 10, 5000, "+");
+  }
 });
 
 const sections = document.querySelectorAll("section");
