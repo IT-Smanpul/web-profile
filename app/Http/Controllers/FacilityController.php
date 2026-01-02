@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Facility;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Facility\CreateFacilityRequest;
 use App\Http\Requests\Facility\UpdateFacilityRequest;
 
@@ -57,6 +58,7 @@ class FacilityController extends Controller
 
     public function destroy(Facility $facility): RedirectResponse
     {
+        Storage::delete($facility->image);
         $facility->delete();
 
         return to_route('fasilitas.index');
