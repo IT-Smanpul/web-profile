@@ -20,7 +20,7 @@
           <span class="icon-[tabler--news] size-5"></span>
           Berita
         </a>
-        <a class="hover:bg-base-200 flex items-center gap-3 rounded-xl px-4 py-2.5" href="/dashboard/prestasi">
+        <a class="hover:bg-base-200 flex items-center gap-3 rounded-xl px-4 py-2.5" href="{{ route('prestasi.index') }}">
           <span class="icon-[tabler--award] size-5"></span>
           Prestasi
         </a>
