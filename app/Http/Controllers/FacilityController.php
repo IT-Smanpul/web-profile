@@ -47,8 +47,8 @@ class FacilityController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('images/fasilitas');
-            $data['image'] = $path;
+            Storage::delete($facility->image);
+            $data['image'] = $request->file('image')->store('images/fasilitas');
         }
 
         $facility->update($data);
