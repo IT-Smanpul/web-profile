@@ -50,26 +50,16 @@
         </div>
         <div class="space-y-3">
           <label class="label-text">Gambar</label>
-          {{-- Preview --}}
           <div
             class="bg-base-200 @error('image') border-error @enderror flex h-44 items-center justify-center overflow-hidden rounded-2xl border"
             id="imagePreview">
-            @if (!empty($image))
-              <img class="h-full w-full object-cover" id="previewImg" src="{{ asset('storage/' . $image) }}"
-                alt="preview image" />
-            @else
-              <span class="text-base-content/40 text-sm" id="imagePlaceholder">
-                Preview Gambar
-              </span>
-              <img class="hidden h-full w-full object-cover" id="previewImg" alt="preview image" />
-            @endif
+            <span class="text-base-content/40 text-sm" id="imagePlaceholder">
+              Preview Gambar
+            </span>
+            <img class="hidden h-full w-full object-cover" id="previewImg" alt="preview image" />
           </div>
-
-          {{-- Hidden input --}}
           <input class="hidden" id="image" name="image" type="file" accept="image/*"
             onchange="previewImage(event)" />
-
-          {{-- Button upload --}}
           <label for="image" @class([
               'btn btn-outline w-full cursor-pointer gap-2',
               'btn-error' => $errors->has('image'),
@@ -78,17 +68,13 @@
             <span class="icon-[tabler--upload] size-5"></span>
             Pilih Gambar
           </label>
-
-          {{-- Error --}}
           @error('image')
             <p class="text-error text-xs">{{ $message }}</p>
           @enderror
-
           <p class="text-base-content/60 text-xs">
             Disarankan rasio 16:9 (JPG / PNG)
           </p>
         </div>
-
         <div class="flex justify-end gap-3 pt-4">
           <a class="btn btn-ghost" href="{{ route('prestasi.index') }}">
             Batal
