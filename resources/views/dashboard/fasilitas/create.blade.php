@@ -58,8 +58,16 @@
             </span>
             <img class="hidden h-full w-full object-cover" id="previewImg" alt="preview image" />
           </div>
-          <input class="file-input file-input-bordered @error('image') file-input-error @enderror w-full" name="image"
-            type="file" accept="image/*" onchange="previewImage(event)" />
+          <input class="hidden" id="image" name="image" type="file" accept="image/*"
+            onchange="previewImage(event)" />
+          <label for="image" @class([
+              'btn btn-outline w-full cursor-pointer gap-2',
+              'btn-error' => $errors->has('image'),
+              'btn-primary' => !$errors->has('image'),
+          ])>
+            <span class="icon-[tabler--upload] size-5"></span>
+            Pilih Gambar
+          </label>
           @error('image')
             <label class="label">
               <span class="label-text-alt text-error">{{ $message }}</span>
@@ -84,20 +92,14 @@
 
 <script>
   function previewImage(event) {
-    const file = event.target.files[0];
-    const previewImg = document.getElementById("previewImg");
-    const placeholder = document.getElementById("imagePlaceholder");
+    const input = event.target;
+    const placeholder = document.getElementById("imagePlaceholder")
+    const preview = document.getElementById("previewImg");
 
-    if (!file) return;
+    if (!input.files || !input.files[0]) return;
 
-    const reader = new FileReader();
-
-    reader.onload = function(e) {
-      previewImg.src = e.target.result;
-      previewImg.classList.remove("hidden");
-      placeholder.classList.add("hidden");
-    };
-
-    reader.readAsDataURL(file);
+    preview.src = URL.createObjectURL(input.files[0]);
+    preview.classList.remove("hidden");
+    placeholder.classList.add("hidden");
   }
 </script>
