@@ -92,7 +92,7 @@
             Batal
           </a>
           <button class="btn btn-primary btn-gradient" type="submit">
-            Tambah Prestasi
+            Perbarui Prestasi
           </button>
         </div>
       </form>
