@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LogoutController;
 Route::view('/', 'index');
 Route::view('/profil', 'profil')->name('profil');
 Route::view('/fasilitas', 'fasilitas')->name('fasilitas');
+Route::view('/prestasi', 'prestasi')->name('prestasi');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
