@@ -48,7 +48,7 @@
       @endforeach
     </div>
     <div class="mt-14 text-center">
-      <a class="btn btn-primary btn-gradient btn-lg" href="/prestasi">
+      <a class="btn btn-primary btn-gradient btn-lg" href="{{ route('prestasi') }}">
         Lihat Semua Prestasi
         <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
       </a>
