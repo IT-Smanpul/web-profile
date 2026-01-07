@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AchievementController;
@@ -21,6 +22,7 @@ Route::middleware('auth')->group(function () {
         Route::view('/', 'dashboard.index')->name('dashboard');
         Route::resource('fasilitas', FacilityController::class)->parameter('fasilitas', 'facility')->except(['show']);
         Route::resource('prestasi', AchievementController::class)->parameter('prestasi', 'achievement')->except(['show']);
+        Route::resource('berita', ArticleController::class)->parameter('berita', 'article');
     });
 
     Route::post('/logout', LogoutController::class)->name('logout');
