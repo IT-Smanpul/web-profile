@@ -3,13 +3,13 @@
 @section('content')
   <div class="bg-base-200 flex h-screen overflow-hidden">
     <aside class="bg-base-100 w-65 flex shrink-0 flex-col border-r">
-      <div class="flex h-16 items-center gap-3 border-b px-6">
+      <a class="flex h-16 items-center gap-3 border-b px-6" href="/">
         <img class="h-9 w-9" src="{{ asset('img/logo.png') }}" alt="Logo">
         <div>
           <p class="font-semibold leading-none">SMAN 10</p>
           <p class="text-base-content/60 text-xs">Admin Panel</p>
         </div>
-      </div>
+      </a>
       <nav class="flex-1 space-y-1 overflow-y-auto px-4 py-6 text-sm">
         <a class="{{ Route::is('dashboard') ? 'bg-green-500/10 text-green-600' : '' }} hover:bg-base-200 flex items-center gap-3 rounded-xl px-4 py-2.5 font-medium"
           href="/dashboard">
