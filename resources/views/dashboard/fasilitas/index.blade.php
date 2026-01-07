@@ -17,7 +17,7 @@
       </a>
     </div>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      @foreach ($facilities as $facility)
+      @forelse ($facilities as $facility)
         <div class="bg-base-100 group overflow-hidden rounded-2xl border shadow-sm transition hover:shadow-md">
           <div class="relative h-40 overflow-hidden">
             <img class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
@@ -50,7 +50,13 @@
             </div>
           </div>
         </div>
-      @endforeach
+      @empty
+        <div class="col-span-full rounded-xl border border-dashed p-10 text-center">
+          <p class="text-base-content/60">
+            Belum ada data fasilitas yang ditambahkan.
+          </p>
+        </div>
+      @endforelse
     </div>
   </div>
 @endsection
