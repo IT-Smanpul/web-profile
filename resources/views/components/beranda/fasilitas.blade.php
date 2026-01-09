@@ -22,7 +22,7 @@
       </p>
     </div>
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      @foreach (Facility::all()->take(6) as $facility)
+      @forelse (Facility::all()->take(6) as $facility)
         <div
           class="bg-base-100 group relative overflow-hidden rounded-3xl shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
           <div class="absolute inset-0 opacity-0 transition group-hover:opacity-100">
@@ -41,7 +41,13 @@
             </p>
           </div>
         </div>
-      @endforeach
+      @empty
+        <div class="col-span-full rounded-xl border border-dashed p-10 text-center">
+          <p class="text-base-content/60">
+            Belum ada data fasilitas yang ditambahkan.
+          </p>
+        </div>
+      @endforelse
     </div>
     <div class="mt-14 text-center">
       <a class="btn btn-primary btn-gradient btn-lg" href="{{ route('fasilitas') }}">
