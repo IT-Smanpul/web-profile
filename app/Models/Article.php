@@ -3,8 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Article extends Model
 {
@@ -14,7 +17,17 @@ class Article extends Model
 
     public $incrementing = false;
 
-    protected $fillable = ['title', 'slug', 'content'];
+    protected $fillable = ['title', 'content', 'published', 'thumbnail', 'author_id'];
+
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 
     public function sluggable(): array
     {
@@ -23,5 +36,11 @@ class Article extends Model
                 'source' => 'title',
             ],
         ];
+    }
+
+    #[Scope]
+    protected function published(Builder $query): Builder
+    {
+        return $query->where('published', true);
     }
 }
