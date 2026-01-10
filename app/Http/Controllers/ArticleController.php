@@ -50,7 +50,7 @@ class ArticleController extends Controller
 
     public function show(Article $article): View
     {
-        return view('detail', [
+        return view('berita.detail', [
             'title' => "$article->title - $this->appName",
             'article' => $article,
             'others' => Article::where('slug', '!=', $article->slug)->latest()->take(3)->get(),
