@@ -11,7 +11,7 @@ Route::view('/', 'index');
 Route::view('/profil', 'profil')->name('profil');
 Route::view('/fasilitas', 'fasilitas')->name('fasilitas');
 Route::view('/prestasi', 'prestasi')->name('prestasi');
-Route::view('/berita', 'berita')->name('berita');
+Route::view('/berita', 'berita.index')->name('berita');
 
 Route::get('/berita/{article}', [ArticleController::class, 'show'])->name('berita.show');
 
