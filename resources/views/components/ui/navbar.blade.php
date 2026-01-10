@@ -2,7 +2,7 @@
   <nav class="navbar mx-auto max-w-7xl rounded-b-xl px-4 sm:px-6 lg:px-8">
     <div class="w-full lg:flex lg:items-center lg:gap-2">
       <div class="navbar-start items-center justify-between max-lg:w-full">
-        <a class="text-base-content flex items-center gap-3 text-xl font-semibold" href="#">
+        <a class="text-base-content flex items-center gap-3 text-xl font-semibold" href="/">
           <img class="size-12" src="{{ asset('img/logo.png') }}" alt="Logo Sekolah">
           SMAN 10 Pontianak
         </a>
