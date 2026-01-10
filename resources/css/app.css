@@ -25,4 +25,9 @@ body {
     color: color-mix(in oklab, var(--color-base-content) 80%, transparent);
 }
 
+.trix-button-group--file-tools {
+    display: none !important;
+}
+
+
 
