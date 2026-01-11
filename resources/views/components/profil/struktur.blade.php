@@ -15,16 +15,19 @@
       </p>
     </div>
     <div class="mb-20 flex justify-center">
-      <div class="bg-base-200/60 rounded-3xl border p-8 text-center shadow-sm backdrop-blur">
-        <img class="mx-auto mb-4 h-32 w-32 rounded-full object-cover shadow-md" src="{{ asset('img/avatars/1.png') }}"
+      <div class="bg-base-200/60 rounded-3xl border p-8 text-center shadow-sm backdrop-blur transition hover:shadow-md">
+        <img class="mx-auto mb-5 h-32 w-32 rounded-full object-cover shadow-md" src="{{ asset('img/avatars/1.png') }}"
           alt="Kepala Sekolah" />
-        <p class="text-base-content/60 text-sm">
+        <p class="text-primary text-sm font-medium">
           Kepala Sekolah
         </p>
         <p class="mt-1 text-xl font-semibold">
           Drs. Nama Kepala Sekolah
         </p>
-        <div class="mx-auto mt-4 h-1 w-16 rounded-full bg-green-500"></div>
+        <p class="text-base-content/60 mt-1 text-xs">
+          NIP. 089693219887
+        </p>
+        <div class="bg-primary mx-auto mt-5 h-1 w-20 rounded-full"></div>
       </div>
     </div>
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -38,14 +41,17 @@
           Nama Wakil
         </p>
       </div>
-      <div class="bg-base-200/50 rounded-2xl border p-6 text-center shadow-sm backdrop-blur">
-        <img class="mx-auto mb-3 h-24 w-24 rounded-full object-cover shadow" src="{{ asset('img/avatars/3.png') }}"
+      <div class="bg-base-200/50 rounded-2xl border p-6 text-center shadow-sm backdrop-blur transition hover:shadow-md">
+        <img class="mx-auto mb-4 h-28 w-28 rounded-full object-cover shadow" src="{{ asset('img/avatars/3.png') }}"
           alt="Waka Kesiswaan" />
-        <p class="text-base-content/60 text-sm">
-          Waka Kesiswaan
+        <p class="text-primary text-sm font-medium">
+          Wakil Kepala Sekolah
         </p>
-        <p class="mt-1 font-semibold">
+        <p class="mt-1 text-lg font-semibold">
           Nama Wakil
+        </p>
+        <p class="text-base-content/60 mt-1 text-xs">
+          NIP. 098765432112
         </p>
       </div>
       <div class="bg-base-200/50 rounded-2xl border p-6 text-center shadow-sm backdrop-blur">
