@@ -1,5 +1,3 @@
-@use('App\Models\Setting')
-
 <section class="bg-base-200 relative min-h-dvh overflow-hidden">
   <div class="bg-primary/20 pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full blur-3xl"></div>
   <div class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-green-400/20 blur-3xl"></div>
@@ -30,7 +28,7 @@
                 NPSN
               </p>
               <p class="text-lg font-semibold tracking-wide">
-                {{ Setting::where('key', 'npsn')->first()->value }}
+                {{ $npsn }}
               </p>
             </div>
           </div>
@@ -45,7 +43,7 @@
                 Status
               </p>
               <p class="text-lg font-semibold">
-                Sekolah {{ Setting::where('key', 'school_status')->first()->value }}
+                Sekolah {{ $status }}
               </p>
             </div>
           </div>
@@ -60,7 +58,7 @@
                 Akreditasi
               </p>
               <p class="text-2xl font-bold">
-                {{ Setting::where('key', 'accreditation')->first()->value }}
+                {{ $akreditasi }}
               </p>
             </div>
           </div>
@@ -75,7 +73,7 @@
                 Kurikulum
               </p>
               <p class="text-lg font-semibold">
-                {{ Setting::where('key', 'curriculum')->first()->value }}
+                {{ $kurikulum }}
               </p>
             </div>
           </div>
