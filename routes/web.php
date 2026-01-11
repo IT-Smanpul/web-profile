@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Setting\GeneralSettingController;
+use App\Http\Controllers\Setting\VisiMisiSettingController;
 
 Route::view('/', 'index');
 Route::view('/profil', 'profil')->name('profil');
@@ -38,7 +39,8 @@ Route::middleware('auth')->group(function () {
             Route::match(['PUT', 'PATCH'], '/general', [GeneralSettingController::class, 'update'])->name('setting.general.update');
 
             // Visi Misi
-            Route::view('/visi-misi', 'dashboard.pengaturan.visi-misi')->name('setting.visi-misi.edit');
+            Route::get('/visi-misi', [VisiMisiSettingController::class, 'edit'])->name('setting.visi-misi.edit');
+            Route::match(['PUT', 'PATCH'], '/visi-misi', [VisiMisiSettingController::class, 'update'])->name('setting.visi-misi.update');
         });
     });
 
