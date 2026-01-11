@@ -72,7 +72,10 @@
               </a>
             </li>
             <li>
-              <a href="{{ route('setting.visi-misi.edit') }}">
+              <a href="{{ route('setting.visi-misi.edit') }}" @class([
+                  'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
+                      'setting.visi-misi.edit'),
+              ])>
                 <span class="icon-[tabler--calendar] size-5"></span>
                 Visi Misi
               </a>
