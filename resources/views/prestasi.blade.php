@@ -51,18 +51,13 @@
               </div>
             </div>
           @empty
-            <div class="col-span-full text-center">
+            <div class="col-span-full rounded-xl border border-dashed p-10 text-center">
               <p class="text-base-content/60">
-                Belum ada data prestasi yang ditampilkan.
+                Belum ada prestasi yang ditambahkan.
               </p>
             </div>
           @endforelse
         </div>
-        {{--        @if ($prestasis->hasPages()) --}}
-        {{--          <div class="mt-16 flex justify-center"> --}}
-        {{--            {{ $prestasis->links() }} --}}
-        {{--          </div> --}}
-        {{--        @endif --}}
       </div>
     </div>
   </main>

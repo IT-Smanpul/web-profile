@@ -28,7 +28,7 @@
                 NPSN
               </p>
               <p class="text-lg font-semibold tracking-wide">
-                12345678
+                {{ $npsn }}
               </p>
             </div>
           </div>
@@ -43,7 +43,7 @@
                 Status
               </p>
               <p class="text-lg font-semibold">
-                Sekolah Negeri
+                Sekolah {{ $status }}
               </p>
             </div>
           </div>
@@ -58,7 +58,7 @@
                 Akreditasi
               </p>
               <p class="text-2xl font-bold">
-                A
+                {{ $akreditasi }}
               </p>
             </div>
           </div>
@@ -73,7 +73,7 @@
                 Kurikulum
               </p>
               <p class="text-lg font-semibold">
-                Kurikulum Merdeka
+                {{ $kurikulum }}
               </p>
             </div>
           </div>

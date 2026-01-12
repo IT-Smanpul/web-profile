@@ -1,10 +1,8 @@
-<div class="bg-base-100 relative min-h-dvh overflow-hidden py-12 sm:py-20 lg:py-28">
-  <!-- Background Shape -->
+<div class="bg-base-100 relative overflow-hidden py-12 sm:py-20 lg:py-28">
   <div class="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-green-500/10 blur-3xl"></div>
   <div class="bg-primary/10 absolute -bottom-32 -left-32 h-96 w-96 rounded-full blur-3xl"></div>
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid items-center gap-16 lg:grid-cols-2">
-      <!-- Text Content -->
       <div>
         <span class="mb-3 inline-block rounded-full bg-green-500 px-4 py-1 text-sm font-medium text-white">
           Akademik
@@ -17,7 +15,6 @@
           pembelajaran aktif dan terarah untuk mengembangkan potensi akademik
           peserta didik secara optimal.
         </p>
-        <!-- Academic Points -->
         <div class="mt-10 grid gap-6 sm:grid-cols-2">
           <div class="border-base-content/10 rounded-xl border p-5">
             <h3 class="font-semibold">Kurikulum Merdeka</h3>
@@ -44,19 +41,12 @@
             </p>
           </div>
         </div>
-        <!-- CTA -->
-        <a class="btn btn-primary btn-gradient mt-10" href="#">
-          Lihat Akademik Lengkap
-        </a>
       </div>
-
-      <!-- Image Content -->
       <div class="relative">
         <div class="bg-primary/10 absolute -inset-4 rounded-3xl blur-xl"></div>
         <img class="relative rounded-3xl object-cover shadow-xl" src="{{ asset('img/profile-3.jpeg') }}"
           alt="Kegiatan Akademik SMA Negeri 10 Pontianak" />
       </div>
-
     </div>
   </div>
 </div>

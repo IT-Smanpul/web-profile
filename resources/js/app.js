@@ -1,6 +1,8 @@
-import "flyonui/flyonui";
-
+import "trix/dist/trix.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+import "flyonui/flyonui";
+import Trix from "trix";
 
 import { Fancybox } from "@fancyapps/ui/dist/fancybox";
 

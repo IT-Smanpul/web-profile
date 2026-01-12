@@ -15,7 +15,7 @@ class UpdateAchievementRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:50'],
-            'category' => ['required', 'string'],
+            'category' => ['required', 'string', 'in:Akademik,Non-Akademik'],
             'description' => ['required', 'string', 'max:255'],
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ];
