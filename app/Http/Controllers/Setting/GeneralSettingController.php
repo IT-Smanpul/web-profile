@@ -13,6 +13,11 @@ class GeneralSettingController extends Controller
     {
         return view('dashboard.pengaturan.general', [
             'title' => 'Pengaturan Umum - SMA Negeri 10 Pontianak',
+            'school_name' => $this->getSetting('school_name'),
+            'npsn' => $this->getSetting('npsn'),
+            'school_status' => $this->getSetting('school_status'),
+            'accreditation' => $this->getSetting('accreditation'),
+            'curriculum' => $this->getSetting('curriculum'),
         ]);
     }
 
@@ -23,5 +28,10 @@ class GeneralSettingController extends Controller
         }
 
         return to_route('setting.general.edit');
+    }
+
+    private function getSetting(string $key): ?string
+    {
+        return Setting::where('key', $key)->first()?->value;
     }
 }
