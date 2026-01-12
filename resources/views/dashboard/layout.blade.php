@@ -92,46 +92,52 @@
                 Akun
               </a>
             </li>
-            {{--            <li class="space-y-0.5"> --}}
-            {{--              <a class="collapse-toggle collapse-open:bg-base-content/10 open" id="sub-menu-academy" --}}
-            {{--                data-collapse="#sub-menu-academy-collapse"> --}}
-            {{--                <span class="icon-[tabler--book] size-5"></span> --}}
-            {{--                Struktur Organisasi --}}
-            {{--                <span class="icon-[tabler--chevron-down] collapse-open:rotate-180 size-4"></span> --}}
-            {{--              </a> --}}
-            {{--              <ul class="open collapse w-auto space-y-0.5 overflow-hidden transition-[height] duration-300" --}}
-            {{--                id="sub-menu-academy-collapse" aria-labelledby="sub-menu-academy"> --}}
-            {{--                <li> --}}
-            {{--                  <a href="#"> --}}
-            {{--                    <span class="icon-[tabler--books] size-5"></span> --}}
-            {{--                    Courses --}}
-            {{--                  </a> --}}
-            {{--                </li> --}}
-            {{--                <li> --}}
-            {{--                  <a href="#"> --}}
-            {{--                    <span class="icon-[tabler--list-details] size-5"></span> --}}
-            {{--                    Course details --}}
-            {{--                  </a> --}}
-            {{--                </li> --}}
-            {{--                <li class="space-y-0.5"> --}}
-            {{--                  <a class="collapse-toggle collapse-open:bg-base-content/10 open" id="sub-menu-academy-stats" --}}
-            {{--                    data-collapse="#sub-menu-academy-stats-collapse"> --}}
-            {{--                    <span class="icon-[tabler--chart-bar] size-5"></span> --}}
-            {{--                    Stats --}}
-            {{--                    <span class="icon-[tabler--chevron-down] collapse-open:rotate-180 size-4"></span> --}}
-            {{--                  </a> --}}
-            {{--                  <ul class="open collapse w-auto space-y-0.5 overflow-hidden transition-[height] duration-300" --}}
-            {{--                    id="sub-menu-academy-stats-collapse" aria-labelledby="sub-menu-academy-stats"> --}}
-            {{--                    <li> --}}
-            {{--                      <a href="#"> --}}
-            {{--                        <span class="icon-[tabler--chart-donut] size-5"></span> --}}
-            {{--                        Goals --}}
-            {{--                      </a> --}}
-            {{--                    </li> --}}
-            {{--                  </ul> --}}
-            {{--                </li> --}}
-            {{--              </ul> --}}
-            {{--            </li> --}}
+            <li class="space-y-0.5">
+              <a class="collapse-toggle collapse-open:bg-base-content/10 open" id="sub-menu-academy"
+                data-collapse="#sub-menu-academy-collapse">
+                <span class="icon-[tabler--book] size-5"></span>
+                Struktur Organisasi
+                <span class="icon-[tabler--chevron-down] collapse-open:rotate-180 size-4"></span>
+              </a>
+              <ul class="open collapse w-auto space-y-0.5 overflow-hidden transition-[height] duration-300"
+                id="sub-menu-academy-collapse" aria-labelledby="sub-menu-academy">
+                <li>
+                  <a href="#">
+                    <span class="icon-[tabler--books] size-5"></span>
+                    Kepala Sekolah
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="icon-[tabler--books] size-5"></span>
+                    Wakil Kepala Sekolah
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="icon-[tabler--list-details] size-5"></span>
+                    Course details
+                  </a>
+                </li>
+                <li class="space-y-0.5">
+                  <a class="collapse-toggle collapse-open:bg-base-content/10 open" id="sub-menu-academy-stats"
+                    data-collapse="#sub-menu-academy-stats-collapse">
+                    <span class="icon-[tabler--chart-bar] size-5"></span>
+                    Stats
+                    <span class="icon-[tabler--chevron-down] collapse-open:rotate-180 size-4"></span>
+                  </a>
+                  <ul class="open collapse w-auto space-y-0.5 overflow-hidden transition-[height] duration-300"
+                    id="sub-menu-academy-stats-collapse" aria-labelledby="sub-menu-academy-stats">
+                    <li>
+                      <a href="#">
+                        <span class="icon-[tabler--chart-donut] size-5"></span>
+                        Goals
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
           </ul>
         </li>
         <form action="{{ route('logout') }}" method="POST">
