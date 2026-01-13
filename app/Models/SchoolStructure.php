@@ -13,5 +13,5 @@ class SchoolStructure extends Model
 
     public $incrementing = false;
 
-    protected $fillable = ['name', 'nip', 'position', 'photo'];
+    protected $fillable = ['name', 'nip', 'role', 'position', 'photo'];
 }
