@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('school_structures', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('nip');
-            $table->string('position')->unique();
+            $table->string('role');
+            $table->string('position');
             $table->string('photo')->nullable();
             $table->timestamps();
         });
