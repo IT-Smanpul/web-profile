@@ -15,55 +15,55 @@
       </p>
     </div>
     <div class="mb-20 flex justify-center">
-      <div class="bg-base-200/60 rounded-3xl border p-8 text-center shadow-sm backdrop-blur transition hover:shadow-md">
-        <img class="mx-auto mb-5 h-32 w-32 rounded-full object-cover shadow-md" src="{{ asset('img/avatars/1.png') }}"
-          alt="Kepala Sekolah" />
-        <p class="text-primary text-sm font-medium">
-          Kepala Sekolah
-        </p>
-        <p class="mt-1 text-xl font-semibold">
-          Drs. Nama Kepala Sekolah
-        </p>
-        <p class="text-base-content/60 mt-1 text-xs">
-          NIP. 089693219887
-        </p>
-        <div class="bg-primary mx-auto mt-5 h-1 w-20 rounded-full"></div>
-      </div>
+      @if ($kepalaSekolah)
+        <div
+          class="bg-base-200/60 rounded-3xl border p-8 text-center shadow-sm backdrop-blur transition hover:shadow-md">
+          <img class="mx-auto mb-5 h-32 w-32 rounded-full object-cover shadow-md"
+            src="{{ Storage::exists($kepalaSekolah->photo) ? asset("storage/$kepalaSekolah->photo") : asset('img/avatars/1.png') }}"
+            alt="Kepala Sekolah" />
+          <p class="text-primary text-sm font-medium">
+            Kepala Sekolah
+          </p>
+          <p class="mt-1 text-xl font-semibold">
+            {{ $kepalaSekolah->name }}
+          </p>
+          <p class="text-base-content/60 mt-1 text-xs">
+            NIP {{ $kepalaSekolah->nip }}
+          </p>
+          <div class="bg-primary mx-auto mt-5 h-1 w-20 rounded-full"></div>
+        </div>
+      @else
+        <div class="col-span-full rounded-xl border border-dashed p-10 text-center">
+          <p class="text-base-content/60">
+            Belum ada data kepala sekolah.
+          </p>
+        </div>
+      @endif
     </div>
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="bg-base-200/50 rounded-2xl border p-6 text-center shadow-sm backdrop-blur">
-        <img class="mx-auto mb-3 h-24 w-24 rounded-full object-cover shadow" src="{{ asset('img/avatars/2.png') }}"
-          alt="Waka Kurikulum" />
-        <p class="text-base-content/60 text-sm">
-          Waka Kurikulum
-        </p>
-        <p class="mt-1 font-semibold">
-          Nama Wakil
-        </p>
-      </div>
-      <div class="bg-base-200/50 rounded-2xl border p-6 text-center shadow-sm backdrop-blur transition hover:shadow-md">
-        <img class="mx-auto mb-4 h-28 w-28 rounded-full object-cover shadow" src="{{ asset('img/avatars/3.png') }}"
-          alt="Waka Kesiswaan" />
-        <p class="text-primary text-sm font-medium">
-          Wakil Kepala Sekolah
-        </p>
-        <p class="mt-1 text-lg font-semibold">
-          Nama Wakil
-        </p>
-        <p class="text-base-content/60 mt-1 text-xs">
-          NIP. 098765432112
-        </p>
-      </div>
-      <div class="bg-base-200/50 rounded-2xl border p-6 text-center shadow-sm backdrop-blur">
-        <img class="mx-auto mb-3 h-24 w-24 rounded-full object-cover shadow" src="{{ asset('img/avatars/4.png') }}"
-          alt="Waka Sarpras" />
-        <p class="text-base-content/60 text-sm">
-          Waka Sarana & Prasarana
-        </p>
-        <p class="mt-1 font-semibold">
-          Nama Wakil
-        </p>
-      </div>
+      @forelse ($wakas as $waka)
+        <div
+          class="bg-base-200/50 rounded-2xl border p-6 text-center shadow-sm backdrop-blur transition hover:shadow-md">
+          <img class="mx-auto mb-4 h-28 w-28 rounded-full object-cover shadow"
+            src="{{ Storage::exists($waka->photo) ? asset("storage/$waka->photo") : asset('img/avatars/3.png') }}"
+            alt="Waka Kesiswaan" />
+          <p class="text-primary text-sm font-medium">
+            {{ $waka->position }}
+          </p>
+          <p class="mt-1 text-lg font-semibold">
+            {{ $waka->name }}
+          </p>
+          <p class="text-base-content/60 mt-1 text-xs">
+            NIP {{ $waka->nip }}
+          </p>
+        </div>
+      @empty
+        <div class="col-span-full rounded-xl border border-dashed p-10 text-center">
+          <p class="text-base-content/60">
+            Belum ada data kepala sekolah.
+          </p>
+        </div>
+      @endforelse
     </div>
   </div>
 </section>
