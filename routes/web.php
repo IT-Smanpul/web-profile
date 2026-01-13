@@ -6,11 +6,13 @@ use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Setting\WakaController;
+use App\Http\Controllers\Setting\KepalaSekolahController;
 use App\Http\Controllers\Setting\GeneralSettingController;
 use App\Http\Controllers\Setting\VisiMisiSettingController;
 
 Route::view('/', 'index');
-Route::view('/profil', 'profil')->name('profil');
+Route::view('/profil', 'profil', ['title' => 'Profil - '.Config::get('app.name')])->name('profil');
 Route::view('/fasilitas', 'fasilitas')->name('fasilitas');
 Route::view('/prestasi', 'prestasi')->name('prestasi');
 Route::view('/berita', 'berita.index')->name('berita');
@@ -41,6 +43,16 @@ Route::middleware('auth')->group(function () {
             // Visi Misi
             Route::get('/visi-misi', [VisiMisiSettingController::class, 'edit'])->name('setting.visi-misi.edit');
             Route::match(['PUT', 'PATCH'], '/visi-misi', [VisiMisiSettingController::class, 'update'])->name('setting.visi-misi.update');
+
+            // Struktur Sekolah
+            Route::get('/struktur/kepala-sekolah', [KepalaSekolahController::class, 'editKepalaSekolah'])->name('setting.struktur.kepala-sekolah.edit');
+            Route::match(['PUT', 'PATCH'], '/struktur/kepala-sekolah', [KepalaSekolahController::class, 'updateKepalaSekolah'])->name('setting.struktur.kepala-sekolah.update');
+
+            Route::resource('/struktur/wakil-kepala-sekolah', WakaController::class)->except(['show'])->parameter('wakil-kepala-sekolah', 'waka');
+            //            Route::get('/struktur/wakil-kepala-sekolah', [SchoolStructureController::class, 'indexWakilKepalaSekolah'])->name('setting.struktur.wakil-kepala-sekolah');
+            //            Route::post('/struktur/wakil-kepala-sekolah', [SchoolStructureController::class, 'storeWakilKepalaSekolah'])->name('setting.struktur.wakil-kepala-sekolah.store');
+
+            // Akun
         });
     });
 
