@@ -4,7 +4,7 @@
   <div class="bg-base-200 flex h-screen overflow-hidden">
     <aside class="bg-base-100 w-65 flex shrink-0 flex-col border-r">
       <a class="flex h-16 items-center gap-3 border-b px-6" href="/">
-        <img class="h-9 w-9" src="{{ asset('img/logo.png') }}" alt="Logo">
+        <img class="size-10" src="{{ asset('img/logo.png') }}" alt="Logo">
         <div>
           <p class="font-semibold leading-none">SMAN 10</p>
           <p class="text-base-content/60 text-xs">Admin Panel</p>
@@ -80,18 +80,6 @@
                 Visi Misi
               </a>
             </li>
-            <li>
-              <a href="#">
-                <span class="icon-[tabler--calendar] size-5"></span>
-                Struktur Organisasi
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="icon-[tabler--user] size-5"></span>
-                Akun
-              </a>
-            </li>
             <li class="space-y-0.5">
               <a class="collapse-toggle collapse-open:bg-base-content/10 open" id="sub-menu-academy"
                 data-collapse="#sub-menu-academy-collapse">
@@ -102,41 +90,30 @@
               <ul class="open collapse w-auto space-y-0.5 overflow-hidden transition-[height] duration-300"
                 id="sub-menu-academy-collapse" aria-labelledby="sub-menu-academy">
                 <li>
-                  <a href="#">
+                  <a href="{{ route('setting.struktur.kepala-sekolah.edit') }}" @class([
+                      'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
+                          'setting.struktur.kepala-sekolah.edit'),
+                  ])>
                     <span class="icon-[tabler--books] size-5"></span>
                     Kepala Sekolah
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="{{ route('wakil-kepala-sekolah.index') }}" @class([
+                      'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
+                          'wakil-kepala-sekolah.index'),
+                  ])>
                     <span class="icon-[tabler--books] size-5"></span>
                     Wakil Kepala Sekolah
                   </a>
                 </li>
-                <li>
-                  <a href="#">
-                    <span class="icon-[tabler--list-details] size-5"></span>
-                    Course details
-                  </a>
-                </li>
-                <li class="space-y-0.5">
-                  <a class="collapse-toggle collapse-open:bg-base-content/10 open" id="sub-menu-academy-stats"
-                    data-collapse="#sub-menu-academy-stats-collapse">
-                    <span class="icon-[tabler--chart-bar] size-5"></span>
-                    Stats
-                    <span class="icon-[tabler--chevron-down] collapse-open:rotate-180 size-4"></span>
-                  </a>
-                  <ul class="open collapse w-auto space-y-0.5 overflow-hidden transition-[height] duration-300"
-                    id="sub-menu-academy-stats-collapse" aria-labelledby="sub-menu-academy-stats">
-                    <li>
-                      <a href="#">
-                        <span class="icon-[tabler--chart-donut] size-5"></span>
-                        Goals
-                      </a>
-                    </li>
-                  </ul>
-                </li>
               </ul>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon-[tabler--user] size-5"></span>
+                Akun
+              </a>
             </li>
           </ul>
         </li>
