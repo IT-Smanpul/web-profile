@@ -25,7 +25,7 @@
     <section class="bg-base-100 py-20">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          @foreach (Facility::all() as $facility)
+          @forelse (Facility::all() as $facility)
             <div
               class="bg-base-100 group overflow-hidden rounded-3xl border shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
               <div class="relative h-56 overflow-hidden">
@@ -41,27 +41,13 @@
                 </p>
               </div>
             </div>
-          @endforeach
-        </div>
-      </div>
-    </section>
-    <section class="bg-base-200 py-16">
-      <div class="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold md:text-3xl">
-          Ingin Mengenal Sekolah Lebih Dekat?
-        </h2>
-        <p class="text-base-content/70 mx-auto mt-4 max-w-2xl">
-          Pelajari lebih lanjut mengenai profil, prestasi,
-          serta informasi penerimaan peserta didik baru.
-        </p>
-
-        <div class="mt-8 flex justify-center gap-4">
-          <a class="btn btn-primary btn-gradient" href="/profil">
-            Profil Sekolah
-          </a>
-          <a class="btn btn-outline" href="/ppdb">
-            Informasi PPDB
-          </a>
+          @empty
+            <div class="col-span-full rounded-xl border border-dashed p-10 text-center">
+              <p class="text-base-content/60">
+                Belum ada data fasilitas sekolah.
+              </p>
+            </div>
+          @endforelse
         </div>
       </div>
     </section>
