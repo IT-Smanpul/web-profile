@@ -18,7 +18,7 @@
           <div
             class="bg-base-200 @error('photo') border-error @enderror relative flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border">
             <img class="h-full w-full object-cover" id="previewImg"
-              src="{{ Auth::user()->photo ? asset('storage/' . Auth::user()->photo) : asset('img/avatar-placeholder.png') }}"
+              src="{{ Auth::user()->photo ? asset('storage/' . Auth::user()->photo) : asset('img/avatars/8.png') }}"
               alt="Foto Profil" />
           </div>
           <label class="btn btn-sm btn-outline btn-primary cursor-pointer gap-2" for="photo">
