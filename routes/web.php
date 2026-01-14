@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -19,6 +20,7 @@ Route::view('/fasilitas', 'fasilitas')->name('fasilitas');
 Route::view('/prestasi', 'prestasi')->name('prestasi');
 Route::view('/berita', 'berita.index')->name('berita');
 Route::view('/guru-staff', 'guru-staff')->name('guru-staff');
+Route::view('ppdb', 'ppdb')->name('ppdb');
 
 Route::get('/berita/{article}', [ArticleController::class, 'show'])->name('berita.show');
 
@@ -30,7 +32,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::prefix('dashboard')->group(function () {
         // Dashboard
-        Route::view('/', 'dashboard.index', ['title' => 'Dashboard - SMA Negeri 10 Pontianak'])->name('dashboard');
+        Route::get('/', DashboardController::class)->name('dashboard');
 
         // Berita
         Route::get('/berita/{article}/preview', [ArticleController::class, 'preview'])->name('berita.preview');
