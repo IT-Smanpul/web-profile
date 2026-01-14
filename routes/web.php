@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Setting\AkunController;
 use App\Http\Controllers\Setting\WakaController;
 use App\Http\Controllers\Setting\KepalaSekolahController;
 use App\Http\Controllers\Setting\GeneralSettingController;
@@ -16,6 +18,7 @@ Route::view('/profil', 'profil', ['title' => 'Profil - '.Config::get('app.name')
 Route::view('/fasilitas', 'fasilitas')->name('fasilitas');
 Route::view('/prestasi', 'prestasi')->name('prestasi');
 Route::view('/berita', 'berita.index')->name('berita');
+Route::view('/guru-staff', 'guru-staff')->name('guru-staff');
 
 Route::get('/berita/{article}', [ArticleController::class, 'show'])->name('berita.show');
 
@@ -26,15 +29,25 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::prefix('dashboard')->group(function () {
+        // Dashboard
         Route::view('/', 'dashboard.index', ['title' => 'Dashboard - SMA Negeri 10 Pontianak'])->name('dashboard');
-        Route::resource('fasilitas', FacilityController::class)->parameter('fasilitas', 'facility')->except(['show']);
-        Route::resource('prestasi', AchievementController::class)->parameter('prestasi', 'achievement')->except(['show']);
 
+        // Berita
         Route::get('/berita/{article}/preview', [ArticleController::class, 'preview'])->name('berita.preview');
         Route::patch('/berita/{article}/publish', [ArticleController::class, 'publish'])->name('berita.publish');
         Route::patch('/berita/{article}/unpublish', [ArticleController::class, 'unpublish'])->name('berita.unpublish');
         Route::resource('berita', ArticleController::class)->parameter('berita', 'article')->except('show');
 
+        // Prestasi
+        Route::resource('prestasi', AchievementController::class)->parameter('prestasi', 'achievement')->except(['show']);
+
+        // Fasilitas
+        Route::resource('fasilitas', FacilityController::class)->parameter('fasilitas', 'facility')->except(['show']);
+
+        // Guru dan Staff
+        Route::resource('guru-staff', EmployeeController::class)->parameter('guru-staff', 'employee')->except(['show']);
+
+        // Pengaturan
         Route::prefix('setting')->group(function () {
             // Pengaturan Umum
             Route::get('/general', [GeneralSettingController::class, 'edit'])->name('setting.general.edit');
@@ -49,10 +62,10 @@ Route::middleware('auth')->group(function () {
             Route::match(['PUT', 'PATCH'], '/struktur/kepala-sekolah', [KepalaSekolahController::class, 'updateKepalaSekolah'])->name('setting.struktur.kepala-sekolah.update');
 
             Route::resource('/struktur/wakil-kepala-sekolah', WakaController::class)->except(['show'])->parameter('wakil-kepala-sekolah', 'waka');
-            //            Route::get('/struktur/wakil-kepala-sekolah', [SchoolStructureController::class, 'indexWakilKepalaSekolah'])->name('setting.struktur.wakil-kepala-sekolah');
-            //            Route::post('/struktur/wakil-kepala-sekolah', [SchoolStructureController::class, 'storeWakilKepalaSekolah'])->name('setting.struktur.wakil-kepala-sekolah.store');
 
             // Akun
+            Route::get('/akun', [AkunController::class, 'edit'])->name('setting.akun.edit');
+            Route::match(['PUT', 'PATCH'], '/akun', [AkunController::class, 'update'])->name('setting.akun.update');
         });
     });
 
