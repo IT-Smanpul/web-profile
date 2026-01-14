@@ -22,8 +22,10 @@
         </li>
         <li>
           <a href="{{ route('berita.index') }}" @class([
-              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
-                  'berita.index'),
+              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' =>
+                  Route::is('berita.index') ||
+                  Route::is('berita.create') ||
+                  Route::is('berita.edit'),
           ])>
             <span class="icon-[tabler--news] size-5"></span>
             Berita
@@ -31,8 +33,10 @@
         </li>
         <li>
           <a href="{{ route('prestasi.index') }}" @class([
-              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
-                  'prestasi.index'),
+              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' =>
+                  Route::is('prestasi.index') ||
+                  Route::is('prestasi.create') ||
+                  Route::is('prestasi.edit'),
           ])>
             <span class="icon-[tabler--award] size-5"></span>
             Prestasi
@@ -40,8 +44,10 @@
         </li>
         <li>
           <a href="{{ route('fasilitas.index') }}" @class([
-              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
-                  'fasilitas.index'),
+              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' =>
+                  Route::is('fasilitas.index') ||
+                  Route::is('fasilitas.create') ||
+                  Route::is('fasilitas.edit'),
           ])>
             <span class="icon-[tabler--building] size-5"></span>
             Fasilitas
@@ -49,8 +55,10 @@
         </li>
         <li>
           <a href="{{ route('guru-staff.index') }}" @class([
-              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
-                  'guru-staff.index'),
+              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' =>
+                  Route::is('guru-staff.index') ||
+                  Route::is('guru-staff.create') ||
+                  Route::is('guru-staff.edit'),
           ])>
             <span class="icon-[tabler--users] size-5"></span>
             Guru dan Staff
