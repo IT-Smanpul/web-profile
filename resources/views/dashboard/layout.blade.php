@@ -48,7 +48,10 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="{{ route('guru-staff.index') }}" @class([
+              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
+                  'guru-staff.index'),
+          ])>
             <span class="icon-[tabler--users] size-5"></span>
             Guru dan Staff
           </a>
@@ -110,7 +113,10 @@
               </ul>
             </li>
             <li>
-              <a href="#">
+              <a href="{{ route('setting.akun.edit') }}" @class([
+                  'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
+                      'setting.akun.edit'),
+              ])>
                 <span class="icon-[tabler--user] size-5"></span>
                 Akun
               </a>
@@ -138,7 +144,9 @@
           </div>
           <div class="avatar">
             <div class="w-9 overflow-hidden rounded-full">
-              <img class="h-full w-full object-cover" src="{{ asset('img/avatars/1.png') }}" alt="Admin Avatar" />
+              <img class="h-full w-full object-cover"
+                src="{{ Auth::user()->photo ? asset('storage/' . Auth::user()->photo) : asset('img/avatars/8.png') }}"
+                alt="Admin Avatar" />
             </div>
           </div>
         </div>
