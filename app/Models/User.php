@@ -16,7 +16,7 @@ class User extends Authenticatable
 
     public $incrementing = false;
 
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'username', 'photo', 'password'];
 
     protected $hidden = ['password', 'remember_token'];
 
@@ -28,7 +28,6 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
     }
