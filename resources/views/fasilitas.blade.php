@@ -5,26 +5,25 @@
 @section('content')
   <x-ui.navbar />
   <main>
-    <section class="bg-base-200 relative overflow-hidden py-20 sm:py-24">
+    <section class="bg-base-200 relative overflow-hidden py-28 pb-20">
       <div class="bg-primary/20 pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full blur-3xl"></div>
       <div class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-green-400/20 blur-3xl"></div>
-      <div class="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-        <span class="inline-block rounded-full bg-green-500 px-4 py-1 text-sm font-medium text-white shadow">
-          Fasilitas Sekolah
-        </span>
-        <h1 class="mt-6 text-4xl font-bold md:text-5xl">
-          Sarana & Prasarana
-        </h1>
-        <p class="text-base-content/80 mx-auto mt-6 max-w-3xl text-lg leading-relaxed">
-          Berbagai fasilitas pendukung disediakan untuk menciptakan
-          lingkungan belajar yang nyaman, aman, dan mendukung
-          pengembangan potensi peserta didik secara optimal.
-        </p>
-      </div>
-    </section>
-    <section class="bg-base-100 py-20">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-14 space-y-6 text-center sm:mb-20 lg:mb-24">
+          <div class="flex justify-center">
+            <span class="rounded-full bg-green-500 px-4 py-1 text-sm font-medium text-white shadow">
+              Fasilitas Sekolah
+            </span>
+          </div>
+          <h1 class="text-base-content text-3xl font-bold md:text-4xl lg:text-5xl">
+            Sarana & Prasarana
+          </h1>
+          <p class="text-base-content/80 mx-auto max-w-3xl text-lg leading-relaxed md:text-xl">
+            Berbagai fasilitas pendukung disediakan untuk menciptakan lingkungan belajar yang nyaman, aman, dan mendukung
+            pengembangan potensi peserta didik secara optimal.
+          </p>
+        </div>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           @forelse (Facility::all() as $facility)
             <div
               class="bg-base-100 group overflow-hidden rounded-3xl border shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
