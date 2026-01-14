@@ -10,7 +10,8 @@
         Kelola informasi akun administrator
       </p>
     </div>
-    <form class="bg-base-100 rounded-2xl p-6 shadow-sm" action="#" method="POST" enctype="multipart/form-data">
+    <form class="bg-base-100 rounded-2xl p-6 shadow-sm" action="{{ route('setting.akun.update') }}" method="POST"
+      enctype="multipart/form-data">
       @csrf
       @method('PUT')
       <div class="grid gap-8 md:grid-cols-[280px_1fr]">
