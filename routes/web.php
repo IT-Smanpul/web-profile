@@ -36,8 +36,6 @@ Route::middleware('auth')->group(function () {
 
         // Berita
         Route::get('/berita/{article}/preview', [ArticleController::class, 'preview'])->name('berita.preview');
-        Route::patch('/berita/{article}/publish', [ArticleController::class, 'publish'])->name('berita.publish');
-        Route::patch('/berita/{article}/unpublish', [ArticleController::class, 'unpublish'])->name('berita.unpublish');
         Route::resource('berita', ArticleController::class)->parameter('berita', 'article')->except('show');
 
         // Prestasi
