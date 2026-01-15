@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Setting;
 
 use App\Models\SchoolStructure;
+use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -20,24 +21,24 @@ class KepalaSekolahController extends Controller
 
     public function updateKepalaSekolah(UpdateKepalaSekolahRequest $request)
     {
+        $data = Collection::make($request->validated());
         $kepalaSekolah = SchoolStructure::where('role', 'kepala')->first();
-        $data = $request->validated();
 
         if ($request->hasFile('photo')) {
-            if (Storage::exists($kepalaSekolah->photo)) {
+            if ($kepalaSekolah->photo && Storage::exists($kepalaSekolah->photo)) {
                 Storage::delete($kepalaSekolah->photo);
             }
 
             $photo = $request->file('photo');
-            $data['photo'] = $photo->storeAs('images/struktur', "Kepala Sekolah.{$photo->getClientOriginalExtension()}", 'public');
+            $data->put('photo', $photo->storeAs('images/struktur', "Kepala Sekolah.{$photo->getClientOriginalExtension()}", 'public'));
         }
 
         SchoolStructure::updateOrCreate(['role' => 'kepala'], [
-            ...$data,
+            ...$data->all(),
             'role' => 'kepala',
             'position' => 'Kepala Sekolah',
         ]);
 
-        return to_route('setting.struktur.kepala-sekolah.update');
+        return to_route('setting.struktur.kepala-sekolah.edit');
     }
 }
