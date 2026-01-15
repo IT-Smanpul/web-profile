@@ -90,20 +90,6 @@ class ArticleController extends Controller
         return to_route('berita.index');
     }
 
-    public function publish(Article $article): RedirectResponse
-    {
-        $article->update(['published' => true]);
-
-        return to_route('berita.index');
-    }
-
-    public function unpublish(Article $article): RedirectResponse
-    {
-        $article->update(['published' => false]);
-
-        return to_route('berita.index');
-    }
-
     public function preview(Article $article): View
     {
         return view('dashboard.berita.preview', [
