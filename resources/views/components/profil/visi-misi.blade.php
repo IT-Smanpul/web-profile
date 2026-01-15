@@ -14,7 +14,7 @@
           Visi Sekolah
         </h2>
         <p class="text-base-content/80 mt-6 text-xl leading-relaxed">
-          {{ $vision }}
+          {{ $vision ?? '-' }}
         </p>
         <p class="text-base-content/60 mt-4 max-w-xl">
           Visi ini menjadi arah dan komitmen SMA Negeri 10 Pontianak

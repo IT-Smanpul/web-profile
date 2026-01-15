@@ -48,7 +48,7 @@
             <span class="helper-text">{{ $message }}</span>
           @enderror
         </div>
-        <div class="space-y-3">
+        <div>
           <label class="label-text">Gambar</label>
           <div
             class="bg-base-200 @error('image') border-error @enderror flex h-44 items-center justify-center overflow-hidden rounded-2xl border"
@@ -61,7 +61,7 @@
           <input class="hidden" id="image" name="image" type="file" accept="image/*"
             onchange="previewImage(event)" />
           <label for="image" @class([
-              'btn btn-outline w-full cursor-pointer gap-2',
+              'btn mt-3 btn-outline w-full cursor-pointer gap-2',
               'btn-error' => $errors->has('image'),
               'btn-primary' => !$errors->has('image'),
           ])>
@@ -71,7 +71,7 @@
           @error('image')
             <p class="text-error text-xs">{{ $message }}</p>
           @enderror
-          <p class="text-base-content/60 text-xs">
+          <p class="text-base-content/60 mt-1 text-xs">
             Disarankan rasio 16:9 (JPG / PNG)
           </p>
         </div>

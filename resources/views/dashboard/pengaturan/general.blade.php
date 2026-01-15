@@ -1,5 +1,3 @@
-@use('App\Models\Setting')
-
 @extends('dashboard.layout')
 
 @section('title', 'Pengaturan Umum')
@@ -20,18 +18,18 @@
         <div>
           <label class="label-text">Nama Sekolah</label>
           <input class="input input-bordered w-full" name="school_name" type="text"
-            value="{{ old('school_name', Setting::where('key', 'school_name')->first()->value) }}" />
+            value="{{ old('school_name', $school_name) }}" placeholder="Masukkan Nama Sekolah" />
         </div>
         <div>
           <label class="label-text">NPSN</label>
-          <input class="input input-bordered w-full" name="npsn" type="text"
-            value="{{ old('npsn', Setting::where('key', 'npsn')->first()->value) }}" />
+          <input class="input input-bordered w-full" name="npsn" type="text" value="{{ old('npsn', $npsn) }}"
+            placeholder="Masukkan NPSN Sekolah" />
         </div>
         <div>
           <label class="label-text">Status Sekolah</label>
           <select class="select select-bordered w-full" name="school_status">
             @foreach (['Negeri', 'Swasta'] as $status)
-              <option value="{{ $status }}" @selected(old('school_status', Setting::where('key', 'school_status')->first()->value) === $status)>
+              <option value="{{ $status }}" @selected(old('school_status', $school_status) === $status)>
                 {{ $status }}
               </option>
             @endforeach
@@ -41,7 +39,7 @@
           <label class="label-text">Akreditasi</label>
           <select class="select select-bordered w-full" name="accreditation">
             @foreach (['A', 'B', 'C', 'Belum Terakreditasi'] as $item)
-              <option value="{{ $item }}" @selected(old('accreditation', Setting::where('key', 'accreditation')->first()->value) === $item)>
+              <option value="{{ $item }}" @selected(old('accreditation', $accreditation) === $item)>
                 {{ $item }}
               </option>
             @endforeach
@@ -50,7 +48,7 @@
         <div class="md:col-span-2">
           <label class="label-text">Kurikulum</label>
           <input class="input input-bordered w-full" name="curriculum" type="text"
-            value="{{ old('curriculum', Setting::where('key', 'curriculum')->first()->value) }}" />
+            value="{{ old('curriculum', $curriculum) }}" placeholder="Masukkan Kurikulum Sekolah" />
         </div>
       </div>
     </div>

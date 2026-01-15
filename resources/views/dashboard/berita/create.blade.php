@@ -48,9 +48,7 @@
           @enderror
         </div>
         <div>
-          <label class="label">
-            <span class="label-text font-medium">Thumbnail Berita</span>
-          </label>
+          <label class="label-text">Thumbnail Berita</label>
           <div
             class="bg-base-200 @error('thumbnail') border-error @enderror mb-3 flex h-44 items-center justify-center overflow-hidden rounded-2xl border"
             id="imagePreview">

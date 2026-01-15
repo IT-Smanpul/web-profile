@@ -1,3 +1,5 @@
+@use('App\Models\Employee')
+
 <section class="bg-base-100 relative overflow-hidden py-16 sm:py-20">
   <div class="bg-primary/20 pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full blur-3xl"></div>
   <div class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-green-400/20 blur-3xl">
@@ -16,53 +18,28 @@
       </p>
     </div>
     <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      <div
-        class="bg-base-100/70 rounded-2xl border p-5 text-center shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md">
-        <img class="mx-auto h-32 w-32 rounded-full object-cover shadow" src="{{ asset('img/avatars/5.png') }}"
-          alt="Nama Guru" />
-        <p class="mt-4 font-semibold">
-          Nama Guru
-        </p>
-        <p class="text-base-content/60 text-sm">
-          Guru Matematika
-        </p>
-      </div>
-      <div
-        class="bg-base-100/70 rounded-2xl border p-5 text-center shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md">
-        <img class="mx-auto h-32 w-32 rounded-full object-cover shadow" src="{{ asset('img/avatars/6.png') }}"
-          alt="Nama Guru" />
-        <p class="mt-4 font-semibold">
-          Nama Guru
-        </p>
-        <p class="text-base-content/60 text-sm">
-          Guru Bahasa Indonesia
-        </p>
-      </div>
-      <div
-        class="bg-base-100/70 rounded-2xl border p-5 text-center shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md">
-        <img class="mx-auto h-32 w-32 rounded-full object-cover shadow" src="{{ asset('img/avatars/7.png') }}"
-          alt="Nama Guru" />
-        <p class="mt-4 font-semibold">
-          Nama Guru
-        </p>
-        <p class="text-base-content/60 text-sm">
-          Guru IPA
-        </p>
-      </div>
-      <div
-        class="bg-base-100/70 rounded-2xl border p-5 text-center shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md">
-        <img class="mx-auto h-32 w-32 rounded-full object-cover shadow" src="{{ asset('img/avatars/8.png') }}"
-          alt="Nama Guru" />
-        <p class="mt-4 font-semibold">
-          Nama Guru
-        </p>
-        <p class="text-base-content/60 text-sm">
-          Guru Sejarah
-        </p>
-      </div>
+      @forelse(Employee::guru()->latest()->get() as $guru)
+        <div
+          class="bg-base-100/70 rounded-2xl border p-5 text-center shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md">
+          <img class="mx-auto h-32 w-32 rounded-full object-cover shadow"
+            src="{{ $guru->photo ? asset("storage/$guru->photo") : asset('img/avatars/8.png') }}" alt="Nama Guru" />
+          <p class="mt-4 font-semibold">
+            {{ $guru->name }}
+          </p>
+          <p class="text-base-content/60 text-sm">
+            {{ $guru->position }}
+          </p>
+        </div>
+      @empty
+        <div class="col-span-full rounded-xl border border-dashed p-10 text-center">
+          <p class="text-base-content/60">
+            Belum ada data yang ditambahkan.
+          </p>
+        </div>
+      @endforelse
     </div>
     <div class="mt-14 text-center">
-      <a class="btn btn-primary btn-gradient btn-lg" href="/guru">
+      <a class="btn btn-primary btn-gradient btn-lg" href="{{ route('guru-staff') }}">
         Lihat Semua Guru
         <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
       </a>

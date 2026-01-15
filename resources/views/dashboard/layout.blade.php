@@ -4,7 +4,7 @@
   <div class="bg-base-200 flex h-screen overflow-hidden">
     <aside class="bg-base-100 w-65 flex shrink-0 flex-col border-r">
       <a class="flex h-16 items-center gap-3 border-b px-6" href="/">
-        <img class="h-9 w-9" src="{{ asset('img/logo.png') }}" alt="Logo">
+        <img class="size-10" src="{{ asset('img/logo.png') }}" alt="Logo">
         <div>
           <p class="font-semibold leading-none">SMAN 10</p>
           <p class="text-base-content/60 text-xs">Admin Panel</p>
@@ -22,8 +22,10 @@
         </li>
         <li>
           <a href="{{ route('berita.index') }}" @class([
-              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
-                  'berita.index'),
+              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' =>
+                  Route::is('berita.index') ||
+                  Route::is('berita.create') ||
+                  Route::is('berita.edit'),
           ])>
             <span class="icon-[tabler--news] size-5"></span>
             Berita
@@ -31,8 +33,10 @@
         </li>
         <li>
           <a href="{{ route('prestasi.index') }}" @class([
-              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
-                  'prestasi.index'),
+              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' =>
+                  Route::is('prestasi.index') ||
+                  Route::is('prestasi.create') ||
+                  Route::is('prestasi.edit'),
           ])>
             <span class="icon-[tabler--award] size-5"></span>
             Prestasi
@@ -40,15 +44,22 @@
         </li>
         <li>
           <a href="{{ route('fasilitas.index') }}" @class([
-              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
-                  'fasilitas.index'),
+              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' =>
+                  Route::is('fasilitas.index') ||
+                  Route::is('fasilitas.create') ||
+                  Route::is('fasilitas.edit'),
           ])>
             <span class="icon-[tabler--building] size-5"></span>
             Fasilitas
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="{{ route('guru-staff.index') }}" @class([
+              'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' =>
+                  Route::is('guru-staff.index') ||
+                  Route::is('guru-staff.create') ||
+                  Route::is('guru-staff.edit'),
+          ])>
             <span class="icon-[tabler--users] size-5"></span>
             Guru dan Staff
           </a>
@@ -80,58 +91,44 @@
                 Visi Misi
               </a>
             </li>
-            <li>
-              <a href="#">
-                <span class="icon-[tabler--calendar] size-5"></span>
+            <li class="space-y-0.5">
+              <a class="collapse-toggle collapse-open:bg-base-content/10 open" id="sub-menu-academy"
+                data-collapse="#sub-menu-academy-collapse">
+                <span class="icon-[tabler--book] size-5"></span>
                 Struktur Organisasi
+                <span class="icon-[tabler--chevron-down] collapse-open:rotate-180 size-4"></span>
               </a>
+              <ul class="open collapse w-auto space-y-0.5 overflow-hidden transition-[height] duration-300"
+                id="sub-menu-academy-collapse" aria-labelledby="sub-menu-academy">
+                <li>
+                  <a href="{{ route('setting.struktur.kepala-sekolah.edit') }}" @class([
+                      'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
+                          'setting.struktur.kepala-sekolah.edit'),
+                  ])>
+                    <span class="icon-[tabler--books] size-5"></span>
+                    Kepala Sekolah
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ route('wakil-kepala-sekolah.index') }}" @class([
+                      'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
+                          'wakil-kepala-sekolah.index'),
+                  ])>
+                    <span class="icon-[tabler--books] size-5"></span>
+                    Wakil Kepala Sekolah
+                  </a>
+                </li>
+              </ul>
             </li>
             <li>
-              <a href="#">
+              <a href="{{ route('setting.akun.edit') }}" @class([
+                  'bg-green-500/10 text-green-600 hover:bg-green-500/20 hover:text-green-700' => Route::is(
+                      'setting.akun.edit'),
+              ])>
                 <span class="icon-[tabler--user] size-5"></span>
                 Akun
               </a>
             </li>
-            {{--            <li class="space-y-0.5"> --}}
-            {{--              <a class="collapse-toggle collapse-open:bg-base-content/10 open" id="sub-menu-academy" --}}
-            {{--                data-collapse="#sub-menu-academy-collapse"> --}}
-            {{--                <span class="icon-[tabler--book] size-5"></span> --}}
-            {{--                Struktur Organisasi --}}
-            {{--                <span class="icon-[tabler--chevron-down] collapse-open:rotate-180 size-4"></span> --}}
-            {{--              </a> --}}
-            {{--              <ul class="open collapse w-auto space-y-0.5 overflow-hidden transition-[height] duration-300" --}}
-            {{--                id="sub-menu-academy-collapse" aria-labelledby="sub-menu-academy"> --}}
-            {{--                <li> --}}
-            {{--                  <a href="#"> --}}
-            {{--                    <span class="icon-[tabler--books] size-5"></span> --}}
-            {{--                    Courses --}}
-            {{--                  </a> --}}
-            {{--                </li> --}}
-            {{--                <li> --}}
-            {{--                  <a href="#"> --}}
-            {{--                    <span class="icon-[tabler--list-details] size-5"></span> --}}
-            {{--                    Course details --}}
-            {{--                  </a> --}}
-            {{--                </li> --}}
-            {{--                <li class="space-y-0.5"> --}}
-            {{--                  <a class="collapse-toggle collapse-open:bg-base-content/10 open" id="sub-menu-academy-stats" --}}
-            {{--                    data-collapse="#sub-menu-academy-stats-collapse"> --}}
-            {{--                    <span class="icon-[tabler--chart-bar] size-5"></span> --}}
-            {{--                    Stats --}}
-            {{--                    <span class="icon-[tabler--chevron-down] collapse-open:rotate-180 size-4"></span> --}}
-            {{--                  </a> --}}
-            {{--                  <ul class="open collapse w-auto space-y-0.5 overflow-hidden transition-[height] duration-300" --}}
-            {{--                    id="sub-menu-academy-stats-collapse" aria-labelledby="sub-menu-academy-stats"> --}}
-            {{--                    <li> --}}
-            {{--                      <a href="#"> --}}
-            {{--                        <span class="icon-[tabler--chart-donut] size-5"></span> --}}
-            {{--                        Goals --}}
-            {{--                      </a> --}}
-            {{--                    </li> --}}
-            {{--                  </ul> --}}
-            {{--                </li> --}}
-            {{--              </ul> --}}
-            {{--            </li> --}}
           </ul>
         </li>
         <form action="{{ route('logout') }}" method="POST">
@@ -155,7 +152,9 @@
           </div>
           <div class="avatar">
             <div class="w-9 overflow-hidden rounded-full">
-              <img class="h-full w-full object-cover" src="{{ asset('img/avatars/1.png') }}" alt="Admin Avatar" />
+              <img class="h-full w-full object-cover"
+                src="{{ Auth::user()->photo ? asset('storage/' . Auth::user()->photo) : asset('img/avatars/8.png') }}"
+                alt="Admin Avatar" />
             </div>
           </div>
         </div>

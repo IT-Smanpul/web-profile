@@ -44,7 +44,9 @@
               <div class="flex items-center gap-2">
                 <div class="avatar">
                   <div class="size-10 rounded-full">
-                    <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-1.png" alt="avatar" />
+                    <img
+                      src="{{ Auth::user()->photo ? asset('storage/' . Auth::user()->photo) : asset('img/avatars/8.png') }}"
+                      alt="avatar" />
                   </div>
                 </div>
                 <span class="text-base-content pt-1 text-sm">
@@ -81,7 +83,8 @@
                 @endif
                 @if ($article->published)
                   <div class="tooltip">
-                    <a class="btn btn-sm btn-accent" href="{{ route('berita.show', ['article' => $article->slug]) }}">
+                    <a class="btn btn-sm btn-accent" href="{{ route('berita.show', ['article' => $article->slug]) }}"
+                      target="_blank">
                       <span class="icon-[tabler--external-link] size-4"></span>
                     </a>
                     <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">

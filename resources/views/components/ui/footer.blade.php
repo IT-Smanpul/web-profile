@@ -62,7 +62,8 @@
         © {{ now()->year }} SMA Negeri 10 Pontianak. All rights reserved.
       </p>
       <p class="text-base-content/70">
-        Dikembangkan oleh <a class="text-primary font-medium" href="/">Tim IT SMANPUL</a>
+        Dikembangkan oleh <a class="text-primary font-medium" href="https://github.com/IT-Smanpul" target="_blank">Tim
+          IT SMANPUL</a>
       </p>
     </div>
   </div>
