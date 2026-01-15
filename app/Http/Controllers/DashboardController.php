@@ -17,8 +17,8 @@ class DashboardController extends Controller
             'totalAchievements' => Achievement::all()->count(),
             'totalGurus' => Employee::guru()->get()->count(),
             'totalStaffs' => Employee::staff()->get()->count(),
-            'latestArticles' => Article::latest()->get(),
-            'latestAchievements' => Achievement::latest()->get(),
+            'latestArticles' => Article::latest()->paginate(10),
+            'latestAchievements' => Achievement::latest()->paginate(10),
         ]);
     }
 }

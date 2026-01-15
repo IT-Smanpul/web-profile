@@ -47,36 +47,70 @@
       </div>
     </div>
     <div class="grid gap-6 lg:grid-cols-2">
+
+      {{-- BERITA TERBARU --}}
       <div class="bg-base-100 rounded-2xl border p-6 shadow-sm">
-        <h3 class="mb-4 font-semibold">Berita Terbaru</h3>
-        <ul class="space-y-2 text-sm">
+        <div class="mb-4 flex items-center justify-between">
+          <h3 class="font-semibold">Berita Terbaru</h3>
+          <a class="text-primary text-sm" href="{{ route('berita.index') }}">
+            Lihat semua
+          </a>
+        </div>
+
+        <div class="space-y-3">
           @forelse ($latestArticles as $article)
-            <li class="flex justify-between">
-              <span class="truncate">{{ $article->title }}</span>
-              <span class="text-base-content/50">
-                {{ $article->created_at->diffForHumans() }}
-              </span>
-            </li>
+            <a class="hover:bg-base-200/60 group flex items-start justify-between gap-3 rounded-lg px-3 py-2 transition"
+              href="{{ route('berita.edit', $article->slug) }}">
+              <div class="min-w-0">
+                <p class="group-hover:text-primary truncate font-medium">
+                  {{ $article->title }}
+                </p>
+                <p class="text-base-content/50 text-xs">
+                  {{ $article->created_at->format('d M Y') }}
+                </p>
+              </div>
+
+              <span class="icon-[tabler--chevron-right] text-base-content/40 size-4"></span>
+            </a>
           @empty
-            <p class="text-base-content/60">Belum ada berita.</p>
+            <p class="text-base-content/60 text-sm">
+              Belum ada berita.
+            </p>
           @endforelse
-        </ul>
+        </div>
       </div>
+
+      {{-- PRESTASI TERBARU --}}
       <div class="bg-base-100 rounded-2xl border p-6 shadow-sm">
-        <h3 class="mb-4 font-semibold">Prestasi Terbaru</h3>
-        <ul class="space-y-2 text-sm">
+        <div class="mb-4 flex items-center justify-between">
+          <h3 class="font-semibold">Prestasi Terbaru</h3>
+          <a class="text-primary text-sm" href="{{ route('prestasi.index') }}">
+            Lihat semua
+          </a>
+        </div>
+
+        <div class="space-y-3">
           @forelse ($latestAchievements as $achievement)
-            <li class="flex justify-between">
-              <span class="truncate">{{ $achievement->title }}</span>
-              <span class="text-base-content/50">
-                {{ $achievement->created_at->diffForHumans() }}
-              </span>
-            </li>
+            <div class="hover:bg-base-200/60 flex items-start justify-between gap-3 rounded-lg px-3 py-2">
+              <div class="min-w-0">
+                <p class="truncate font-medium">
+                  {{ $achievement->title }}
+                </p>
+                <p class="text-base-content/50 text-xs">
+                  {{ $achievement->created_at->format('d M Y') }}
+                </p>
+              </div>
+
+              <span class="icon-[tabler--award] text-base-content/40 size-4"></span>
+            </div>
           @empty
-            <p class="text-base-content/60">Belum ada prestasi.</p>
+            <p class="text-base-content/60 text-sm">
+              Belum ada prestasi.
+            </p>
           @endforelse
-        </ul>
+        </div>
       </div>
+
     </div>
   </div>
 @endsection
