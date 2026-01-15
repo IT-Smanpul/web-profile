@@ -41,29 +41,24 @@
                 <div
                   class="bg-base-100/70 rounded-2xl border p-5 text-center shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md">
                   <img class="mx-auto h-32 w-32 rounded-full object-cover shadow"
-                    src="{{ $employee->photo ? asset('storage/' . $employee->photo) : asset('img/avatars/8.png') }}"
+                    src="{{ $employee->photo ? asset("storage/$employee->photo") : asset('img/avatars/8.png') }}"
                     alt="{{ $employee->name }}" />
-
                   <div class="mt-4 space-y-1">
                     <p class="text-base-content text-base font-semibold">
                       {{ $employee->name }}
                     </p>
-
                     <p class="text-primary text-sm font-medium">
                       {{ $employee->position }}
                     </p>
-
-                    @if ($employee->nip)
-                      <p class="text-base-content/50 text-xs">
-                        NIP. {{ $employee->nip }}
-                      </p>
-                    @endif
+                    <p class="text-base-content/50 text-xs">
+                      NIP {{ $employee->nip }}
+                    </p>
                   </div>
                 </div>
               @empty
                 <div class="col-span-full rounded-xl border border-dashed p-10 text-center">
                   <p class="text-base-content/60">
-                    Belum ada data guru dan staff yang ditampilkan.
+                    Belum ada data guru yang ditampilkan.
                   </p>
                 </div>
               @endforelse
@@ -71,24 +66,29 @@
           </div>
           <div class="hidden" id="tabs-basic-2" role="tabpanel" aria-labelledby="tabs-basic-item-2">
             <div class="grid gap-6 lg:grid-cols-3">
-              <div
-                class="bg-base-100/70 rounded-2xl border p-5 text-center shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md">
-                <img class="mx-auto h-32 w-32 rounded-full object-cover shadow" src="{{ asset('img/avatars/8.png') }}"
-                  alt="Nama Guru" />
-                <p class="mt-4 font-semibold">
-                  Phasya Ananta
-                </p>
-                <p class="text-base-content/60 text-sm">
-                  Staff TU Bagian Akademik
-                </p>
-              </div>
+              @forelse (Employee::staff()->latest()->get() as $employee)
+                <div
+                  class="bg-base-100/70 rounded-2xl border p-5 text-center shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md">
+                  <img class="mx-auto h-32 w-32 rounded-full object-cover shadow"
+                    src="{{ $employee->photo ? asset("storage/$employee->photo") : asset('img/avatars/8.png') }}"
+                    alt="{{ $employee->name }}" />
+                  <div class="mt-4 space-y-1">
+                    <p class="text-base-content text-base font-semibold">
+                      {{ $employee->name }}
+                    </p>
+                    <p class="text-primary text-sm font-medium">
+                      {{ $employee->position }}
+                    </p>
+                  </div>
+                </div>
+              @empty
+                <div class="col-span-full rounded-xl border border-dashed p-10 text-center">
+                  <p class="text-base-content/60">
+                    Belum ada data staff yang ditampilkan.
+                  </p>
+                </div>
+              @endforelse
             </div>
-          </div>
-          <div class="hidden" id="tabs-basic-3" role="tabpanel" aria-labelledby="tabs-basic-item-3">
-            <p class="text-base-content/80">
-              <span class="text-base-content font-semibold">Messages:</span> View your recent messages, chat with friends,
-              and manage your conversations.
-            </p>
           </div>
         </div>
       </div>
