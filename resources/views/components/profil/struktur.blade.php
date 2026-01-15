@@ -60,7 +60,7 @@
       @empty
         <div class="col-span-full rounded-xl border border-dashed p-10 text-center">
           <p class="text-base-content/60">
-            Belum ada data kepala sekolah.
+            Belum ada data wakil kepala sekolah.
           </p>
         </div>
       @endforelse
