@@ -72,7 +72,10 @@ class WakaController extends Controller
 
     public function destroy(SchoolStructure $waka): RedirectResponse
     {
-        Storage::delete($waka->photo);
+        if ($waka->photo && Storage::exists($waka->photo)) {
+            Storage::delete($waka->photo);
+        }
+
         $waka->delete();
 
         return to_route('wakil-kepala-sekolah.index');
