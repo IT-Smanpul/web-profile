@@ -30,7 +30,7 @@ class KepalaSekolahController extends Controller
             }
 
             $photo = $request->file('photo');
-            $data->put('photo', $photo->storeAs('images/struktur', "Kepala Sekolah.{$photo->getClientOriginalExtension()}", 'public'));
+            $data->put('photo', $photo->storeAs('images/struktur', "Kepala Sekolah.{$photo->getClientOriginalExtension()}"));
         }
 
         SchoolStructure::updateOrCreate(['role' => 'kepala'], [
