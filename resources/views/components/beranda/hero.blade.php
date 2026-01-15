@@ -1,9 +1,9 @@
-<div class="relative min-h-dvh">
+<div class="h-150 relative lg:min-h-dvh">
   <div class="absolute inset-0 -z-10 after:absolute after:inset-0 after:bg-gray-950/40">
     <img class="size-full" src="{{ asset('img/bg.jpg') }}" alt="SMA Negeri 10 Pontianak">
   </div>
   <div
-    class="gap-18 md:pt-45 lg:gap-35 lg:pt-47.5 flex h-full min-h-dvh flex-col justify-between py-8 pt-40 sm:py-16 md:gap-24 lg:py-24">
+    class="gap-18 md:pt-45 lg:gap-35 lg:pt-47.5 flex h-full min-h-dvh flex-col justify-between py-8 pt-40 sm:py-16 sm:pt-40 md:gap-24 lg:py-24">
     <div class="mx-auto flex max-w-7xl flex-col items-center gap-6 justify-self-center px-4 text-center sm:px-6 lg:px-8">
       <div class="border-base-content/20 w-fit rounded-full border bg-green-500 px-3 py-1">
         <span class="text-white">&nbsp;#SEKOLAHSANGJUARA&nbsp;</span>
