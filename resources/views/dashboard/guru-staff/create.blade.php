@@ -74,7 +74,7 @@
               @enderror
             </div>
             <div>
-              <label class="label-text" for="nip">Nama Lengkap</label>
+              <label class="label-text" for="nip">NIP</label>
               <input class="input input-bordered @error('nip') is-invalid @enderror w-full" id="nip" name="nip"
                 type="text" value="{{ old('nip') }}" placeholder="Masukkan NIP" />
               @if ($errors->has('nip'))
