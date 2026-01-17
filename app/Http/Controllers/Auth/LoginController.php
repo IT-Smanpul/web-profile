@@ -6,6 +6,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\Auth\LoginRequest;
 
@@ -13,7 +14,9 @@ class LoginController extends Controller
 {
     public function index(): View
     {
-        return view('auth.login');
+        return view('auth.login', [
+            'title' => 'Login - '.Config::get('app.name'),
+        ]);
     }
 
     public function login(LoginRequest $request): RedirectResponse
