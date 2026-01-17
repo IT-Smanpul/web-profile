@@ -22,7 +22,7 @@ new class extends Component {
     {
         return Article::with(['author'])
             ->when($this->keyword, function (Builder $query) {
-                $query->whereLike('title', "%{$this->keyword}%");
+                $query->whereLike('title', "%$this->keyword%");
             })
             ->latest()
             ->paginate(6);
