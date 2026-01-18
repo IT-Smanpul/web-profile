@@ -7,7 +7,9 @@
     <x-dashboard.ui.sidebar />
 
     <div class="lg:ps-75 flex grow flex-col">
-      @yield('dashboard-content')
+      <main class="mx-auto w-full max-w-7xl flex-1 grow space-y-6 p-6">
+        @yield('main')
+      </main>
 
       <x-dashboard.ui.footer />
     </div>
