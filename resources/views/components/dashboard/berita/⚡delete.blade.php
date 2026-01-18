@@ -1,11 +1,12 @@
 <?php
 
-use Livewire\Component;
 use App\Models\Article;
+use Livewire\Component;
 use Livewire\Attributes\On;
 use Illuminate\Support\Facades\Storage;
 
-new class extends Component {
+new class extends Component
+{
     public ?Article $article = null;
 
     #[On('delete-article')]
@@ -18,8 +19,8 @@ new class extends Component {
 
     public function hapus(): void
     {
-        if ($this->article?->photo && Storage::exists($this->article->photo)) {
-            Storage::delete($article->photo);
+        if ($this->article?->photo && Storage::exists($this->article?->photo)) {
+            Storage::delete($this->article?->photo);
         }
 
         $this->article?->delete();

@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\Article;
 use Livewire\Component;
 use Livewire\Attributes\On;
-use App\Models\Article;
 
-new class extends Component {
+new class extends Component
+{
     public ?Article $article = null;
 
     #[On('publish-article')]
