@@ -44,4 +44,10 @@ class Article extends Model
     {
         return $query->where('published', true);
     }
+
+    #[Scope]
+    protected function searchBy(Builder $query, string $column, string $keyword): Builder
+    {
+        return $query->when($keyword, fn (Builder $q) => $q->whereLike($column, "%$keyword%"));
+    }
 }
