@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
 
         // Berita
         Route::get('/berita/{article}/preview', [ArticleController::class, 'preview'])->name('berita.preview');
-        Route::resource('berita', ArticleController::class)->parameter('berita', 'article')->except('show');
+        Route::resource('berita', ArticleController::class)->parameter('berita', 'article')->except(['store', 'update', 'show', 'destroy']);
 
         // Prestasi
         Route::resource('prestasi', AchievementController::class)->parameter('prestasi', 'achievement')->except(['show']);
