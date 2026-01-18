@@ -1,7 +1,7 @@
-@extends('dashboard.layout')
+@extends('components.dashboard.layout')
 
 @section('title', 'Berita')
 
-@section('dashboard-content')
-  <livewire:article />
+@section('main')
+  <livewire:dashboard::berita.index />
 @endsection
