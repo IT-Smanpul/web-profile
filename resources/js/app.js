@@ -2,7 +2,15 @@ import "trix/dist/trix.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 import "flyonui/flyonui";
-import Trix from "trix";
+
+import { Editor } from "@tiptap/core";
+import { Placeholder } from "@tiptap/extensions";
+import { Color, TextStyle } from "@tiptap/extension-text-style";
+
+import Bold from "@tiptap/extension-bold";
+import StarterKit from "@tiptap/starter-kit";
+import Highlight from "@tiptap/extension-highlight";
+import TextAlign from "@tiptap/extension-text-align";
 
 import { Fancybox } from "@fancyapps/ui/dist/fancybox";
 
@@ -27,6 +35,104 @@ function counter(id, start, end, duration, suffix = "") {
       }
     }, step);
 }
+
+window.setupEditor = (content) => {
+  const CustomBold = Bold.extend({
+    renderHTML({ mark, HTMLAttributes }) {
+      const { style, ...rest } = HTMLAttributes;
+
+      const newStyle = `font-weight: bold; ${style ? ` ${style}` : ""}`;
+
+      return ["span", { ...rest, style: newStyle.trim() }, 0];
+    },
+    addOptions() {
+      return {
+        ...this.parent?.(),
+        HTMLAttributes: {},
+      };
+    },
+  });
+
+  const FontSizeTextStyle = TextStyle.extend({
+    addAttributes() {
+      return {
+        fontSize: {
+          default: null,
+          parseHTML: (element) => element.style.fontSize,
+          renderHTML: (attributes) => {
+            if (!attributes.fontSize) {
+              return {};
+            }
+
+            return { style: `font-size: ${attributes.fontSize}` };
+          },
+        },
+      };
+    },
+  });
+
+  return {
+    content: content,
+    init(element) {
+      const editor = new Editor({
+        element: element,
+        extensions: [
+          StarterKit.configure({
+            bold: false,
+            link: {
+              defaultProtocol: "https",
+            },
+          }),
+          CustomBold,
+          Highlight,
+          Color,
+          FontSizeTextStyle,
+          Placeholder.configure({
+            placeholder: "kegiatan ini...",
+          }),
+          TextAlign.configure({
+            types: ["paragraph"],
+            alignments: ["left", "center", "right"],
+          }),
+        ],
+        content: this.content,
+        onUpdate: ({ editor }) => {
+          this.content = editor.getHTML();
+        },
+        editorProps: {
+          attributes: {
+            class: "focus:outline-none",
+          },
+        },
+      });
+
+      // buat fungsi toolbar
+      this.toggleBold = () => editor.chain().focus().toggleBold().run();
+      this.toggleItalic = () => editor.chain().focus().toggleItalic().run();
+      this.toggleUnderline = () => editor.chain().focus().toggleUnderline().run();
+      this.toggleStrike = () => editor.chain().focus().toggleStrike().run();
+      this.toggleHighlight = () => editor.chain().focus().toggleHighlight().run();
+      this.setLink = () => {
+        const href = prompt("Masukkan Link");
+        editor.chain().focus().toggleLink({ href }).run();
+      };
+      this.unsetLink = () => editor.chain().focus().unsetLink().run();
+      this.setColor = (color) => editor.chain().focus().setColor(color).run();
+      this.resetColor = () => editor.chain().focus().unsetColor().run();
+      this.toggleAlign = (align) => editor.chain().focus().toggleTextAlign(align).run();
+      this.toggleBulletList = () => editor.chain().focus().toggleBulletList().run();
+      this.toggleOrderedList = () => editor.chain().focus().toggleOrderedList().run();
+      this.toggleBlockquote = () => editor.chain().focus().toggleBlockquote().run();
+      this.toggleHorizontalRule = () => editor.chain().focus().setHorizontalRule().run();
+
+      this.$watch("content", (content) => {
+        // If the new content matches Tiptap's then we just skip.
+        if (content === editor.getHTML()) return;
+        editor.commands.setContent(content, false);
+      });
+    },
+  };
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   const count1 = document.getElementById("count1");
