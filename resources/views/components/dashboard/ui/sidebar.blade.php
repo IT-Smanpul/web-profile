@@ -35,58 +35,19 @@
       </div>
       <div class="h-full overflow-y-auto">
         <ul class="accordion menu menu-sm gap-1 p-3">
-          <!-- Accordion Menu Item (Level 0) -->
-          <li class="active accordion-item" id="dashboard">
-            <button
-              class="accordion-toggle accordion-item-active:bg-neutral/10 inline-flex w-full items-center p-2 text-start text-sm font-normal"
-              aria-controls="dashboard-collapse-dashboard" aria-expanded="true">
-              <span class="icon-[tabler--dashboard] size-4.5"></span>
+          <li>
+            <a href="{{ route('dashboard') }}" @class(['px-2', 'menu-active' => Route::is('dashboard')])>
+              <span class="icon-[tabler--news] size-4.5"></span>
               <span class="grow">Dashboard</span>
-              <span
-                class="icon-[tabler--chevron-right] accordion-item-active:rotate-90 size-4.5 shrink-0 transition-transform duration-300 rtl:rotate-180"></span>
-            </button>
-            <div class="accordion-content mt-1 block w-full overflow-hidden transition-[height] duration-300"
-              id="dashboard-collapse-dashboard" role="region" aria-labelledby="dashboard">
-              <ul class="space-y-1">
-                <!-- Simple Link Item (for nested items) -->
-                <li>
-                  <a class="menu-active inline-flex w-full items-center px-2" href="common-dashboard-free.html">
-                    <span>Default</span>
-                  </a>
-                </li>
-
-                <!-- Simple Link Item (for nested items) -->
-                <li>
-                  <a class="inline-flex w-full items-center px-2"
-                    href="https://demos.flyonui.com/templates/html/dashboard-default/common-dashboard.html"
-                    target="_blank">
-                    <span class="grow">Analytics</span>
-                    <span class="badge badge-primary badge-sm badge-soft">Pro</span>
-                  </a>
-                </li>
-
-                <!-- Simple Link Item (for nested items) -->
-                <li>
-                  <a class="inline-flex w-full items-center px-2"
-                    href="https://demos.flyonui.com/templates/html/dashboard-ecommerce/dashboard-ecommerce.html"
-                    target="_blank">
-                    <span class="grow">eCommerce</span>
-                    <span class="badge badge-primary badge-sm badge-soft">Pro</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+            </a>
           </li>
 
-          <!-- Section Divider -->
           <li
             class="text-base-content/50 before:bg-base-content/20 mt-2 p-2 text-xs uppercase before:absolute before:-start-3 before:top-1/2 before:h-0.5 before:w-2.5">
             Menu Utama
           </li>
-
           <li>
-            <a class="px-2" href="https://demos.flyonui.com/templates/html/dashboard-default/pages-faq.html"
-              target="_blank">
+            <a href="{{ route('berita.index') }}" @class(['px-2', 'menu-active' => Route::is('berita.index')])>
               <span class="icon-[tabler--news] size-4.5"></span>
               <span class="grow">Berita</span>
               <span class="badge badge-primary badge-sm badge-soft">Pro</span>
@@ -117,22 +78,10 @@
             </a>
           </li>
 
-          <!-- Section Divider -->
           <li
             class="text-base-content/50 before:bg-base-content/20 mt-2 p-2 text-xs uppercase before:absolute before:-start-3 before:top-1/2 before:h-0.5 before:w-2.5">
             Pengaturan
           </li>
-
-          <!-- Regular Menu Item (Level 0) -->
-          <li>
-            <a class="px-2" href="https://demos.flyonui.com/templates/html/dashboard-default/form-validation.html"
-              target="_blank">
-              <span class="icon-[tabler--checklist] size-4.5"></span>
-              <span class="grow">Form Validation</span>
-              <span class="badge badge-primary badge-soft badge-sm">Pro</span>
-            </a>
-          </li>
-
           <li>
             <a class="inline-flex w-full items-center px-2"
               href="https://demos.flyonui.com/templates/html/dashboard-default/pages-account-settings-security.html"
@@ -142,17 +91,15 @@
               <span class="badge badge-primary badge-sm badge-soft">Pro</span>
             </a>
           </li>
-
           <li>
             <a class="inline-flex w-full items-center px-2"
               href="https://demos.flyonui.com/templates/html/dashboard-default/pages-account-settings-security.html"
               target="_blank">
               <span class="icon-[tabler--message] size-4.5"></span>
-              <span class="grow">Informasi Umum</span>
+              <span class="grow">Visi dan Misi</span>
               <span class="badge badge-primary badge-sm badge-soft">Pro</span>
             </a>
           </li>
-
           <li class="accordion-item" id="app-user-view">
             <button
               class="accordion-toggle accordion-item-active:bg-neutral/10 inline-flex w-full items-center p-2 text-start text-sm font-normal"
@@ -165,7 +112,6 @@
             <div class="accordion-content mt-1 hidden w-full overflow-hidden transition-[height] duration-300"
               id="view-collapse-app-user-view" role="region" aria-labelledby="app-user-view">
               <ul class="space-y-1">
-                <!-- Simple Link Item (for nested items) -->
                 <li>
                   <a class="inline-flex w-full items-center px-2"
                     href="https://demos.flyonui.com/templates/html/dashboard-default/app-user-view-account.html"
@@ -174,8 +120,6 @@
                     <span>Kepala Sekolah</span>
                   </a>
                 </li>
-
-                <!-- Simple Link Item (for nested items) -->
                 <li>
                   <a class="inline-flex w-full items-center px-2"
                     href="https://demos.flyonui.com/templates/html/dashboard-default/app-user-view-security.html"
@@ -187,109 +131,29 @@
               </ul>
             </div>
           </li>
-
           <li>
             <a class="inline-flex w-full items-center px-2"
               href="https://demos.flyonui.com/templates/html/dashboard-default/pages-account-settings-security.html"
               target="_blank">
               <span class="icon-[tabler--message] size-4.5"></span>
-              <span class="grow">Informasi Umum</span>
+              <span class="grow">Akun</span>
               <span class="badge badge-primary badge-sm badge-soft">Pro</span>
             </a>
           </li>
 
-          <!-- Section Divider -->
           <li
             class="text-base-content/50 before:bg-base-content/20 mt-2 p-2 text-xs uppercase before:absolute before:-start-3 before:top-1/2 before:h-0.5 before:w-2.5">
-            Applications</li>
-
-          <!-- Accordion Menu Item (Level 0) -->
-          {{--          <li class="accordion-item" id="app-user"> --}}
-          {{--            <button --}}
-          {{--              class="accordion-toggle accordion-item-active:bg-neutral/10 inline-flex w-full items-center p-2 text-start text-sm font-normal" --}}
-          {{--              aria-controls="app-user-collapse-app-user" aria-expanded="true"> --}}
-          {{--              <span class="text-bg-neutral rounded-field flex size-6 items-center justify-center"> --}}
-          {{--                <span class="icon-[tabler--user] size-4.5"></span> --}}
-          {{--              </span> --}}
-          {{--              <span class="grow">User</span> --}}
-          {{--              <span class="badge badge-primary badge-sm badge-soft me-2">Pro</span> --}}
-          {{--              <span --}}
-          {{--                class="icon-[tabler--chevron-right] accordion-item-active:rotate-90 size-4.5 shrink-0 transition-transform duration-300 rtl:rotate-180"></span> --}}
-          {{--            </button> --}}
-          {{--            <div class="accordion-content mt-1 hidden w-full overflow-hidden transition-[height] duration-300" --}}
-          {{--              id="app-user-collapse-app-user" role="region" aria-labelledby="app-user"> --}}
-          {{--              <ul class="accordion space-y-1"> --}}
-          {{--                <!-- Simple Link Item (for nested items) --> --}}
-          {{--                <li> --}}
-          {{--                  <a class="inline-flex w-full items-center px-2" --}}
-          {{--                    href="https://demos.flyonui.com/templates/html/dashboard-default/app-user-list.html" --}}
-          {{--                    target="_blank"> --}}
-          {{--                    <span>List</span> --}}
-          {{--                  </a> --}}
-          {{--                </li> --}}
-
-          {{--                <!-- Accordion Menu Item (Level 1) --> --}}
-          {{--                <li class="accordion-item" id="app-user-view"> --}}
-          {{--                  <button --}}
-          {{--                    class="accordion-toggle accordion-item-active:bg-neutral/10 inline-flex w-full items-center p-2 text-start text-sm font-normal" --}}
-          {{--                    aria-controls="view-collapse-app-user-view" aria-expanded="true"> --}}
-          {{--                    <span class="grow">View</span> --}}
-          {{--                    <span --}}
-          {{--                      class="icon-[tabler--chevron-right] accordion-item-active:rotate-90 size-4.5 shrink-0 transition-transform duration-300 rtl:rotate-180"></span> --}}
-          {{--                  </button> --}}
-          {{--                  <div class="accordion-content mt-1 hidden w-full overflow-hidden transition-[height] duration-300" --}}
-          {{--                    id="view-collapse-app-user-view" role="region" aria-labelledby="app-user-view"> --}}
-          {{--                    <ul class="space-y-1"> --}}
-          {{--                      <!-- Simple Link Item (for nested items) --> --}}
-          {{--                      <li> --}}
-          {{--                        <a class="inline-flex w-full items-center px-2" --}}
-          {{--                          href="https://demos.flyonui.com/templates/html/dashboard-default/app-user-view-account.html" --}}
-          {{--                          target="_blank"> --}}
-          {{--                          <span>Account</span> --}}
-          {{--                        </a> --}}
-          {{--                      </li> --}}
-
-          {{--                      <!-- Simple Link Item (for nested items) --> --}}
-          {{--                      <li> --}}
-          {{--                        <a class="inline-flex w-full items-center px-2" --}}
-          {{--                          href="https://demos.flyonui.com/templates/html/dashboard-default/app-user-view-security.html" --}}
-          {{--                          target="_blank"> --}}
-          {{--                          <span>Security</span> --}}
-          {{--                        </a> --}}
-          {{--                      </li> --}}
-
-          {{--                      <!-- Simple Link Item (for nested items) --> --}}
-          {{--                      <li> --}}
-          {{--                        <a class="inline-flex w-full items-center px-2" --}}
-          {{--                          href="https://demos.flyonui.com/templates/html/dashboard-default/app-user-view-billing.html" --}}
-          {{--                          target="_blank"> --}}
-          {{--                          <span>Billing & Plans</span> --}}
-          {{--                        </a> --}}
-          {{--                      </li> --}}
-
-          {{--                      <!-- Simple Link Item (for nested items) --> --}}
-          {{--                      <li> --}}
-          {{--                        <a class="inline-flex w-full items-center px-2" --}}
-          {{--                          href="https://demos.flyonui.com/templates/html/dashboard-default/app-user-view-notifications.html" --}}
-          {{--                          target="_blank"> --}}
-          {{--                          <span>Notifications</span> --}}
-          {{--                        </a> --}}
-          {{--                      </li> --}}
-
-          {{--                      <!-- Simple Link Item (for nested items) --> --}}
-          {{--                      <li> --}}
-          {{--                        <a class="inline-flex w-full items-center px-2" --}}
-          {{--                          href="https://demos.flyonui.com/templates/html/dashboard-default/app-user-view-connections.html" --}}
-          {{--                          target="_blank"> --}}
-          {{--                          <span>Connections</span> --}}
-          {{--                        </a> --}}
-          {{--                      </li> --}}
-          {{--                    </ul> --}}
-          {{--                  </div> --}}
-          {{--                </li> --}}
-          {{--              </ul> --}}
-          {{--            </div> --}}
-          {{--          </li> --}}
+            Waspadalah
+          </li>
+          <li>
+            <form action="{{ route('logout') }}" method="POST">
+              @csrf
+              <button class="text-error flex items-center gap-2" type="submit">
+                <span class="icon-[tabler--logout] size-4.5"></span>
+                <span class="grow">Logout</span>
+              </button>
+            </form>
+          </li>
         </ul>
       </div>
     </div>
