@@ -25,6 +25,8 @@ new class extends Component
 
         $this->article?->delete();
         $this->dispatch('close-modal');
+
+        $this->redirectRoute('berita.index');
     }
 };
 ?>
