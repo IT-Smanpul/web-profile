@@ -34,7 +34,7 @@ new class extends Component
         $data = Collection::make($this->validate());
 
         if (! is_null($data->get('image'))) {
-            if ($this->achievement->image && Storage::exists($this->achievement->image)) {
+            if (Storage::exists($this->achievement->image)) {
                 Storage::delete($this->achievement->image);
             }
 
