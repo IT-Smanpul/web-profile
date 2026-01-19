@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('berita', ArticleController::class)->parameter('berita', 'article')->except(['store', 'update', 'show', 'destroy']);
 
         // Prestasi
-        Route::resource('prestasi', AchievementController::class)->parameter('prestasi', 'achievement')->except(['show']);
+        Route::resource('prestasi', AchievementController::class)->parameter('prestasi', 'achievement')->except(['store', 'update', 'show', 'destroy']);
 
         // Fasilitas
         Route::resource('fasilitas', FacilityController::class)->parameter('fasilitas', 'facility')->except(['show']);
