@@ -19,11 +19,11 @@ new class extends Component
 
     public function hapus(): void
     {
-        if ($this->article?->photo && Storage::exists($this->article?->photo)) {
-            Storage::delete($this->article?->photo);
+        if (Storage::exists($this->article->thumbnail)) {
+            Storage::delete($this->article->thumbnail);
         }
 
-        $this->article?->delete();
+        $this->article->delete();
         $this->dispatch('close-modal');
 
         $this->redirectRoute('berita.index');
