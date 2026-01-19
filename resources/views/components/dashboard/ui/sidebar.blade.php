@@ -44,14 +44,25 @@
             </a>
           </li>
           <li>
-            <a href="{{ route('prestasi.index') }}" @class(['px-2', 'menu-active' => Route::is('prestasi.index')])>
+            <a href="{{ route('prestasi.index') }}" @class([
+                'px-2',
+                'menu-active' =>
+                    Route::is('prestasi.index') ||
+                    Route::is('prestasi.create') ||
+                    Route::is('prestasi.edit'),
+            ])>
               <span class="icon-[tabler--award] size-4.5"></span>
               <span class="grow">Prestasi</span>
             </a>
           </li>
           <li>
-            <a class="px-2" href="https://demos.flyonui.com/templates/html/dashboard-default/pages-faq.html"
-              target="_blank">
+            <a href="{{ route('fasilitas.index') }}" @class([
+                'px-2',
+                'menu-active' =>
+                    Route::is('fasilitas.index') ||
+                    Route::is('fasilitas.create') ||
+                    Route::is('fasilitas.edit'),
+            ])>
               <span class="icon-[tabler--building] size-4.5"></span>
               <span class="grow">Fasilitas</span>
             </a>
