@@ -1,16 +1,16 @@
-@extends('dashboard.layout')
+@extends('components.dashboard.layout')
 
 @section('title', 'Tambah Guru & Staff')
 
-@section('dashboard-content')
+@section('main')
   <div class="relative">
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold">Tambah Guru & Staff</h2>
+      <p class="text-base-content/60 text-sm">
+        Tambahkan data guru atau staff yang akan ditampilkan di website sekolah
+      </p>
+    </div>
     <div class="bg-base-100 relative mx-auto w-full rounded-3xl border p-8 shadow-sm">
-      <div class="mb-8 space-y-2">
-        <h2 class="text-xl font-semibold">Tambah Guru & Staff</h2>
-        <p class="text-base-content/60 text-sm">
-          Tambahkan data guru atau staff yang akan ditampilkan di website sekolah
-        </p>
-      </div>
       @if ($errors->any())
         <div class="alert alert-error mb-6 rounded-xl">
           <span class="icon-[tabler--alert-circle] size-5"></span>
