@@ -25,7 +25,7 @@ new class extends Component
 
         $this->achievement->delete();
 
-        $this->dispatch('close-modal', modal: 'delete-prestasi');
+        $this->dispatch('close-modal');
         $this->redirectRoute('prestasi.index');
     }
 };
