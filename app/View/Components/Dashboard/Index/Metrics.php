@@ -3,24 +3,27 @@
 namespace App\View\Components\Dashboard\Index;
 
 use Closure;
-use Illuminate\Contracts\View\View;
+use App\Models\Article;
+use App\Models\Employee;
+use App\Models\Facility;
+use App\Models\Achievement;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class Metrics extends Component
 {
-    /**
-     * Create a new component instance.
-     */
     public function __construct()
     {
         //
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): View|Closure|string
     {
-        return view('components.dashboard.index.metrics');
+        return view('components.dashboard.index.metrics', [
+            'facilityCount' => Facility::all()->count(),
+            'achievementCount' => Achievement::all()->count(),
+            'employeeCount' => Employee::all()->count(),
+            'articleCount' => Article::all()->count(),
+        ]);
     }
 }

@@ -10,7 +10,7 @@
         <h5 class="text-lg font-medium">Fasilitas</h5>
       </div>
       <div>
-        <div class="text-base-content text-xl font-semibold">17,356</div>
+        <div class="text-base-content text-xl font-semibold">{{ $facilityCount }}</div>
       </div>
     </div>
     <div class="divider sm:divider-horizontal"></div>
@@ -24,7 +24,7 @@
         <h5 class="text-lg font-medium">Prestasi</h5>
       </div>
       <div>
-        <div class="text-base-content text-xl font-semibold">2,784</div>
+        <div class="text-base-content text-xl font-semibold">{{ $achievementCount }}</div>
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@
         <h5 class="text-lg font-medium">Guru dan Staff</h5>
       </div>
       <div>
-        <div class="text-base-content text-xl font-semibold">$1,658</div>
+        <div class="text-base-content text-xl font-semibold">{{ $employeeCount }}</div>
       </div>
     </div>
     <div class="divider sm:divider-horizontal"></div>
@@ -54,7 +54,7 @@
         <h5 class="text-lg font-medium">Berita</h5>
       </div>
       <div>
-        <div class="text-base-content text-xl font-semibold">$8,759</div>
+        <div class="text-base-content text-xl font-semibold">{{ $articleCount }}</div>
       </div>
     </div>
   </div>
