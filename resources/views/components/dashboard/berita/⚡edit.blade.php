@@ -24,8 +24,7 @@ new class extends Component
     {
         $this->article = $article;
 
-        $this->title = $article->title;
-        $this->content = $article->content;
+        $this->fill($article->except('thumbnail'));
     }
 
     public function save(): void
@@ -33,8 +32,8 @@ new class extends Component
         $data = Collection::make($this->validate());
 
         if (! is_null($data->get('thumbnail'))) {
-            if ($this->article?->thumbnail && Storage::exists($this->article?->thumbnail)) {
-                Storage::delete($this->article?->thumbnail);
+            if (Storage::exists($this->article->thumbnail)) {
+                Storage::delete($this->article->thumbnail);
             }
 
             $data->put('thumbnail', $this->thumbnail->store('images/berita'));
