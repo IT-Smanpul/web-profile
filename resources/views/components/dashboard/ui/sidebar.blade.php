@@ -18,20 +18,6 @@
           <h3 class="text-base-content text-lg font-semibold">{{ Auth::user()->name }}</h3>
           <p class="text-base-content/80">{{ Auth::user()->username }}</p>
         </div>
-        <div class="flex gap-3">
-          <a class="link size-4.5" href="#" aria-label="Facebook Link">
-            <span class="icon-[tabler--brand-facebook] size-4.5"></span>
-          </a>
-          <a class="link size-4.5" href="#" aria-label="Instagram Link">
-            <span class="icon-[tabler--brand-instagram] size-4.5"></span>
-          </a>
-          <a class="link size-4.5" href="#" aria-label="X Link">
-            <span class="icon-[tabler--brand-twitter] size-4.5"></span>
-          </a>
-          <a class="link size-4.5" href="#" aria-label="Github Link">
-            <span class="icon-[tabler--brand-github] size-4.5"></span>
-          </a>
-        </div>
       </div>
       <div class="h-full overflow-y-auto">
         <ul class="accordion menu menu-sm gap-1 p-3">
@@ -41,24 +27,26 @@
               <span class="grow">Dashboard</span>
             </a>
           </li>
-
           <li
             class="text-base-content/50 before:bg-base-content/20 mt-2 p-2 text-xs uppercase before:absolute before:-start-3 before:top-1/2 before:h-0.5 before:w-2.5">
             Menu Utama
           </li>
           <li>
-            <a href="{{ route('berita.index') }}" @class(['px-2', 'menu-active' => Route::is('berita.index')])>
+            <a href="{{ route('berita.index') }}" @class([
+                'px-2',
+                'menu-active' =>
+                    Route::is('berita.index') ||
+                    Route::is('berita.create') ||
+                    Route::is('berita.edit'),
+            ])>
               <span class="icon-[tabler--news] size-4.5"></span>
               <span class="grow">Berita</span>
-              <span class="badge badge-primary badge-sm badge-soft">Pro</span>
             </a>
           </li>
           <li>
-            <a class="px-2" href="https://demos.flyonui.com/templates/html/dashboard-default/pages-faq.html"
-              target="_blank">
+            <a href="{{ route('prestasi.index') }}" @class(['px-2', 'menu-active' => Route::is('prestasi.index')])>
               <span class="icon-[tabler--award] size-4.5"></span>
               <span class="grow">Prestasi</span>
-              <span class="badge badge-primary badge-sm badge-soft">Pro</span>
             </a>
           </li>
           <li>
@@ -66,7 +54,6 @@
               target="_blank">
               <span class="icon-[tabler--building] size-4.5"></span>
               <span class="grow">Fasilitas</span>
-              <span class="badge badge-primary badge-sm badge-soft">Pro</span>
             </a>
           </li>
           <li>
@@ -74,7 +61,6 @@
               target="_blank">
               <span class="icon-[tabler--users] size-4.5"></span>
               <span class="grow">Guru dan Staff</span>
-              <span class="badge badge-primary badge-sm badge-soft">Pro</span>
             </a>
           </li>
 
@@ -88,7 +74,6 @@
               target="_blank">
               <span class="icon-[tabler--message] size-4.5"></span>
               <span class="grow">Informasi Umum</span>
-              <span class="badge badge-primary badge-sm badge-soft">Pro</span>
             </a>
           </li>
           <li>
@@ -97,7 +82,6 @@
               target="_blank">
               <span class="icon-[tabler--message] size-4.5"></span>
               <span class="grow">Visi dan Misi</span>
-              <span class="badge badge-primary badge-sm badge-soft">Pro</span>
             </a>
           </li>
           <li class="accordion-item" id="app-user-view">
@@ -137,10 +121,8 @@
               target="_blank">
               <span class="icon-[tabler--message] size-4.5"></span>
               <span class="grow">Akun</span>
-              <span class="badge badge-primary badge-sm badge-soft">Pro</span>
             </a>
           </li>
-
           <li
             class="text-base-content/50 before:bg-base-content/20 mt-2 p-2 text-xs uppercase before:absolute before:-start-3 before:top-1/2 before:h-0.5 before:w-2.5">
             Waspadalah
