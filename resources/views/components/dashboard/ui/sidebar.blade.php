@@ -68,8 +68,13 @@
             </a>
           </li>
           <li>
-            <a class="px-2" href="https://demos.flyonui.com/templates/html/dashboard-default/pages-faq.html"
-              target="_blank">
+            <a href="{{ route('guru-staff.index') }}" @class([
+                'px-2',
+                'menu-active' =>
+                    Route::is('guru-staff.index') ||
+                    Route::is('guru-staff.create') ||
+                    Route::is('guru-staff.edit'),
+            ])>
               <span class="icon-[tabler--users] size-4.5"></span>
               <span class="grow">Guru dan Staff</span>
             </a>
