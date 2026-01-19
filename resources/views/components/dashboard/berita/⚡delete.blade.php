@@ -9,6 +9,13 @@ new class extends Component
 {
     public ?Article $article = null;
 
+    public string $redirectTo;
+
+    public function mount(?string $redirectTo = 'berita.index'): void
+    {
+        $this->redirectTo = $redirectTo;
+    }
+
     #[On('delete-article')]
     public function prepare(Article $article): void
     {
@@ -26,7 +33,7 @@ new class extends Component
         $this->article->delete();
         $this->dispatch('close-modal');
 
-        $this->redirectRoute('berita.index');
+        $this->redirectRoute($this->redirectTo);
     }
 };
 ?>
