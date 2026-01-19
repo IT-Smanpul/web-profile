@@ -1,5 +1,5 @@
 <div class="bg-base-100 border-base-content/20 lg:ps-75 sticky top-0 z-50 flex border-b">
-  <div class="mx-auto w-full max-w-7xl">
+  <div class="mx-auto w-full">
     <nav class="navbar py-2">
       <div class="navbar-start items-center gap-2">
         <button class="btn btn-soft btn-square btn-sm lg:hidden" data-overlay="#layout-sidebar" type="button"
@@ -8,12 +8,12 @@
         </button>
       </div>
       <div class="navbar-end items-end gap-6">
-        <!-- Profile Dropdown -->
         <div class="dropdown relative inline-flex [--offset:21]">
           <button class="dropdown-toggle avatar" id="profile-dropdown" type="button" aria-haspopup="menu"
             aria-expanded="false" aria-label="Dropdown">
             <span class="rounded-field size-9.5">
-              <img src="{{ Auth::user()->photo ? asset('storage/' . Auth::user()->photo) : asset('img/avatars/8.png') }}"
+              <img
+                src="{{ Auth::user()->photo ? asset('storage/' . Auth::user()->photo) : asset('img/avatars/8.png') }}"
                 alt="User Avatar" />
             </span>
           </button>
