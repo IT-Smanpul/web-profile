@@ -11,7 +11,6 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Setting\AkunController;
 use App\Http\Controllers\Setting\WakaController;
 use App\Http\Controllers\Setting\KepalaSekolahController;
-use App\Http\Controllers\Setting\GeneralSettingController;
 use App\Http\Controllers\Setting\VisiMisiSettingController;
 
 Route::view('/', 'index');
@@ -50,8 +49,7 @@ Route::middleware('auth')->group(function () {
         // Pengaturan
         Route::prefix('setting')->group(function () {
             // Pengaturan Umum
-            Route::get('/general', [GeneralSettingController::class, 'edit'])->name('setting.general.edit');
-            Route::match(['PUT', 'PATCH'], '/general', [GeneralSettingController::class, 'update'])->name('setting.general.update');
+            Route::view('/general', 'dashboard.pengaturan.general')->name('setting.general.edit');
 
             // Visi Misi
             Route::get('/visi-misi', [VisiMisiSettingController::class, 'edit'])->name('setting.visi-misi.edit');
