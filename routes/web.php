@@ -45,7 +45,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('fasilitas', FacilityController::class)->parameter('fasilitas', 'facility')->except(['store', 'update', 'show', 'destroy']);
 
         // Guru dan Staff
-        Route::resource('guru-staff', EmployeeController::class)->parameter('guru-staff', 'employee')->except(['show']);
+        Route::resource('guru-staff', EmployeeController::class)->parameter('guru-staff', 'employee')->except(['store', 'update', 'show', 'destroy']);
 
         // Pengaturan
         Route::prefix('setting')->group(function () {
