@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function () {
         // Pengaturan
         Route::prefix('setting')->group(function () {
             // Pengaturan Umum
-            Route::view('/general', 'dashboard.pengaturan.general')->name('setting.general.edit');
+            Route::view('/general', 'dashboard.pengaturan.informasi-umum')->name('setting.general.edit');
 
             // Visi Misi
             Route::get('/visi-misi', [VisiMisiSettingController::class, 'edit'])->name('setting.visi-misi.edit');
