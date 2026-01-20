@@ -11,7 +11,6 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Setting\AkunController;
 use App\Http\Controllers\Setting\WakaController;
 use App\Http\Controllers\Setting\KepalaSekolahController;
-use App\Http\Controllers\Setting\VisiMisiSettingController;
 
 Route::view('/', 'index');
 Route::view('/profil', 'profil', ['title' => 'Profil - '.Config::get('app.name')])->name('profil');
@@ -52,8 +51,7 @@ Route::middleware('auth')->group(function () {
             Route::view('/general', 'dashboard.pengaturan.informasi-umum')->name('setting.general.edit');
 
             // Visi Misi
-            Route::get('/visi-misi', [VisiMisiSettingController::class, 'edit'])->name('setting.visi-misi.edit');
-            Route::match(['PUT', 'PATCH'], '/visi-misi', [VisiMisiSettingController::class, 'update'])->name('setting.visi-misi.update');
+            Route::view('/visi-misi', 'dashboard.pengaturan.visi-misi')->name('setting.visi-misi.edit');
 
             // Struktur Sekolah
             Route::get('/struktur/kepala-sekolah', [KepalaSekolahController::class, 'editKepalaSekolah'])->name('setting.struktur.kepala-sekolah.edit');
