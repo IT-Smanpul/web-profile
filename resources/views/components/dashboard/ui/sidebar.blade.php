@@ -102,30 +102,56 @@
               <span class="grow">Visi dan Misi</span>
             </a>
           </li>
-          <li class="accordion-item" id="app-user-view">
+          <li id="app-user-view" @class([
+              'accordion-item',
+              'active' =>
+                  Route::is('setting.struktur.kepala-sekolah.edit') ||
+                  Route::is('wakil-kepala-sekolah.index') ||
+                  Route::is('wakil-kepala-sekolah.create') ||
+                  Route::is('wakil-kepala-sekolah.edit'),
+          ])>
             <button
               class="accordion-toggle accordion-item-active:bg-neutral/10 inline-flex w-full items-center p-2 text-start text-sm font-normal"
-              aria-controls="view-collapse-app-user-view" aria-expanded="true">
+              aria-controls="view-collapse-app-user-view"
+              aria-expanded="{{ Route::is('setting.struktur.kepala-sekolah.edit') ||
+              Route::is('wakil-kepala-sekolah.index') ||
+              Route::is('wakil-kepala-sekolah.create') ||
+              Route::is('wakil-kepala-sekolah.edit')
+                  ? 'true'
+                  : 'false' }}">
               <span class="icon-[tabler--book] size-4.5"></span>
               <span class="grow">Struktur Organisasi</span>
               <span
                 class="icon-[tabler--chevron-right] accordion-item-active:rotate-90 size-4.5 shrink-0 transition-transform duration-300 rtl:rotate-180"></span>
             </button>
-            <div class="accordion-content mt-1 hidden w-full overflow-hidden transition-[height] duration-300"
-              id="view-collapse-app-user-view" role="region" aria-labelledby="app-user-view">
+            <div id="view-collapse-app-user-view" role="region" aria-labelledby="app-user-view"
+              @class([
+                  'accordion-content mt-1 w-full overflow-hidden transition-[height] duration-300',
+                  'hidden' => !(
+                      Route::is('setting.struktur.kepala-sekolah.edit') ||
+                      Route::is('wakil-kepala-sekolah.index') ||
+                      Route::is('wakil-kepala-sekolah.create') ||
+                      Route::is('wakil-kepala-sekolah.edit')
+                  ),
+              ])>
               <ul class="space-y-1">
                 <li>
-                  <a class="inline-flex w-full items-center px-2"
-                    href="https://demos.flyonui.com/templates/html/dashboard-default/app-user-view-account.html"
-                    target="_blank">
+                  <a href="{{ route('setting.struktur.kepala-sekolah.edit') }}" @class([
+                      'inline-flex w-full items-center px-2',
+                      'menu-active' => Route::is('setting.struktur.kepala-sekolah.edit'),
+                  ])>
                     <span class="icon-[tabler--settings] size-4.5"></span>
                     <span>Kepala Sekolah</span>
                   </a>
                 </li>
                 <li>
-                  <a class="inline-flex w-full items-center px-2"
-                    href="https://demos.flyonui.com/templates/html/dashboard-default/app-user-view-security.html"
-                    target="_blank">
+                  <a href="{{ route('wakil-kepala-sekolah.index') }}" @class([
+                      'inline-flex w-full items-center px-2',
+                      'menu-active' =>
+                          Route::is('wakil-kepala-sekolah.index') ||
+                          Route::is('wakil-kepala-sekolah.create') ||
+                          Route::is('wakil-kepala-sekolah.edit'),
+                  ])>
                     <span class="icon-[tabler--settings] size-4.5"></span>
                     <span>Wakil Kepala Sekolah</span>
                   </a>
