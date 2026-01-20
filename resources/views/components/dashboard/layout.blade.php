@@ -10,8 +10,6 @@
       <main class="mx-auto w-full flex-1 grow space-y-6 p-6">
         @yield('main')
       </main>
-
-      <x-dashboard.ui.footer />
     </div>
   </div>
 @endsection
