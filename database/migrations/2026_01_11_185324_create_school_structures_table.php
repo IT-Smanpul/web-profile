@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('school_structures', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name')->unique();
-            $table->string('nip');
+            $table->string('nip')->unique();
             $table->string('role');
             $table->string('position');
             $table->string('photo')->nullable();
