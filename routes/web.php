@@ -10,7 +10,6 @@ use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Setting\AkunController;
 use App\Http\Controllers\Setting\WakaController;
-use App\Http\Controllers\Setting\KepalaSekolahController;
 
 Route::view('/', 'index');
 Route::view('/profil', 'profil', ['title' => 'Profil - '.Config::get('app.name')])->name('profil');
@@ -54,8 +53,7 @@ Route::middleware('auth')->group(function () {
             Route::view('/visi-misi', 'dashboard.pengaturan.visi-misi')->name('setting.visi-misi.edit');
 
             // Struktur Sekolah
-            Route::get('/struktur/kepala-sekolah', [KepalaSekolahController::class, 'editKepalaSekolah'])->name('setting.struktur.kepala-sekolah.edit');
-            Route::match(['PUT', 'PATCH'], '/struktur/kepala-sekolah', [KepalaSekolahController::class, 'updateKepalaSekolah'])->name('setting.struktur.kepala-sekolah.update');
+            Route::view('/struktur/kepala-sekolah', 'dashboard.pengaturan.kepala-sekolah')->name('setting.struktur.kepala-sekolah.edit');
 
             Route::resource('/struktur/wakil-kepala-sekolah', WakaController::class)->except(['show'])->parameter('wakil-kepala-sekolah', 'waka');
 
