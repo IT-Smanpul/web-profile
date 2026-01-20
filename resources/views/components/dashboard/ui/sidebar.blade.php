@@ -173,11 +173,11 @@
             Waspadalah
           </li>
           <li>
-            <form action="{{ route('logout') }}" method="POST">
+            <form class="block w-full" action="{{ route('logout') }}" method="POST">
               @csrf
-              <button class="text-error flex items-center gap-2" type="submit">
+              <button class="text-error flex w-full items-center justify-start gap-2" type="submit">
                 <span class="icon-[tabler--logout] size-4.5"></span>
-                <span class="grow">Logout</span>
+                <span>Logout</span>
               </button>
             </form>
           </li>
