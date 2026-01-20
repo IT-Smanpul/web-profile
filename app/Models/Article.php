@@ -8,10 +8,11 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
 {
-    use HasUuids, Sluggable;
+    use HasFactory, HasUuids, Sluggable;
 
     protected $keyType = 'string';
 
@@ -42,5 +43,11 @@ class Article extends Model
     protected function published(Builder $query): Builder
     {
         return $query->where('published', true);
+    }
+
+    #[Scope]
+    protected function searchBy(Builder $query, string $column, string $keyword): Builder
+    {
+        return $query->when($keyword, fn (Builder $q) => $q->whereLike($column, "%$keyword%"));
     }
 }

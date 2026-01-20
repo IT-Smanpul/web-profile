@@ -4,12 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\Article\CreateArticleRequest;
-use App\Http\Requests\Article\UpdateArticleRequest;
 
 class ArticleController extends Controller
 {
@@ -35,19 +30,6 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function store(CreateArticleRequest $request): RedirectResponse
-    {
-        $path = $request->file('thumbnail')->store('images/articles');
-
-        Article::create([
-            ...$request->validated(),
-            'author_id' => Auth::id(),
-            'thumbnail' => $path,
-        ]);
-
-        return to_route('berita.index');
-    }
-
     public function show(Article $article): View
     {
         return view('berita.detail', [
@@ -63,45 +45,6 @@ class ArticleController extends Controller
             'title' => "Edit Berita - $this->appName",
             'article' => $article,
         ]);
-    }
-
-    public function update(UpdateArticleRequest $request, Article $article): RedirectResponse
-    {
-        if ($request->hasFile('thumbnail')) {
-            Storage::delete($article->thumbnail);
-            $path = $request->file('thumbnail')->store('images/articles');
-
-            $article->update([
-                ...$request->validated(),
-                'thumbnail' => $path,
-            ]);
-        } else {
-            $article->update($request->validated());
-        }
-
-        return to_route('berita.index');
-    }
-
-    public function destroy(Article $article): RedirectResponse
-    {
-        Storage::delete($article->thumbnail);
-        $article->delete();
-
-        return to_route('berita.index');
-    }
-
-    public function publish(Article $article): RedirectResponse
-    {
-        $article->update(['published' => true]);
-
-        return to_route('berita.index');
-    }
-
-    public function unpublish(Article $article): RedirectResponse
-    {
-        $article->update(['published' => false]);
-
-        return to_route('berita.index');
     }
 
     public function preview(Article $article): View

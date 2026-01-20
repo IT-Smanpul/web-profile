@@ -28,4 +28,10 @@ class Employee extends Model
     {
         return $query->where('role', 'staff');
     }
+
+    #[Scope]
+    protected function searchBy(Builder $query, string $column, string $keyword): Builder
+    {
+        return $query->when($keyword, fn (Builder $q) => $q->whereLike($column, "%$keyword%"));
+    }
 }
