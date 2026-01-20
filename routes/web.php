@@ -54,7 +54,7 @@ Route::middleware('auth')->group(function () {
             // Struktur Sekolah
             Route::view('/struktur/kepala-sekolah', 'dashboard.pengaturan.kepala-sekolah')->name('setting.struktur.kepala-sekolah.edit');
 
-            Route::resource('/struktur/wakil-kepala-sekolah', WakaController::class)->except(['show'])->parameter('wakil-kepala-sekolah', 'waka')->except(['store', 'update', 'show', 'destroy']);
+            Route::resource('/struktur/wakil-kepala-sekolah', WakaController::class)->parameter('wakil-kepala-sekolah', 'waka')->except(['store', 'update', 'show', 'destroy']);
 
             // Akun
             Route::view('/akun', 'dashboard.pengaturan.akun')->name('setting.akun.edit');
