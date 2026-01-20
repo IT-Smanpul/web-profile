@@ -12,11 +12,10 @@
         </p>
       </div>
       <div class="flex items-center gap-2">
-        <input class="input max-w-sm" type="text" aria-label="input" wire:model.live="keyword"
-          placeholder="Cari Fasilitas" />
-        <a class="btn btn-primary btn-gradient" href="{{ route('fasilitas.create') }}">
+        <input class="input max-w-sm" type="text" aria-label="input" wire:model.live="keyword" placeholder="Cari..." />
+        <a class="btn btn-primary btn-gradient" href="{{ route('guru-staff.create') }}">
           <span class="icon-[tabler--plus] size-5"></span>
-          Tambah Fasilitas
+          Tambah Data
         </a>
       </div>
     </div>
@@ -115,7 +114,7 @@
       @empty
         <div class="col-span-full rounded-xl border border-dashed p-10 text-center">
           <p class="text-base-content/60 text-sm">
-            Belum ada data guru dan staff yang ditambahkan.
+            Belum ada data yang ditambahkan.
           </p>
         </div>
       @endforelse
