@@ -8,7 +8,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\Setting\AkunController;
 use App\Http\Controllers\Setting\WakaController;
 
 Route::view('/', 'index');
@@ -58,8 +57,7 @@ Route::middleware('auth')->group(function () {
             Route::resource('/struktur/wakil-kepala-sekolah', WakaController::class)->except(['show'])->parameter('wakil-kepala-sekolah', 'waka')->except(['store', 'update', 'show', 'destroy']);
 
             // Akun
-            Route::get('/akun', [AkunController::class, 'edit'])->name('setting.akun.edit');
-            Route::match(['PUT', 'PATCH'], '/akun', [AkunController::class, 'update'])->name('setting.akun.update');
+            Route::view('/akun', 'dashboard.pengaturan.akun')->name('setting.akun.edit');
         });
     });
 
