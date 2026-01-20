@@ -85,9 +85,10 @@
             Pengaturan
           </li>
           <li>
-            <a class="inline-flex w-full items-center px-2"
-              href="https://demos.flyonui.com/templates/html/dashboard-default/pages-account-settings-security.html"
-              target="_blank">
+            <a href="{{ route('setting.general.edit') }}" @class([
+                'inline-flex w-full items-center px-2',
+                'menu-active' => Route::is('setting.general.edit'),
+            ])>
               <span class="icon-[tabler--message] size-4.5"></span>
               <span class="grow">Informasi Umum</span>
             </a>
