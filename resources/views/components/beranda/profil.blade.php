@@ -13,10 +13,9 @@
           Tentang SMA Negeri 10 Pontianak
         </h2>
         <p class="text-base-content/80 mx-auto max-w-3xl text-lg leading-relaxed md:text-xl">
-          SMA Negeri 10 Pontianak merupakan ruang belajar dan bertumbuh
-          bagi peserta didik untuk mengembangkan potensi akademik,
-          membangun karakter, serta mempersiapkan diri menghadapi masa depan
-          melalui pendidikan yang bermakna dan lingkungan yang suportif.
+          SMA Negeri 10 Pontianak merupakan ruang belajar dan bertumbuh bagi para murid untuk mengembangkan potensi
+          akademik, membangun karakter, serta mempersiapkan diri menghadapi masa depan melalui pendidikan yang bermakna
+          dan lingkungan yang suportif.
         </p>
         <div class="flex flex-wrap justify-center gap-3 pt-2">
           <span class="badge badge-outline backdrop-blur">Berkarakter</span>
