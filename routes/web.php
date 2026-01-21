@@ -16,7 +16,6 @@ Route::view('/fasilitas', 'fasilitas')->name('fasilitas');
 Route::view('/prestasi', 'prestasi')->name('prestasi');
 Route::view('/berita', 'berita.index')->name('berita');
 Route::view('/guru-staff', 'guru-staff')->name('guru-staff');
-Route::view('ppdb', 'ppdb')->name('ppdb');
 
 Route::get('/berita/{article}', [ArticleController::class, 'show'])->name('berita.show');
 
