@@ -1,6 +1,6 @@
-<div class="h-150 relative lg:min-h-dvh">
+<div class="sm:h-130 relative h-96">
   <div class="absolute inset-0 -z-10 after:absolute after:inset-0 after:bg-gray-950/40">
-    <img class="size-full" src="{{ asset('img/bg.jpg') }}" alt="SMA Negeri 10 Pontianak">
+    <img class="size-full object-cover" src="{{ asset('img/bg.jpg') }}" alt="SMA Negeri 10 Pontianak">
   </div>
   <div
     class="gap-18 md:pt-45 lg:gap-35 lg:pt-47.5 flex h-full min-h-dvh flex-col justify-between py-8 pt-40 sm:py-16 sm:pt-40 md:gap-24 lg:py-24">
@@ -26,13 +26,6 @@
           </defs>
         </svg>
       </h1>
-      <p class="max-w-3xl text-white">
-        Dengan semangat inovasi dan integritas, SMA Negeri 10 Pontianak terus berupaya menciptakan lingkungan belajar
-        yang unggul, berkarakter, dan berdaya saing global.
-      </p>
-      <a class="btn btn-primary btn-gradient btn-lg" href="#">
-        Info PPDB <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
-      </a>
     </div>
   </div>
 </div>
