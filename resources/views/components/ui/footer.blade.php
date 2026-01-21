@@ -1,6 +1,6 @@
 <footer class="bg-base-100">
   <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-    <div class="grid gap-10 md:grid-cols-4">
+    <div class="grid gap-10 md:grid-cols-3">
       <div class="space-y-4">
         <a class="flex items-center gap-3 text-xl font-semibold" href="/">
           <img class="size-10" src="{{ asset('img/logo.png') }}" alt="Logo SMA Negeri 10 Pontianak">
@@ -23,47 +23,35 @@
           <li><a class="hover:text-primary" href="/berita">Berita</a></li>
         </ul>
       </div>
-      <div>
-        <h4 class="mb-4 text-sm font-semibold uppercase tracking-wide">
-          PPDB
-        </h4>
-        <ul class="text-base-content/80 space-y-2 text-sm">
-          <li><a class="hover:text-primary" href="#">Informasi PPDB</a></li>
-          <li><a class="hover:text-primary" href="#">Jadwal Pendaftaran</a></li>
-          <li><a class="hover:text-primary" href="#">Alur Pendaftaran</a></li>
-          <li><a class="hover:text-primary" href="#">Kontak Panitia</a></li>
-        </ul>
-      </div>
-      <div>
+      <div class="">
         <h4 class="mb-4 text-sm font-semibold uppercase tracking-wide">
           Kontak
         </h4>
         <ul class="text-base-content/80 space-y-2 text-sm">
-          <li>📍 Pontianak, Kalimantan Barat</li>
-          <li>📞 (0561) 123456</li>
-          <li>✉️ info@sman10pontianak.sch.id</li>
+          <li>📍 Jl. Purnama Gang Karya Tani</li>
+          <li>📞 089612345678</li>
+          <li>✉️ alamak@smanpul.sch.id</li>
         </ul>
         <div class="mt-4 flex gap-4">
           <a href="#" aria-label="Instagram">
             <span class="icon-[tabler--brand-instagram] size-5"></span>
           </a>
-          <a href="#" aria-label="Facebook">
-            <span class="icon-[tabler--brand-facebook] size-5"></span>
+          <a href="#" aria-label="TikTok">
+            <span class="icon-[tabler--brand-tiktok] size-5"></span>
           </a>
           <a href="#" aria-label="YouTube">
             <span class="icon-[tabler--brand-youtube] size-5"></span>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <span class="icon-[tabler--brand-whatsapp] size-5"></span>
           </a>
         </div>
       </div>
     </div>
     <div class="divider my-10"></div>
-    <div class="flex flex-col items-center justify-between gap-3 text-center text-sm md:flex-row md:text-left">
+    <div class="flex flex-col items-center justify-center gap-3 text-center text-sm md:flex-row md:text-left">
       <p class="text-base-content/70">
         © {{ now()->year }} SMA Negeri 10 Pontianak. All rights reserved.
-      </p>
-      <p class="text-base-content/70">
-        Dikembangkan oleh <a class="text-primary font-medium" href="https://github.com/IT-Smanpul" target="_blank">Tim
-          IT SMANPUL</a>
       </p>
     </div>
   </div>
