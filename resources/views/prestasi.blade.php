@@ -5,12 +5,14 @@
 @section('content')
   <x-ui.navbar />
   <main>
-    <div class="bg-base-200 relative overflow-hidden py-12 sm:py-20 lg:py-28">
+    <div class="bg-base-200 relative overflow-hidden pb-12 pt-28 sm:pb-20 lg:pb-28">
       <div
         class="bg-primary/20 size-136 pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 rounded-full blur-3xl">
       </div>
+
       <div class="h-112 w-md pointer-events-none absolute -bottom-40 -left-40 rounded-full bg-yellow-400/20 blur-3xl">
       </div>
+
       <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="mb-14 space-y-6 text-center sm:mb-20 lg:mb-24">
           <div class="flex justify-center">
@@ -18,14 +20,17 @@
               Prestasi Sekolah
             </span>
           </div>
+
           <h1 class="text-base-content text-3xl font-bold md:text-4xl lg:text-5xl">
             Daftar Prestasi Sekolah
           </h1>
+
           <p class="text-base-content/80 mx-auto max-w-3xl text-lg leading-relaxed md:text-xl">
             Berbagai capaian akademik dan non-akademik yang telah diraih sebagai
             wujud komitmen sekolah dalam mengembangkan potensi peserta didik.
           </p>
         </div>
+
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           @forelse (Achievement::all() as $achievement)
             <div
@@ -60,6 +65,7 @@
         </div>
       </div>
     </div>
+
   </main>
   <x-ui.footer />
 @endsection
