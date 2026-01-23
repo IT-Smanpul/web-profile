@@ -2,7 +2,9 @@
 @import 'tailwindcss-intersect';
 @import 'flyonui/variants.css';
 
-@plugin "flyonui";
+@plugin "flyonui" {
+    themes: light --default, corporate;
+}
 @plugin "@iconify/tailwind4";
 @plugin "tailwindcss-motion";
 
