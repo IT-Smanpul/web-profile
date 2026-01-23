@@ -11,12 +11,18 @@ use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Setting\WakaController;
 
+function setTitle(string $title): string
+{
+    return "$title - ".Config::get('app.name');
+}
+
 Route::view('/', 'index');
-Route::view('/profil', 'profil', ['title' => 'Profil - '.Config::get('app.name')])->name('profil');
-Route::view('/fasilitas', 'fasilitas')->name('fasilitas');
-Route::view('/prestasi', 'prestasi')->name('prestasi');
-Route::view('/berita', 'berita.index')->name('berita');
-Route::view('/guru-staff', 'guru-staff')->name('guru-staff');
+Route::view('/profil', 'profil', ['title' => setTitle('Profil')])->name('profil');
+Route::view('/fasilitas', 'fasilitas', ['title' => setTitle('Fasilitas')])->name('fasilitas');
+Route::view('/prestasi', 'prestasi', ['title' => setTitle('Prestasi')])->name('prestasi');
+Route::view('/berita', 'berita.index', ['title' => setTitle('Berita')])->name('berita');
+Route::view('/guru-staff', 'guru-staff', ['title' => setTitle('Guru dan Staff')])->name('guru-staff');
+Route::view('/ekskul', 'ekskul', ['title' => setTitle('Ekstrakurikuler')])->name('ekskul');
 
 Route::get('/berita/{article}', [ArticleController::class, 'show'])->name('berita.show');
 
