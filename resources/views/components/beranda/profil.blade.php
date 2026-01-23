@@ -5,14 +5,14 @@
     <div class="flex flex-col gap-16 lg:gap-24">
       <div class="space-y-6 text-center">
         <div class="flex justify-center">
-          <span class="rounded-full bg-green-500 px-4 py-1 text-sm font-medium text-white shadow">
+          <span class="bg-primary text-primary-content rounded-full px-4 py-1 text-sm font-medium shadow">
             Profil Sekolah
           </span>
         </div>
         <h2 class="text-base-content text-3xl font-bold md:text-4xl lg:text-5xl">
           Tentang SMA Negeri 10 Pontianak
         </h2>
-        <p class="text-base-content/80 mx-auto max-w-3xl text-lg leading-relaxed md:text-xl">
+        <p class="text-base-content mx-auto max-w-3xl text-lg leading-relaxed md:text-xl">
           SMA Negeri 10 Pontianak merupakan ruang belajar dan bertumbuh bagi para murid untuk mengembangkan potensi
           akademik, membangun karakter, serta mempersiapkan diri menghadapi masa depan melalui pendidikan yang bermakna
           dan lingkungan yang suportif.
