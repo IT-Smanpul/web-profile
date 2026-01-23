@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EkskulController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FacilityController;
@@ -38,6 +39,9 @@ Route::middleware('auth')->group(function () {
 
         // Fasilitas
         Route::resource('fasilitas', FacilityController::class)->parameter('fasilitas', 'facility')->except(['store', 'update', 'show', 'destroy']);
+
+        // Ekstrakurikuler
+        Route::resource('ekskul', EkskulController::class)->except(['store', 'update', 'show', 'destroy']);
 
         // Guru dan Staff
         Route::resource('guru-staff', EmployeeController::class)->parameter('guru-staff', 'employee')->except(['store', 'update', 'show', 'destroy']);
