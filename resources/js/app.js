@@ -3,6 +3,8 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 import "flyonui/flyonui";
 
+import { Observer } from "tailwindcss-intersect";
+
 import { Editor } from "@tiptap/core";
 import { Placeholder } from "@tiptap/extensions";
 import { Color, TextStyle } from "@tiptap/extension-text-style";
@@ -200,3 +202,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 Fancybox.bind("[data-fancybox]", {});
+Observer.start();
