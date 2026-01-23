@@ -11,7 +11,7 @@
       <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="mb-14 space-y-6 text-center sm:mb-20 lg:mb-24">
           <div class="flex justify-center">
-            <span class="rounded-full bg-green-500 px-4 py-1 text-sm font-medium text-white shadow">
+            <span class="bg-primary text-primary-content rounded-full px-4 py-1 text-sm font-medium shadow">
               Fasilitas Sekolah
             </span>
           </div>

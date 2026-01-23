@@ -11,7 +11,7 @@
       <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="mb-14 space-y-6 text-center sm:mb-20 lg:mb-24">
           <div class="flex justify-center">
-            <span class="rounded-full bg-green-500 px-4 py-1 text-sm font-medium text-white shadow">
+            <span class="bg-primary text-primary-content rounded-full px-4 py-1 text-sm font-medium shadow">
               Ekskul
             </span>
           </div>
@@ -28,7 +28,7 @@
           @forelse (Ekskul::all() as $ekskul)
             <article
               class="bg-base-100 group relative overflow-hidden rounded-3xl border shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-              <div class="absolute left-0 top-0 h-full w-1 bg-green-500"></div>
+              <div class="bg-primary absolute left-0 top-0 h-full w-1"></div>
               <figure class="relative overflow-hidden">
                 <a data-fancybox="{{ $ekskul->name }}" data-caption="{{ $ekskul->name }} - {{ $loop->iteration }}"
                   href="{{ asset("storage/$ekskul->photo") }}">
