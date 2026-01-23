@@ -23,7 +23,7 @@
         <ul class="accordion menu menu-sm gap-1 p-3">
           <li>
             <a href="{{ route('dashboard') }}" @class(['px-2', 'menu-active' => Route::is('dashboard')])>
-              <span class="icon-[tabler--news] size-4.5"></span>
+              <span class="icon-[tabler--layout-dashboard] size-4.5"></span>
               <span class="grow">Dashboard</span>
             </a>
           </li>
@@ -68,6 +68,18 @@
             </a>
           </li>
           <li>
+            <a href="{{ route('ekskul.index') }}" @class([
+                'px-2',
+                'menu-active' =>
+                    Route::is('ekskul.index') ||
+                    Route::is('ekskul.create') ||
+                    Route::is('ekskul.edit'),
+            ])>
+              <span class="icon-[tabler--compass] size-4.5"></span>
+              <span class="grow">Ekstrakurikuler</span>
+            </a>
+          </li>
+          <li>
             <a href="{{ route('guru-staff.index') }}" @class([
                 'px-2',
                 'menu-active' =>
@@ -75,7 +87,7 @@
                     Route::is('guru-staff.create') ||
                     Route::is('guru-staff.edit'),
             ])>
-              <span class="icon-[tabler--users] size-4.5"></span>
+              <span class="icon-[tabler--users-group] size-4.5"></span>
               <span class="grow">Guru dan Staff</span>
             </a>
           </li>
@@ -89,7 +101,7 @@
                 'inline-flex w-full items-center px-2',
                 'menu-active' => Route::is('setting.general.edit'),
             ])>
-              <span class="icon-[tabler--message] size-4.5"></span>
+              <span class="icon-[tabler--info-circle] size-4.5"></span>
               <span class="grow">Informasi Umum</span>
             </a>
           </li>
@@ -98,7 +110,7 @@
                 'inline-flex w-full items-center px-2',
                 'menu-active' => Route::is('setting.visi-misi.edit'),
             ])>
-              <span class="icon-[tabler--message] size-4.5"></span>
+              <span class="icon-[tabler--telescope] size-4.5"></span>
               <span class="grow">Visi dan Misi</span>
             </a>
           </li>
@@ -119,7 +131,7 @@
               Route::is('wakil-kepala-sekolah.edit')
                   ? 'true'
                   : 'false' }}">
-              <span class="icon-[tabler--book] size-4.5"></span>
+              <span class="icon-[tabler--sitemap] size-4.5"></span>
               <span class="grow">Struktur Organisasi</span>
               <span
                 class="icon-[tabler--chevron-right] accordion-item-active:rotate-90 size-4.5 shrink-0 transition-transform duration-300 rtl:rotate-180"></span>
@@ -140,7 +152,7 @@
                       'inline-flex w-full items-center px-2',
                       'menu-active' => Route::is('setting.struktur.kepala-sekolah.edit'),
                   ])>
-                    <span class="icon-[tabler--settings] size-4.5"></span>
+                    <span class="icon-[tabler--briefcase] size-4.5"></span>
                     <span>Kepala Sekolah</span>
                   </a>
                 </li>
@@ -152,7 +164,7 @@
                           Route::is('wakil-kepala-sekolah.create') ||
                           Route::is('wakil-kepala-sekolah.edit'),
                   ])>
-                    <span class="icon-[tabler--settings] size-4.5"></span>
+                    <span class="icon-[tabler--cat] size-4.5"></span>
                     <span>Wakil Kepala Sekolah</span>
                   </a>
                 </li>
@@ -164,7 +176,7 @@
                 'inline-flex w-full items-center px-2',
                 'menu-active' => Route::is('setting.akun.edit'),
             ])>
-              <span class="icon-[tabler--message] size-4.5"></span>
+              <span class="icon-[tabler--user] size-4.5"></span>
               <span class="grow">Akun</span>
             </a>
           </li>
