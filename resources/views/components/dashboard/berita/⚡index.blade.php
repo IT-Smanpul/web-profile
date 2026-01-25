@@ -43,7 +43,7 @@ new class extends Component
   <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
     @forelse ($this->articles as $article)
       <div
-        class="bg-base-100 group overflow-hidden rounded-2xl border shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+        class="bg-base-100 group relative overflow-hidden rounded-2xl border shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
         <div class="relative h-40 overflow-hidden">
           <img class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
             src="{{ asset("storage/$article->thumbnail") }}" alt="{{ $article->title }}" />
@@ -52,7 +52,7 @@ new class extends Component
             {{ $article->published ? 'Published' : 'Draft' }}
           </span>
         </div>
-        <div class="space-y-3 p-5">
+        <div class="p-5 pb-16">
           <div class="flex items-center gap-2">
             <div class="avatar">
               <div class="size-10 rounded-full">
@@ -62,82 +62,69 @@ new class extends Component
               </div>
             </div>
             <div class="flex flex-col">
-              <span class="text-base-content pt-1 text-sm">
+              <span class="text-sm font-medium">
                 {{ $article->author->name }}
               </span>
-              <span class="text-base-content/50 flex items-center justify-between text-xs">
+              <span class="text-base-content/50 text-xs">
                 {{ $article->created_at->translatedFormat('d F Y') }}
               </span>
             </div>
           </div>
-          <h3 class="line-clamp-2 font-semibold leading-snug">
+          <h3 class="mt-3 line-clamp-2 font-semibold">
             {{ $article->title }}
           </h3>
-          <p class="text-base-content/60 line-clamp-2 text-sm">
+          <p class="text-base-content/60 mt-1 line-clamp-2 text-sm">
             {{ Str::limit(strip_tags($article->content)) }}
           </p>
-          <div class="flex items-center justify-end gap-2 pt-2">
-            <div class="flex items-center gap-2 pt-2">
-              @if ($article->published)
-                <div class="tooltip">
-                  <button class="btn btn-sm btn-warning" type="button"
-                    @click="$dispatch('unpublish-article', { article: '{{ $article->slug }}'})">
-                    <span class="icon-[tabler--x] size-4"></span>
-                  </button>
-                  <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
-                    <span class="tooltip-body tooltip-warning">Batalkan Publish</span>
-                  </span>
-                </div>
-              @else
-                <div class="tooltip">
-                  <button class="btn btn-sm btn-success" type="button"
-                    @click="$dispatch('publish-article', {article: '{{ $article->slug }}'})">
-                    <span class="icon-[tabler--check] size-4"></span>
-                  </button>
-                  <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
-                    <span class="tooltip-body tooltip-success">Publish</span>
-                  </span>
-                </div>
-              @endif
-              @if ($article->published)
-                <div class="tooltip">
-                  <a class="btn btn-sm btn-accent" href="{{ route('berita.show', ['article' => $article->slug]) }}"
-                    target="_blank">
-                    <span class="icon-[tabler--external-link] size-4"></span>
-                  </a>
-                  <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
-                    <span class="tooltip-body tooltip-accent">Lihat Berita</span>
-                  </span>
-                </div>
-              @else
-                <div class="tooltip">
-                  <a class="btn btn-sm btn-accent" href="{{ route('berita.preview', ['article' => $article->slug]) }}">
-                    <span class="icon-[tabler--eye] size-4"></span>
-                  </a>
-                  <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
-                    <span class="tooltip-body tooltip-accent">Preview</span>
-                  </span>
-                </div>
-              @endif
-              <div class="tooltip">
-                <a class="btn btn-sm btn-soft btn-warning"
-                  href="{{ route('berita.edit', ['article' => $article->slug]) }}" title="Edit Berita">
-                  <span class="icon-[tabler--edit] size-4"></span>
-                </a>
-                <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
-                  <span class="tooltip-body tooltip-warning">Edit</span>
-                </span>
-              </div>
-              <div class="tooltip">
-                <button class="btn btn-sm btn-soft btn-error" id="delete-button" type="button" title="Hapus Berita"
-                  @click="$dispatch('delete-article', { article: '{{ $article->slug }}' })">
-                  <span class="icon-[tabler--trash] size-4"></span>
-                </button>
-                <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
-                  <span class="tooltip-body tooltip-error">Hapus</span>
-                </span>
-              </div>
+        </div>
+        <div class="absolute bottom-4 right-4 flex gap-2">
+          @if ($article->published)
+            <div class="tooltip">
+              <button class="tooltip-toggle btn btn-sm btn-warning" type="button" aria-label="Unpublish Berita"
+                @click="$dispatch('unpublish-article', { article: '{{ $article->slug }}' })">
+                <span class="icon-[tabler--x]"></span>
+              </button>
+              <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
+                <span class="tooltip-body tooltip-warning">Unpublish Berita</span>
+              </span>
             </div>
+          @else
+            <div class="tooltip">
+              <button class="tooltip-toggle btn btn-sm btn-primary" type="button" aria-label="Publish Berita"
+                @click="$dispatch('publish-article', { article: '{{ $article->slug }}' })">
+                <span class="icon-[tabler--check] size-4"></span>
+              </button>
+              <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
+                <span class="tooltip-body tooltip-primary">Publish</span>
+              </span>
+            </div>
+          @endif
+          <div class="tooltip">
+            <a class="btn btn-sm btn-accent" href="{{ route('berita.show', ['article' => $article->slug]) }}"
+              target="_blank">
+              <span class="icon-[tabler--external-link] size-4"></span>
+            </a>
+            <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
+              <span class="tooltip-body tooltip-accent">Lihat Berita</span>
+            </span>
+          </div>
+          <div class="tooltip">
+            <a class="btn btn-sm btn-soft btn-warning"
+              href="{{ route('berita.edit', ['article' => $article->slug]) }}">
+              <span class="icon-[tabler--edit] size-4"></span>
+            </a>
+            <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
+              <span class="tooltip-body tooltip-warning">Edit Berita</span>
+            </span>
+          </div>
+          <div class="tooltip">
+            <button class="btn btn-sm btn-soft btn-error"
+              @click="$dispatch('delete-article', { article: '{{ $article->slug }}' })">
+              <span class="icon-[tabler--trash] size-4"></span>
+            </button>
+            <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
+              <span class="tooltip-body tooltip-error">Hapus Berita</span>
+            </span>
           </div>
         </div>
       </div>
