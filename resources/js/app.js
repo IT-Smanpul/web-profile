@@ -1,4 +1,3 @@
-import "trix/dist/trix.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 import "flyonui/flyonui";
