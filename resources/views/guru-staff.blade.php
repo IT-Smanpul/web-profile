@@ -9,7 +9,7 @@
       <div class="bg-primary/20 pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full blur-3xl"></div>
       <div class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-green-400/20 blur-3xl"></div>
       <div class="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-        <span class="inline-block rounded-full bg-green-500 px-4 py-1 text-sm font-medium text-white shadow">
+        <span class="bg-primary text-primary-content inline-block rounded-full px-4 py-1 text-sm font-medium shadow">
           Personil Sekolah
         </span>
         <h1 class="mt-6 text-4xl font-bold md:text-5xl">
