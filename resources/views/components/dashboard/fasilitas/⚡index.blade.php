@@ -39,7 +39,7 @@ new class extends Component
       </a>
     </div>
   </div>
-  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  <div class="grid gap-6 sm:grid-cols-3 2xl:grid-cols-4">
     @forelse ($this->facilities as $facility)
       <div class="card card-border group">
         <figure class="relative h-44 overflow-hidden">
