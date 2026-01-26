@@ -1,7 +1,5 @@
 @extends('components.dashboard.layout')
 
-@section('title', 'Visi & Misi')
-
 @section('main')
   <div>
     <h2 class="text-xl font-semibold">Visi & Misi Sekolah</h2>
