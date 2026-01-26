@@ -27,6 +27,15 @@
               <span class="grow">Dashboard</span>
             </a>
           </li>
+          <li>
+            <a href="{{ route('dashboard.kritik-saran-masukkan') }}" @class([
+                'px-2',
+                'menu-active' => Route::is('dashboard.kritik-saran-masukkan'),
+            ])>
+              <span class="icon-[tabler--mail] size-4.5"></span>
+              <span class="grow">Kritik Saran dan Masukkan</span>
+            </a>
+          </li>
           <li
             class="text-base-content/50 before:bg-base-content/20 mt-2 p-2 text-xs uppercase before:absolute before:-start-3 before:top-1/2 before:h-0.5 before:w-2.5">
             Menu Utama
