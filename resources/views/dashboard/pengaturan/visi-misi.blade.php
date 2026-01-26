@@ -22,10 +22,10 @@
   </nav>
   <div class="mt-3">
     <div id="tabs-segment-1" role="tabpanel" aria-labelledby="tabs-segment-item-1">
-      <livewire:dashboard::pengaturan.visi />
+      <livewire:dashboard.pengaturan.visi />
     </div>
     <div class="hidden" id="tabs-segment-2" role="tabpanel" aria-labelledby="tabs-segment-item-2">
-      <livewire:dashboard::pengaturan.misi />
+      <livewire:dashboard.pengaturan.misi />
     </div>
   </div>
 @endsection

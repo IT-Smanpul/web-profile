@@ -1,5 +1,5 @@
 @extends('components.dashboard.layout')
 
 @section('main')
-  <livewire:dashboard::pengaturan.akun />
+  <livewire:dashboard.pengaturan.akun />
 @endsection

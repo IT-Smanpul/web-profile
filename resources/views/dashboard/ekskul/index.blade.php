@@ -1,5 +1,5 @@
 @extends('components.dashboard.layout')
 
 @section('main')
-  <livewire:dashboard::ekskul.index />
+  <livewire:dashboard.ekskul.index />
 @endsection
