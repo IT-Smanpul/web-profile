@@ -79,13 +79,13 @@ new class extends Component
               'btn-error' => $errors->has('photo'),
           ])>
             <span class="icon-[tabler--upload] size-4"></span>
-            Ganti Foto
+            Upload Foto
           </label>
           <input id="photo" type="file" @class(['hidden input', 'is-invalid' => $errors->has('photo')]) wire:model="photo">
           @error('photo')
             <span class="helper-text text-center">{{ $message }}</span>
           @else
-            <span class="helper-text text-center">Foto Formal (JPG / PNG, max 2MB)</span>
+            <span class="helper-text text-center">JPG / PNG, max 2MB</span>
           @enderror
         </div>
         <div class="space-y-4">
@@ -95,7 +95,7 @@ new class extends Component
                 'input input-bordered w-full',
                 'is-invalid' => $errors->has('name'),
             ])
-              placeholder="Contoh: Siti Aminah, S.Pd" />
+              placeholder="Paskibra" />
             @error('name')
               <span class="helper-text">{{ $message }}</span>
             @enderror
@@ -116,7 +116,7 @@ new class extends Component
         </div>
       </div>
       <div class="flex justify-end gap-3 pt-6">
-        <a class="btn btn-ghost" href="{{ route('guru-staff.index') }}">
+        <a class="btn btn-ghost" href="{{ route('ekskul.index') }}">
           Batal
         </a>
         <button class="btn btn-primary btn-gradient" type="submit">
