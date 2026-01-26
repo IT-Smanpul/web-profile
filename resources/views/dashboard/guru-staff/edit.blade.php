@@ -1,5 +1,5 @@
 @extends('components.dashboard.layout')
 
 @section('main')
-  <livewire:dashboard::guru-staff.edit :employee="$employee" />
+  <livewire:dashboard::guru-staff.edit :$employee />
 @endsection
