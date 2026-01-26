@@ -34,9 +34,34 @@
     color: var(--color-primary-content);
 }
 
+.filepond--root {
+    .filepond--credits {
+        @apply hidden;
+    }
 
-.trix-button-group--file-tools {
-    display: none !important;
+    .filepond--panel-root {
+        @apply bg-transparent border-2 border-dashed border-gray-300;
+    }
+
+    .filepond--drop-label {
+        @apply text-gray-400;
+    }
+
+    .filepond--drip-blob {
+        @apply bg-primary;
+    }
+
+    .filepond--item {
+        max-width: calc(33% - 1rem);
+    }
+}
+
+.add-documentation {
+    .filepond--root {
+        .filepond--item {
+            max-width: calc(50% - 1rem);
+        }
+    }
 }
 
 .tiptap p.is-editor-empty:first-child::before {
