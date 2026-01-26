@@ -21,6 +21,9 @@
           <li><a class="hover:text-primary" href="/fasilitas">Fasilitas</a></li>
           <li><a class="hover:text-primary" href="/prestasi">Prestasi</a></li>
           <li><a class="hover:text-primary" href="/berita">Berita</a></li>
+          <li>
+            <a class="hover:text-primary" href="{{ route('kritik-saran-masukkan') }}">Kritik Saran dan Masukkan</a>
+          </li>
         </ul>
       </div>
       <div class="">
