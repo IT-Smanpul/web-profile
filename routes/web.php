@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\EkskulController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\EmployeeController;
