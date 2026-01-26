@@ -39,11 +39,11 @@ new class extends Component
       </a>
     </div>
   </div>
-  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  <div class="grid gap-6 sm:grid-cols-3 2xl:grid-cols-4">
     @forelse ($this->facilities as $facility)
-      <div class="card card-border group">
+      <div class="card card-border group rounded-2xl">
         <figure class="relative h-44 overflow-hidden">
-          <img class="transition-transform duration-500 group-hover:scale-110"
+          <img class="size-full transition-transform duration-500 group-hover:scale-110"
             src="{{ asset("storage/$facility->image") }}" alt="Shoes" />
         </figure>
         <div class="card-body">

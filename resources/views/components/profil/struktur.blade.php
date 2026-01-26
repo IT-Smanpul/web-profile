@@ -3,7 +3,7 @@
   <div class="bg-primary/20 pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full blur-3xl"></div>
   <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
     <div class="mb-16 space-y-4 text-center">
-      <span class="inline-block rounded-full bg-green-500 px-4 py-1 text-sm font-medium text-white shadow">
+      <span class="bg-primary text-primary-content inline-block rounded-full px-4 py-1 text-sm font-medium shadow">
         Struktur Organisasi
       </span>
       <h2 class="text-3xl font-bold md:text-4xl">

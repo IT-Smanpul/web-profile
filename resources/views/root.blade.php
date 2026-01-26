@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="scroll-smooth" data-theme="light" lang="en" dir="ltr">
+<html class="scroll-smooth" data-theme="corporate" lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport"

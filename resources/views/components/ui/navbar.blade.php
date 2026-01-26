@@ -19,12 +19,40 @@
         class="lg:navbar-center transition-height collapse hidden grow overflow-hidden font-medium duration-300 lg:flex"
         id="navbar-block-4">
         <div class="text-base-content flex gap-6 text-base max-lg:mt-4 max-lg:flex-col lg:items-center">
-          <a class="hover:text-primary nav-link" href="/">Beranda</a>
-          <a class="hover:text-primary nav-link" href="/#profil">Profil Sekolah</a>
-          <a class="hover:text-primary nav-link" href="/#akademik">Akademik</a>
-          <a class="hover:text-primary nav-link" href="/#fasilitas">Fasilitas</a>
-          <a class="hover:text-primary nav-link" href="/#prestasi">Prestasi</a>
-          <a class="hover:text-primary nav-link" href="/#berita">Berita</a>
+          <a href="/" @class([
+              'hover:text-primary nav-link',
+              'text-primary' => Request::is('/'),
+          ])>Beranda</a>
+          <a href="{{ route('profil') }}" @class([
+              'hover:text-primary nav-link',
+              'text-primary' => Route::is('profil'),
+          ])>
+            Profil Sekolah
+          </a>
+          <a href="{{ route('fasilitas') }}" @class([
+              'hover:text-primary nav-link',
+              'text-primary' => Route::is('fasilitas'),
+          ])>
+            Fasilitas
+          </a>
+          <a href="{{ route('ekskul') }}" @class([
+              'hover:text-primary nav-link',
+              'text-primary' => Route::is('ekskul'),
+          ])>
+            Ekskul
+          </a>
+          <a href="{{ route('prestasi') }}" @class([
+              'hover:text-primary nav-link',
+              'text-primary' => Route::is('prestasi'),
+          ])>
+            Prestasi
+          </a>
+          <a href="{{ route('berita') }}" @class([
+              'hover:text-primary nav-link',
+              'text-primary' => Route::is('berita'),
+          ])>
+            Berita
+          </a>
         </div>
       </div>
       <div class="navbar-end max-lg:hidden">

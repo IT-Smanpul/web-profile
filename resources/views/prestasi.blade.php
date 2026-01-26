@@ -5,7 +5,7 @@
 @section('content')
   <x-ui.navbar />
   <main>
-    <div class="bg-base-200 relative overflow-hidden py-12 sm:py-20 lg:py-28">
+    <div class="bg-base-200 relative overflow-hidden pb-12 pt-28 sm:pb-20 lg:pb-28">
       <div
         class="bg-primary/20 size-136 pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 rounded-full blur-3xl">
       </div>
@@ -14,7 +14,7 @@
       <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="mb-14 space-y-6 text-center sm:mb-20 lg:mb-24">
           <div class="flex justify-center">
-            <span class="rounded-full bg-green-500 px-4 py-1 text-sm font-medium text-white shadow">
+            <span class="bg-primary text-primary-content rounded-full px-4 py-1 text-sm font-medium shadow">
               Prestasi Sekolah
             </span>
           </div>
@@ -36,7 +36,7 @@
                 <span @class([
                     'absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-medium text-white backdrop-blur',
                     'bg-primary/90' => $achievement->category === 'Akademik',
-                    'bg-yellow-500/90' => $achievement->category === 'Non-Akademik',
+                    'bg-secondary/90' => $achievement->category === 'Non-Akademik',
                 ])>
                   {{ Str::ucfirst($achievement->category) }}
                 </span>
@@ -60,6 +60,7 @@
         </div>
       </div>
     </div>
+
   </main>
   <x-ui.footer />
 @endsection

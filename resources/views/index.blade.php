@@ -12,6 +12,9 @@
     <section id="akademik">
       <x-beranda.akademik />
     </section>
+    <section>
+      <x-beranda.ekskul />
+    </section>
     <section id="fasilitas">
       <x-beranda.fasilitas />
     </section>

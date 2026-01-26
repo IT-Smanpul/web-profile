@@ -39,15 +39,15 @@ new class extends Component
       </a>
     </div>
   </div>
-  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  <div class="grid gap-6 sm:grid-cols-3 2xl:grid-cols-4">
     @forelse ($this->achievements as $achievement)
-      <div class="card card-border group">
+      <div class="card card-border group rounded-2xl">
         <figure class="relative h-44 overflow-hidden">
-          <img class="transition-transform duration-500 group-hover:scale-110"
+          <img class="size-full transition-transform duration-500 group-hover:scale-110"
             src="{{ asset("storage/$achievement->image") }}" alt="Shoes" />
         </figure>
         <span @class([
-            'badge absolute left-2 top-2 rounded-full',
+            'badge absolute left-3 top-3 rounded-full',
             'badge-primary' => $achievement->category === 'Akademik',
             'badge-secondary' => $achievement->category === 'Non-Akademik',
         ])>{{ $achievement->category }}</span>

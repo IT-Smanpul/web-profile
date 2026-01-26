@@ -8,7 +8,7 @@
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid gap-20 lg:grid-cols-2">
       <div class="relative">
-        <div class="mb-6 h-1 w-16 rounded-full bg-green-500"></div>
+        <div class="bg-primary mb-6 h-1 w-16 rounded-full"></div>
         <span class="text-base-content/50 text-sm font-medium uppercase tracking-widest">Visi</span>
         <h2 class="mt-4 text-4xl font-bold leading-tight md:text-5xl">
           Visi Sekolah
@@ -22,7 +22,7 @@
         </p>
       </div>
       <div class="relative">
-        <div class="mb-6 h-1 w-16 rounded-full bg-green-500"></div>
+        <div class="bg-primary mb-6 h-1 w-16 rounded-full"></div>
         <span class="text-base-content/50 text-sm font-medium uppercase tracking-widest">Misi</span>
         <h2 class="mt-4 text-4xl font-bold leading-tight md:text-5xl">
           Misi Sekolah
@@ -30,7 +30,7 @@
         <ul class="mt-8 space-y-6">
           @foreach ($missions as $mission)
             <li class="flex gap-4">
-              <span class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-green-500"></span>
+              <span class="bg-primary mt-2 h-2 w-2 flex-shrink-0 rounded-full"></span>
               <p class="text-base-content/80 leading-relaxed">
                 {{ $mission->content }}
               </p>

@@ -1,7 +1,8 @@
-import "trix/dist/trix.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 import "flyonui/flyonui";
+
+import { Observer } from "tailwindcss-intersect";
 
 import { Editor } from "@tiptap/core";
 import { Placeholder } from "@tiptap/extensions";
@@ -157,27 +158,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-link");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 80; // Adjust for fixed navbar height
-    if (scrollY >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.remove("text-primary");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("text-primary");
-    }
-  });
-});
-
 // Scroll to top button
 document.addEventListener("DOMContentLoaded", () => {
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -200,3 +180,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 Fancybox.bind("[data-fancybox]", {});
+Observer.start();

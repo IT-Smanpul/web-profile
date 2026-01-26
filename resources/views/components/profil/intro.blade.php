@@ -1,10 +1,10 @@
 <section class="bg-base-200 relative min-h-dvh overflow-hidden">
-  <div class="bg-primary/20 pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full blur-3xl"></div>
-  <div class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-green-400/20 blur-3xl"></div>
-  <div class="relative flex min-h-dvh items-center">
+  <div class="bg-primary/20 pointer-events-none absolute -left-40 -top-40 size-96 rounded-full blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-40 -right-40 size-96 rounded-full bg-green-400/20 blur-3xl"></div>
+  <div class="relative pb-24 pt-28">
     <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-4xl space-y-6 text-center">
-        <span class="inline-block rounded-full bg-green-500 px-4 py-1 text-sm font-medium text-white shadow">
+        <span class="bg-primary text-primary-content inline-block rounded-full px-4 py-1 text-sm font-medium shadow">
           Profil Sekolah
         </span>
         <h1 class="text-base-content text-4xl font-bold md:text-5xl">

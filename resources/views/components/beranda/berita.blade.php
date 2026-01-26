@@ -13,7 +13,7 @@
   <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="mb-14 space-y-6 text-center sm:mb-20">
       <div class="flex justify-center">
-        <span class="rounded-full bg-green-500 px-4 py-1 text-sm font-medium text-white shadow">
+        <span class="bg-primary text-primary-content rounded-full px-4 py-1 text-sm font-medium shadow">
           Berita & Kegiatan
         </span>
       </div>
@@ -21,7 +21,7 @@
         Informasi Terbaru Sekolah
       </h2>
       <p class="text-base-content/80 mx-auto max-w-3xl text-lg leading-relaxed md:text-xl">
-        Informasi terbaru seputar kegiatan sekolah serta berbagai momen kebersamaan di SMA Negeri 10 Pontianak.
+        Menyajikan informasi terbaru seputar pengumuman dan perkembangan sekolah.
       </p>
     </div>
     @if (!$featured && $articles->isEmpty())

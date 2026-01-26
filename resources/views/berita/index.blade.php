@@ -9,7 +9,7 @@
 @section('content')
   <x-ui.navbar />
   <main>
-    <div class="bg-base-200 relative overflow-hidden py-12 sm:py-20 lg:py-28">
+    <div class="bg-base-200 relative overflow-hidden pb-12 pt-28 sm:pb-20 lg:pb-28">
       <div
         class="bg-primary/20 size-136 pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 rounded-full blur-3xl">
       </div>
@@ -34,6 +34,8 @@
           @forelse ($articles as $article)
             <article
               class="bg-base-100 group relative overflow-hidden rounded-3xl shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+              <a class="absolute inset-0 z-10" href="{{ route('berita.show', ['article' => $article->slug]) }}"
+                aria-label="Baca berita: {{ $article->title }}"></a>
               <div class="absolute inset-0 opacity-0 transition group-hover:opacity-100">
                 <div class="bg-primary/20 absolute -right-20 -top-20 h-40 w-40 rounded-full blur-2xl"></div>
               </div>
@@ -52,11 +54,10 @@
                   <span>
                     {{ $article->created_at->diffForHumans() }}
                   </span>
-                  <a class="text-primary inline-flex items-center gap-1 font-medium"
-                    href="{{ route('berita.show', $article->slug) }}">
+                  <span class="text-primary inline-flex items-center gap-1 font-medium">
                     Baca Selengkapnya
                     <span class="icon-[tabler--arrow-right] size-4"></span>
-                  </a>
+                  </span>
                 </div>
               </div>
             </article>

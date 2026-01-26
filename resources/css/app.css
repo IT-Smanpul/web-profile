@@ -2,7 +2,9 @@
 @import 'tailwindcss-intersect';
 @import 'flyonui/variants.css';
 
-@plugin "flyonui";
+@plugin "flyonui" {
+    themes: light --default, corporate;
+}
 @plugin "@iconify/tailwind4";
 @plugin "tailwindcss-motion";
 
@@ -35,6 +37,14 @@
 
 .trix-button-group--file-tools {
     display: none !important;
+}
+
+.tiptap p.is-editor-empty:first-child::before {
+    color: #adb5bd;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
 }
 
 
