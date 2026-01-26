@@ -19,7 +19,13 @@ new class extends Component
 
     public function save(): void
     {
-        $this->dahlah(Collection::make($this->validate()));
+        $data = Collection::make($this->validate());
+
+        $data->put('image', $this->image->store('images/fasilitas'));
+
+        Facility::create($data->all());
+
+        $this->redirectRoute('fasilitas.index');
     }
 
     protected function rules(): array
@@ -29,15 +35,6 @@ new class extends Component
             'description' => ['required', 'string'],
             'image' => ['required', File::image()->max(2048)],
         ];
-    }
-
-    private function dahlah(Collection $data): void
-    {
-        $data->put('image', $this->image->store('images/fasilitas'));
-
-        Facility::create($data->all());
-
-        $this->redirectRoute('fasilitas.index');
     }
 };
 ?>
