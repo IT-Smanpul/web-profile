@@ -24,6 +24,7 @@ Route::view('/prestasi', 'prestasi', ['title' => setTitle('Prestasi')])->name('p
 Route::view('/berita', 'berita.index', ['title' => setTitle('Berita')])->name('berita');
 Route::view('/guru-staff', 'guru-staff', ['title' => setTitle('Guru dan Staff')])->name('guru-staff');
 Route::view('/ekskul', 'ekskul', ['title' => setTitle('Ekstrakurikuler')])->name('ekskul');
+Route::view('/kritik-saran-masukkan', 'kritik-saran-masukkan', ['title' => setTitle('Kritik Saran dan Masukkan')])->name('kritik-saran-masukkan');
 
 Route::get('/berita/{article}', [ArticleController::class, 'show'])->name('berita.show');
 
@@ -36,6 +37,9 @@ Route::middleware('auth')->group(function () {
     Route::prefix('dashboard')->group(function () {
         // Dashboard
         Route::get('/', DashboardController::class)->name('dashboard');
+
+        // Kritik Saran dan Masukkan
+        Route::view('/kritik-saran-masukkan', 'dashboard.kritik-saran-masukkan')->name('dashboard.kritik-saran-masukkan');
 
         // Berita
         Route::get('/berita/{article}/preview', [ArticleController::class, 'preview'])->name('berita.preview');
