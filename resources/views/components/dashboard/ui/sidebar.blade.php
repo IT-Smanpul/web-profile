@@ -33,7 +33,7 @@
                 'menu-active' => Route::is('dashboard.kritik-saran-masukan'),
             ])>
               <span class="icon-[tabler--mail] size-4.5"></span>
-              <span class="grow">Kritik Saran dan Masukkan</span>
+              <span class="grow">Kritik Saran dan Masukan</span>
             </a>
           </li>
           <li
