@@ -1,22 +1,19 @@
-@use('App\Models\Suggestions')
+@use('App\Models\Suggestion')
 
 @php
-  $suggestions = Suggestions::orderBy('created_at', 'desc')->paginate(10);
+  $suggestions = Suggestion::orderBy('created_at', 'desc')->paginate(10);
 @endphp
 
 @extends('components.dashboard.layout')
 
 @section('main')
   <div class="space-y-8">
-
-    {{-- HEADER --}}
     <div>
       <h2 class="text-xl font-semibold">Kotak Saran</h2>
       <p class="text-base-content/60 text-sm">
         Kritik, saran, dan masukan untuk SMAN 10 Pontianak
       </p>
     </div>
-
     @if ($suggestions->isEmpty())
       <div class="rounded-xl border border-dashed p-10 text-center">
         <p class="text-base-content/60">
