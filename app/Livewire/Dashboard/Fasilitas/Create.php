@@ -4,6 +4,7 @@ namespace App\Livewire\Dashboard\Fasilitas;
 
 use Livewire\Component;
 use App\Models\Facility;
+use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
@@ -28,14 +29,18 @@ class Create extends Component
     {
         $data = Collection::make($this->validate());
 
-        $data->put('image', $this->image->store("images/fasilitas/$this->name"));
+        // Generate directory_slug once
+        $directorySlug = (string) Str::uuid();
+        $data->put('directory_slug', $directorySlug);
 
-        if (! Storage::directoryExists("images/fasilitas/$this->name/galeri")) {
-            Storage::makeDirectory("images/fasilitas/$this->name/galeri");
+        $data->put('image', $this->image->store("images/fasilitas/{$directorySlug}"));
+
+        if (! Storage::directoryExists("images/fasilitas/{$directorySlug}/galeri")) {
+            Storage::makeDirectory("images/fasilitas/{$directorySlug}/galeri");
         }
 
         foreach ($data->get('galleries') as $gallery) {
-            Storage::putFile("images/fasilitas/$this->name/galeri", $gallery);
+            Storage::putFile("images/fasilitas/{$directorySlug}/galeri", $gallery);
         }
 
         Facility::create($data->all());

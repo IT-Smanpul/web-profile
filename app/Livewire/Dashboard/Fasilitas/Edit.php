@@ -42,18 +42,18 @@ class Edit extends Component
                 Storage::delete($this->facility->image);
             }
 
-            $data->put('image', $this->image->store("images/fasilitas/{$this->facility->name}"));
+            $data->put('image', $this->image->store("images/fasilitas/{$this->facility->directory_slug}"));
         } else {
             $data->forget(['image']);
         }
 
         if (! blank($data->get('galleries'))) {
-            if (Storage::directoryExists("images/fasilitas/{$this->facility->name}/galeri")) {
-                Storage::deleteDirectory("images/fasilitas/{$this->facility->name}/galeri");
+            if (Storage::directoryExists("images/fasilitas/{$this->facility->directory_slug}/galeri")) {
+                Storage::deleteDirectory("images/fasilitas/{$this->facility->directory_slug}/galeri");
             }
 
             foreach ($data->get('galleries') as $gallery) {
-                Storage::putFile("images/fasilitas/{$this->facility->name}/galeri", $gallery);
+                Storage::putFile("images/fasilitas/{$this->facility->directory_slug}/galeri", $gallery);
             }
         } else {
             $data->forget(['galleries']);
