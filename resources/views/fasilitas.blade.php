@@ -1,5 +1,3 @@
-@use('App\Models\Facility')
-
 @extends('root')
 
 @section('content')
@@ -24,7 +22,7 @@
           </p>
         </div>
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          @forelse (Facility::all() as $facility)
+          @forelse ($facilities as $facility)
             <div
               class="bg-base-100 group overflow-hidden rounded-3xl border shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
               <div class="relative h-56 overflow-hidden">
@@ -58,6 +56,11 @@
             </div>
           @endforelse
         </div>
+        @if ($facilities->hasPages())
+          <div class="mt-16 flex justify-center">
+            {{ $facilities->links() }}
+          </div>
+        @endif
       </div>
     </section>
   </main>
