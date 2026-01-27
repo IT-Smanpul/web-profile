@@ -13,9 +13,11 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\AchievementController;
 use App\Http\Controllers\Dashboard\Setting\WakaController;
 
-function setTitle(string $title): string
-{
-    return "$title - ".Config::get('app.name');
+if (! function_exists('setTitle')) {
+    function setTitle(string $title): string
+    {
+        return "$title - ".Config::get('app.name');
+    }
 }
 
 Route::view('/', 'index');
