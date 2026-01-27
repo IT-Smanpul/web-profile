@@ -28,17 +28,19 @@ class Create extends Component
     {
         $data = Collection::make($this->validate());
 
-        $data->put('image', $this->image->store("images/fasilitas/$this->name"));
+        $facility = Facility::make($data->all());
 
-        if (! Storage::directoryExists("images/fasilitas/$this->name/galeri")) {
-            Storage::makeDirectory("images/fasilitas/$this->name/galeri");
+        $data->put('image', $this->image->store("images/fasilitas/{$facility->directory_slug}"));
+
+        if (! Storage::directoryExists("images/fasilitas/{$facility->directory_slug}/galeri")) {
+            Storage::makeDirectory("images/fasilitas/{$facility->directory_slug}/galeri");
         }
 
         foreach ($data->get('galleries') as $gallery) {
-            Storage::putFile("images/fasilitas/$this->name/galeri", $gallery);
+            Storage::putFile("images/fasilitas/{$facility->directory_slug}/galeri", $gallery);
         }
 
-        Facility::create($data->all());
+        $facility->save();
 
         $this->redirectRoute('fasilitas.index');
     }
