@@ -1,25 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Article;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Config;
+use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
-    private string $appName;
-
-    public function __construct()
-    {
-        $this->appName = Config::get('app.name');
-    }
-
     public function index(): View
     {
         return view('dashboard.berita.index', [
             'title' => "Berita - $this->appName",
-            'articles' => Article::latest()->paginate(6),
         ]);
     }
 

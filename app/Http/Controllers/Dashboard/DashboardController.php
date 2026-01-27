@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Contracts\View\View;
 
-class DashboardController extends Controller
+class DashboardController
 {
     public function __invoke(): View
     {
