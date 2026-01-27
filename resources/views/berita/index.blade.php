@@ -1,9 +1,3 @@
-@use('App\Models\Article')
-
-@php
-  $articles = Article::published()->latest()->paginate(9);
-@endphp
-
 @extends('root')
 
 @section('content')
