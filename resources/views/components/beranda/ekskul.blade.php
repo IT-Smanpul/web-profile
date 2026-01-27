@@ -22,7 +22,7 @@
       </p>
     </div>
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      @forelse (Ekskul::all() as $ekskul)
+      @forelse (Ekskul::take(6)->get() as $ekskul)
         <article class="bg-base-100 group rounded-3xl border shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
           <div class="relative overflow-hidden rounded-3xl">
             <div class="bg-primary absolute left-0 top-0 h-full w-1"></div>
@@ -32,8 +32,8 @@
                 <img class="h-full w-full object-cover" src="{{ asset("storage/$ekskul->photo") }}"
                   alt="{{ $ekskul->name }}" />
               </a>
-              @if (Storage::directoryExists("images/ekskul/$ekskul->name/galeri"))
-                @foreach (Storage::files("images/ekskul/$ekskul->name/galeri") as $file)
+              @if (Storage::directoryExists("images/ekskul/$ekskul->id/galeri"))
+                @foreach (Storage::files("images/ekskul/$ekskul->id/galeri") as $file)
                   <a class="block h-full w-full" data-fancybox="{{ $ekskul->name }}"
                     href="{{ asset("storage/$file") }}">
                     <img class="h-full w-full object-cover" src="{{ asset("storage/$file") }}"
