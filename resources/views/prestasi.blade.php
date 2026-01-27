@@ -60,7 +60,6 @@
         </div>
       </div>
     </div>
-
   </main>
   <x-ui.footer />
 @endsection
