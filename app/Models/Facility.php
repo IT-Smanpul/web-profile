@@ -18,15 +18,6 @@ class Facility extends Model
 
     protected $fillable = ['name', 'description', 'image', 'directory_slug'];
 
-    protected static function booted(): void
-    {
-        static::creating(function (Facility $facility) {
-            if (empty($facility->directory_slug)) {
-                $facility->directory_slug = (string) Str::uuid();
-            }
-        });
-    }
-
     #[Scope]
     protected function searchBy(Builder $query, string $column, string $keyword): Builder
     {
