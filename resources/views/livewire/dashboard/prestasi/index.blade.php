@@ -20,7 +20,7 @@
       <div class="card card-border group rounded-2xl">
         <figure class="relative h-44 overflow-hidden">
           <img class="size-full transition-transform duration-500 group-hover:scale-110"
-            src="{{ asset("storage/$achievement->image") }}" alt="Shoes" />
+            src="{{ asset("storage/$achievement->photo") }}" alt="{{ $achievement->name }}" />
         </figure>
         <span @class([
             'badge absolute left-3 top-3 rounded-full',
