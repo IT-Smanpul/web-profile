@@ -20,13 +20,13 @@ class Create extends Component
 
     public string $description = '';
 
-    public ?TemporaryUploadedFile $image = null;
+    public ?TemporaryUploadedFile $photo = null;
 
     public function save(): void
     {
         $data = Collection::make($this->validate());
 
-        $data->put('image', $this->image->store('images/prestasi'));
+        $data->put('photo', $this->photo->store('images/prestasi'));
 
         Achievement::create($data->all());
 
@@ -39,7 +39,7 @@ class Create extends Component
             'name' => ['required', 'string', 'max:255'],
             'category' => ['required', 'in:Akademik,Non-Akademik'],
             'description' => ['required', 'string'],
-            'image' => ['required', File::image()->max(2048)],
+            'photo' => ['required', File::image()->max(2048)],
         ];
     }
 

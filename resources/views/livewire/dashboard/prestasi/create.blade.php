@@ -21,10 +21,10 @@
         <div class="space-y-4">
           <div @class([
               'bg-base-200 flex aspect-video items-center justify-center overflow-hidden rounded-2xl border',
-              'border-error' => $errors->has('image'),
+              'border-error' => $errors->has('photo'),
           ])>
-            @if ($image)
-              <img class="h-full w-full object-cover" src="{{ $image->temporaryUrl() }}" alt="Preview Prestasi" />
+            @if ($photo)
+              <img class="h-full w-full object-cover" src="{{ $photo->temporaryUrl() }}" alt="Preview Prestasi" />
             @else
               <div class="text-base-content/40 text-center text-sm">
                 Preview Foto
@@ -33,14 +33,14 @@
           </div>
           <label @class([
               'btn btn-outline w-full cursor-pointer gap-2',
-              'btn-primary' => !$errors->has('image'),
-              'btn-error' => $errors->has('image'),
+              'btn-primary' => !$errors->has('photo'),
+              'btn-error' => $errors->has('photo'),
           ])>
             <span class="icon-[tabler--upload] size-5"></span>
             Pilih Foto
-            <input class="@error('image') is-invalid @enderror hidden" type="file" wire:model="image" />
+            <input class="@error('hoto') is-invalid @enderror hidden" type="file" wire:model="photo" />
           </label>
-          @error('image')
+          @error('photo')
             <p class="helper-text">{{ $message }}</p>
           @else
             <p class="helper-text">
