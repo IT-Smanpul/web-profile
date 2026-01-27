@@ -2,15 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Config;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\Setting\WakaController;
 use App\Http\Controllers\Dashboard\EkskulController;
 use App\Http\Controllers\Dashboard\ArticleController;
 use App\Http\Controllers\Dashboard\EmployeeController;
 use App\Http\Controllers\Dashboard\FacilityController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\AchievementController;
+use App\Http\Controllers\Dashboard\Setting\WakaController;
 
 function setTitle(string $title): string
 {
@@ -19,11 +20,11 @@ function setTitle(string $title): string
 
 Route::view('/', 'index');
 Route::view('/profil', 'profil', ['title' => setTitle('Profil')])->name('profil');
-Route::view('/fasilitas', 'fasilitas', ['title' => setTitle('Fasilitas')])->name('fasilitas');
-Route::view('/prestasi', 'prestasi', ['title' => setTitle('Prestasi')])->name('prestasi');
-Route::view('/berita', 'berita.index', ['title' => setTitle('Berita')])->name('berita');
+Route::get('/fasilitas', [HomeController::class, 'fasilitas'])->name('fasilitas');
+Route::get('/ekskul', [HomeController::class, 'ekskul'])->name('ekskul');
+Route::get('/prestasi', [HomeController::class, 'prestasi'])->name('prestasi');
+Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
 Route::view('/guru-staff', 'guru-staff', ['title' => setTitle('Guru dan Staff')])->name('guru-staff');
-Route::view('/ekskul', 'ekskul', ['title' => setTitle('Ekstrakurikuler')])->name('ekskul');
 Route::view('/kritik-saran-masukan', 'kritik-saran-masukan', ['title' => setTitle('Kritik Saran dan Masukan')])->name('kritik-saran-masukan');
 
 Route::get('/berita/{article}', [ArticleController::class, 'show'])->name('berita.show');
