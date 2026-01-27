@@ -23,27 +23,27 @@ class Edit extends Component
 
     public ?Achievement $achievement = null;
 
-    public ?TemporaryUploadedFile $image = null;
+    public ?TemporaryUploadedFile $photo = null;
 
     public function mount(Achievement $achievement): void
     {
         $this->achievement = $achievement;
 
-        $this->fill($achievement->except(['image']));
+        $this->fill($achievement->except(['photo']));
     }
 
     public function save(): void
     {
         $data = Collection::make($this->validate());
 
-        if (! is_null($data->get('image'))) {
-            if (Storage::exists($this->achievement->image)) {
-                Storage::delete($this->achievement->image);
+        if (! is_null($data->get('photo'))) {
+            if (Storage::exists($this->achievement->photo)) {
+                Storage::delete($this->achievement->photo);
             }
 
-            $data->put('image', $this->image->store('images/prestasi'));
+            $data->put('photo', $this->photo->store('images/prestasi'));
         } else {
-            $data->forget(['image']);
+            $data->forget(['photo']);
         }
 
         $this->achievement->update($data->all());
@@ -57,7 +57,7 @@ class Edit extends Component
             'name' => ['required', 'string', 'max:255'],
             'category' => ['required', 'in:Akademik,Non-Akademik'],
             'description' => ['required', 'string'],
-            'image' => ['nullable', File::image()->max(2048)],
+            'photo' => ['nullable', File::image()->max(2048)],
         ];
     }
 
