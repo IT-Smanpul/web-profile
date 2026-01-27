@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Setting;
+namespace App\Http\Controllers\Dashboard\Setting;
 
 use App\Models\SchoolStructure;
 use Illuminate\Contracts\View\View;
