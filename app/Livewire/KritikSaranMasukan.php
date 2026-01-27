@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Suggestions;
+use App\Models\Suggestion;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
@@ -18,9 +18,9 @@ class KritikSaranMasukan extends Component
     {
         $data = Collection::make($this->validate());
 
-        Suggestions::create($data->all());
+        Suggestion::create($data->all());
 
-        $this->redirectRoute('kritik-saran-masukkan');
+        $this->redirectRoute('kritik-saran-masukan');
     }
 
     protected function rules(): array
