@@ -1,5 +1,18 @@
 @extends('root')
 
+@section('meta')
+  <meta name="robots" content="index, follow" />
+  <meta name="description"
+    content="Daftar prestasi akademik dan non-akademik SMA Negeri 10 Pontianak sebagai bukti komitmen sekolah dalam mencetak siswa berprestasi dan berkarakter." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Prestasi Sekolah | SMA Negeri 10 Pontianak" />
+  <meta property="og:description"
+    content="Berbagai prestasi akademik dan non-akademik yang diraih oleh siswa SMA Negeri 10 Pontianak di tingkat kota, provinsi, hingga nasional." />
+  <meta property="og:url" content="{{ url()->current() }}" />
+  <meta property="og:image" content="{{ asset('img/og-prestasi.jpg') }}" />
+@endsection
+
 @section('content')
   <x-ui.navbar />
   <main>

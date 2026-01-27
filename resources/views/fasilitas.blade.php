@@ -1,11 +1,25 @@
 @extends('root')
 
+@section('meta')
+  <meta name="robots" content="index, follow" />
+  <meta name="description"
+    content="Daftar fasilitas SMA Negeri 10 Pontianak yang mendukung kegiatan belajar mengajar, meliputi ruang kelas, laboratorium, perpustakaan, dan sarana pendukung lainnya." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fasilitas Sekolah | SMA Negeri 10 Pontianak" />
+  <meta property="og:description"
+    content="Fasilitas lengkap SMA Negeri 10 Pontianak untuk menunjang pembelajaran yang nyaman, aman, dan berkualitas." />
+  <meta property="og:url" content="{{ url()->current() }}" />
+  <meta property="og:image" content="{{ asset('img/og-fasilitas.jpg') }}" />
+@endsection
+
 @section('content')
   <x-ui.navbar />
   <main>
     <section class="bg-base-200 relative overflow-hidden py-28 pb-20">
       <div class="bg-primary/20 pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full blur-3xl"></div>
-      <div class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-green-400/20 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-green-400/20 blur-3xl">
+      </div>
       <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="mb-14 space-y-6 text-center sm:mb-20 lg:mb-24">
           <div class="flex justify-center">

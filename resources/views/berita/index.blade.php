@@ -1,5 +1,18 @@
 @extends('root')
 
+@section('meta')
+  <meta name="robots" content="index, follow" />
+  <meta name="description"
+    content="Berita dan informasi terbaru seputar kegiatan, pengumuman, prestasi, dan aktivitas sekolah SMA Negeri 10 Pontianak." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Berita Sekolah | SMA Negeri 10 Pontianak" />
+  <meta property="og:description"
+    content="Ikuti berita dan informasi terbaru dari SMA Negeri 10 Pontianak terkait kegiatan sekolah, pengumuman penting, dan prestasi siswa." />
+  <meta property="og:url" content="{{ url()->current() }}" />
+  <meta property="og:image" content="{{ asset('img/og-berita.jpg') }}" />
+@endsection
+
 @section('content')
   <x-ui.navbar />
   <main>

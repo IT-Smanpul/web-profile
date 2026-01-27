@@ -1,5 +1,16 @@
 @extends('root')
 
+@section('meta')
+  <meta name="robots" content="index, follow" />
+  <meta name="description"
+    content="Website resmi SMA Negeri 10 Pontianak. Informasi profil sekolah, berita, prestasi dan kegiatan" />
+
+  <meta property="og:title" content="SMA Negeri 10 Pontianak">
+  <meta property="og:description" content="Website resmi SMA Negeri 10 Pontianak">
+  <meta property="og:url" content="{{ url()->current() }}">
+  <meta property="og:image" content="{{ asset('img/logo.png') }}">
+@endsection
+
 @section('content')
   <x-ui.navbar />
   <main>
