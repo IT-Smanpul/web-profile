@@ -36,8 +36,8 @@
                     <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                       src="{{ asset("storage/$ekskul->photo") }}" alt="{{ $ekskul->name }}" />
                   </a>
-                  @if (Storage::directoryExists("images/ekskul/$ekskul->name/galeri"))
-                    @foreach (Storage::files("images/ekskul/$ekskul->name/galeri") as $file)
+                  @if (Storage::directoryExists("images/ekskul/$ekskul->id/galeri"))
+                    @foreach (Storage::files("images/ekskul/$ekskul->id/galeri") as $file)
                       <a class="block h-full w-full" data-fancybox="{{ $ekskul->name }}"
                         href="{{ asset("storage/$file") }}">
                         <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
