@@ -46,13 +46,13 @@
           <div class="flex flex-col items-center gap-2">
             <span class="text-primary text-3xl font-bold" id="count1"></span>
             <p class="text-base-content/80 text-center text-sm">
-              Guru & Tenaga Pendidik
+              Guru
             </p>
           </div>
           <div class="flex flex-col items-center gap-2">
             <span class="text-primary text-3xl font-bold" id="count2"></span>
             <p class="text-base-content/80 text-center text-sm">
-              Peserta Didik Aktif
+              Murid Aktif
             </p>
           </div>
           <div class="flex flex-col items-center gap-2">
