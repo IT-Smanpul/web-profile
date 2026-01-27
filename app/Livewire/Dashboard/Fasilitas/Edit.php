@@ -55,9 +55,9 @@ class Edit extends Component
             foreach ($data->get('galleries', []) as $gallery) {
                 Storage::putFile("images/fasilitas/{$this->facility->id}/galeri", $gallery);
             }
-        }
 
-        $data->forget(['galleries']);
+            $data->forget(['galleries']);
+        }
 
         $this->facility->update($data->all());
 
