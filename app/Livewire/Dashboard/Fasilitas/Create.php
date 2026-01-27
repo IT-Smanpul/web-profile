@@ -22,23 +22,20 @@ class Create extends Component
 
     public array $galleries = [];
 
-    public ?TemporaryUploadedFile $image = null;
+    public ?TemporaryUploadedFile $photo = null;
 
     public function save(): void
     {
         $data = Collection::make($this->validate());
+        $facility = Facility::create($data->except(['photo'])->all());
 
-        $data->put('image', $this->image->store("images/fasilitas/$this->name"));
+        $data->put('photo', $this->photo->store("images/fasilitas/$facility->id"));
 
-        if (! Storage::directoryExists("images/fasilitas/$this->name/galeri")) {
-            Storage::makeDirectory("images/fasilitas/$this->name/galeri");
+        foreach ($data->get('galleries', []) as $gallery) {
+            Storage::putFile("images/fasilitas/$facility->id/galeri", $gallery);
         }
 
-        foreach ($data->get('galleries') as $gallery) {
-            Storage::putFile("images/fasilitas/$this->name/galeri", $gallery);
-        }
-
-        Facility::create($data->all());
+        $facility->update($data->only(['photo'])->all());
 
         $this->redirectRoute('fasilitas.index');
     }
@@ -48,7 +45,8 @@ class Create extends Component
         return [
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
-            'image' => ['required', File::image()->max(2048)],
+            'photo' => ['required', File::image()->max(2048)],
+            'galleries' => ['required', 'array'],
             'galleries.*' => File::image()->max('3mb'),
         ];
     }
