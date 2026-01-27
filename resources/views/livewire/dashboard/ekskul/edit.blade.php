@@ -35,12 +35,12 @@
             @endif
           </div>
           <label for="photo" @class([
-              'btn btn-sm btn-outline mx-auto mb-2 w-full cursor-pointer gap-2',
+              'btn btn-outline mx-auto mb-2 w-full cursor-pointer gap-2',
               'btn-primary' => !$errors->has('photo'),
               'btn-error' => $errors->has('photo'),
           ])>
             <span class="icon-[tabler--upload] size-4"></span>
-            Ganti Foto
+            Upload Foto
           </label>
           <input id="photo" type="file" @class(['hidden input', 'is-invalid' => $errors->has('photo')]) wire:model="photo">
           @error('photo')
@@ -74,6 +74,12 @@
               <span class="helper-text">tulis tulis ja inimah</span>
             @enderror
           </div>
+          <div>
+            <label class="label-text">Foto Pelengkap</label>
+            <x-filepond::upload placeholder="png, jpg, jpeg" wire:model="galleries" multiple allow-reorder
+              allow-file-type-validation accepted-file-types="image/png,image/jpeg,image/jpg" />
+            <p class="helper-text">kasih ja 1 foto pun tkpe</p>
+          </div>
         </div>
       </div>
       <div class="flex justify-end gap-3 pt-6">
@@ -86,4 +92,5 @@
       </div>
     </form>
   </div>
+  @filepondScripts
 </div>
