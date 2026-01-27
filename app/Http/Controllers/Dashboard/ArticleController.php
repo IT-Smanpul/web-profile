@@ -46,12 +46,4 @@ class ArticleController extends Controller
             'article' => $article,
         ]);
     }
-
-    public function preview(Article $article): View
-    {
-        return view('dashboard.berita.preview', [
-            'title' => "Preview Berita - $this->appName",
-            'article' => $article,
-        ]);
-    }
 }
