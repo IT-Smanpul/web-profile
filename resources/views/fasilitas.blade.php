@@ -28,12 +28,12 @@
             <div
               class="bg-base-100 group overflow-hidden rounded-3xl border shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
               <div class="relative h-56 overflow-hidden">
-                <a data-fancybox="{{ $facility->name }}" href="{{ asset("storage/$facility->image") }}">
-                  <img class="h-full w-full object-cover" src="{{ asset("storage/$facility->image") }}"
+                <a data-fancybox="{{ $facility->name }}" href="{{ asset("storage/$facility->photo") }}">
+                  <img class="h-full w-full object-cover" src="{{ asset("storage/$facility->photo") }}"
                     alt="{{ $facility->name }}" />
                 </a>
-                @if (Storage::directoryExists("images/fasilitas/$facility->name/galeri"))
-                  @foreach (Storage::files("images/fasilitas/$facility->name/galeri") as $file)
+                @if (Storage::directoryExists("images/fasilitas/$facility->id/galeri"))
+                  @foreach (Storage::files("images/fasilitas/$facility->id/galeri") as $file)
                     <a data-fancybox="{{ $facility->name }}" href="{{ asset("storage/$file") }}">
                       <img class="h-full w-full object-cover" src="{{ asset("storage/$file") }}"
                         alt="{{ $facility->name }}" />
