@@ -38,7 +38,7 @@ class HomeController extends Controller
     {
         return view('berita.index', [
             'title' => "Berita - $this->appName",
-            'articles' => Article::paginate(6),
+            'articles' => Article::published()->latest()->paginate(6),
         ]);
     }
 }
