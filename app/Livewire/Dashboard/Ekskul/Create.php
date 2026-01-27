@@ -27,18 +27,15 @@ class Create extends Component
     public function save(): void
     {
         $data = Collection::make($this->validate());
+        $ekskul = Ekskul::create($data->except('photo', 'galleries')->all());
 
-        $data->put('photo', $this->photo->store("images/ekskul/$this->name"));
+        $data->put('photo', $this->photo->store("images/ekskul/$ekskul->id"));
 
-        if (! Storage::directoryExists("images/ekskul/$this->name/galeri")) {
-            Storage::makeDirectory("images/ekskul/$this->name/galeri");
-        }
+        $ekskul->update($data->only(['photo'])->all());
 
         foreach ($data->get('galleries') as $gallery) {
-            Storage::putFile("images/ekskul/$this->name/galeri", $gallery);
+            Storage::putFile("images/ekskul/$ekskul->id/galeri", $gallery);
         }
-
-        Ekskul::create($data->all());
 
         $this->redirectRoute('ekskul.index');
     }
@@ -49,6 +46,7 @@ class Create extends Component
             'name' => ['required', 'string'],
             'description' => ['required', 'string'],
             'photo' => ['required', File::image()->max(2048)],
+            'galleries' => ['required', 'array'],
             'galleries.*' => File::image()->max('3mb'),
         ];
     }
