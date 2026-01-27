@@ -2,15 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Config;
-use App\Http\Controllers\EkskulController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\FacilityController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Setting\WakaController;
+use App\Http\Controllers\Dashboard\EkskulController;
+use App\Http\Controllers\Dashboard\ArticleController;
+use App\Http\Controllers\Dashboard\EmployeeController;
+use App\Http\Controllers\Dashboard\FacilityController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\AchievementController;
 
 function setTitle(string $title): string
 {
@@ -42,7 +42,6 @@ Route::middleware('auth')->group(function () {
         Route::view('/kritik-saran-masukkan', 'dashboard.kritik-saran-masukan')->name('dashboard.kritik-saran-masukan');
 
         // Berita
-        Route::get('/berita/{article}/preview', [ArticleController::class, 'preview'])->name('berita.preview');
         Route::resource('berita', ArticleController::class)->parameter('berita', 'article')->except(['store', 'update', 'show', 'destroy']);
 
         // Prestasi
