@@ -14,11 +14,13 @@ return new class extends Migration
             $table->string('directory_slug')->nullable()->after('name');
         });
 
-        // Generate directory_slug for existing facilities
-        DB::table('facilities')->get()->each(function ($facility) {
-            DB::table('facilities')
-                ->where('id', $facility->id)
-                ->update(['directory_slug' => (string) Str::uuid()]);
+        // Generate directory_slug for existing facilities in chunks
+        DB::table('facilities')->orderBy('id')->chunk(100, function ($facilities) {
+            foreach ($facilities as $facility) {
+                DB::table('facilities')
+                    ->where('id', $facility->id)
+                    ->update(['directory_slug' => (string) Str::uuid()]);
+            }
         });
 
         // Make the column non-nullable after populating existing records
