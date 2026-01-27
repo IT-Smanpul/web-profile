@@ -27,7 +27,6 @@
             <article
               class="bg-base-100 group rounded-3xl border shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
               <div class="relative overflow-hidden rounded-3xl">
-                <div class="bg-primary absolute left-0 top-0 h-full w-1"></div>
                 <figure class="relative aspect-video overflow-hidden">
                   <a class="block h-full w-full" data-fancybox="{{ $ekskul->name }}"
                     href="{{ asset("storage/$ekskul->photo") }}">
