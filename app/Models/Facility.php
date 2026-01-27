@@ -15,7 +15,7 @@ class Facility extends Model
 
     protected $keyType = 'string';
 
-    protected $fillable = ['name', 'description', 'image'];
+    protected $fillable = ['name', 'description', 'photo'];
 
     #[Scope]
     protected function searchBy(Builder $query, string $column, string $keyword): Builder
