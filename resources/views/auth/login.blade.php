@@ -10,10 +10,10 @@
           <div class="mb-8 text-center">
             <img class="mx-auto mb-4 h-14 w-14" src="{{ asset('img/logo.png') }}" alt="Logo Sekolah" />
             <h1 class="text-2xl font-bold">
-              Login Sistem Sekolah
+              Login
             </h1>
             <p class="text-base-content/70 mt-2 text-sm">
-              Silakan masuk untuk mengakses sistem internal sekolah
+              pake username dan password
             </p>
           </div>
           @if (session('error'))
@@ -54,9 +54,6 @@
                 <input class="checkbox checkbox-sm" name="remember" type="checkbox" />
                 Ingat saya
               </label>
-              <a class="text-green-600 hover:underline" href="#">
-                Lupa password?
-              </a>
             </div>
             <button class="btn btn-primary btn-gradient w-full" type="submit">
               Masuk
@@ -64,8 +61,6 @@
           </form>
           <p class="text-base-content/60 mt-8 text-center text-xs">
             © {{ now()->year }} SMA Negeri 10 Pontianak
-            <br />
-            Sistem Internal Sekolah
           </p>
         </div>
       </div>
