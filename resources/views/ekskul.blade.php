@@ -1,5 +1,3 @@
-@use('App\Models\Ekskul')
-
 @extends('root')
 
 @section('content')
@@ -25,7 +23,7 @@
           </p>
         </div>
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          @forelse (Ekskul::all() as $ekskul)
+          @forelse ($ekskuls as $ekskul)
             <article
               class="bg-base-100 group rounded-3xl border shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
               <div class="relative overflow-hidden rounded-3xl">
@@ -64,6 +62,11 @@
             </div>
           @endforelse
         </div>
+        @if ($ekskuls->hasPages())
+          <div class="mt-16 flex justify-center">
+            {{ $ekskuls->links() }}
+          </div>
+        @endif
       </div>
     </section>
   </main>
