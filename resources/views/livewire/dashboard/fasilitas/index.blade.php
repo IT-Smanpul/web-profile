@@ -20,7 +20,7 @@
       <div class="card card-border group rounded-2xl">
         <figure class="relative h-44 overflow-hidden">
           <img class="size-full transition-transform duration-500 group-hover:scale-110"
-            src="{{ asset("storage/$facility->image") }}" alt="Shoes" />
+            src="{{ asset("storage/$facility->photo") }}" alt="{{ $facility->name }}" />
         </figure>
         <div class="card-body">
           <h5 class="card-title mb-2.5">{{ $facility->name }}</h5>
