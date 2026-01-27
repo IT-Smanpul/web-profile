@@ -24,7 +24,7 @@ Route::view('/prestasi', 'prestasi', ['title' => setTitle('Prestasi')])->name('p
 Route::view('/berita', 'berita.index', ['title' => setTitle('Berita')])->name('berita');
 Route::view('/guru-staff', 'guru-staff', ['title' => setTitle('Guru dan Staff')])->name('guru-staff');
 Route::view('/ekskul', 'ekskul', ['title' => setTitle('Ekstrakurikuler')])->name('ekskul');
-Route::view('/kritik-saran-masukkan', 'kritik-saran-masukan', ['title' => setTitle('Kritik Saran dan Masukan')])->name('kritik-saran-masukan');
+Route::view('/kritik-saran-masukan', 'kritik-saran-masukan', ['title' => setTitle('Kritik Saran dan Masukan')])->name('kritik-saran-masukan');
 
 Route::get('/berita/{article}', [ArticleController::class, 'show'])->name('berita.show');
 
