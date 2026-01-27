@@ -29,6 +29,7 @@ class Create extends Component
         $data = Collection::make($this->validate());
 
         $facility = Facility::make($data->all());
+        $data->put('directory_slug', $facility->directory_slug);
 
         $data->put('image', $this->image->store("images/fasilitas/{$facility->directory_slug}"));
 
@@ -40,7 +41,7 @@ class Create extends Component
             Storage::putFile("images/fasilitas/{$facility->directory_slug}/galeri", $gallery);
         }
 
-        $facility->save();
+        Facility::create($data->all());
 
         $this->redirectRoute('fasilitas.index');
     }
