@@ -27,15 +27,15 @@ class Create extends Component
     public function save(): void
     {
         $data = Collection::make($this->validate());
-        $facility = Facility::create($data->except(['photo'])->all());
+        $facility = Facility::create($data->except(['photo', 'galleries'])->all());
 
         $data->put('photo', $this->photo->store("images/fasilitas/$facility->id"));
+
+        $facility->update($data->only(['photo'])->all());
 
         foreach ($data->get('galleries', []) as $gallery) {
             Storage::putFile("images/fasilitas/$facility->id/galeri", $gallery);
         }
-
-        $facility->update($data->only(['photo'])->all());
 
         $this->redirectRoute('fasilitas.index');
     }
