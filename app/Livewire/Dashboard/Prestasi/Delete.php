@@ -22,8 +22,8 @@ class Delete extends Component
 
     public function hapus(): void
     {
-        if (Storage::exists($this->achievement->image)) {
-            Storage::delete($this->achievement->image);
+        if (Storage::exists($this->achievement->photo)) {
+            Storage::delete($this->achievement->photo);
         }
 
         $this->achievement->delete();
