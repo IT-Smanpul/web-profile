@@ -32,7 +32,7 @@
             <a class="hover:text-primary" href="{{ route('berita') }}">Berita</a>
           </li>
           <li>
-            <a class="hover:text-primary" href="{{ route('kritik-saran-masukan') }}">Kritik Saran dan Masukkan</a>
+            <a class="hover:text-primary" href="{{ route('kritik-saran-masukan') }}">Kritik Saran dan Masukan</a>
           </li>
         </ul>
       </div>
