@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', DashboardController::class)->name('dashboard');
 
         // Kritik Saran dan Masukkan
-        Route::view('/kritik-saran-masukkan', 'dashboard.kritik-saran-masukan')->name('dashboard.kritik-saran-masukan');
+        Route::view('/kritik-saran-masukan', 'dashboard.kritik-saran-masukan')->name('dashboard.kritik-saran-masukan');
 
         // Berita
         Route::resource('berita', ArticleController::class)->parameter('berita', 'article')->except(['store', 'update', 'show', 'destroy']);
