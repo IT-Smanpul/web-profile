@@ -22,8 +22,8 @@ class Delete extends Component
 
     public function hapus(): void
     {
-        if (Storage::exists($this->ekskul->photo)) {
-            Storage::delete($this->ekskul->photo);
+        if (Storage::directoryExists("images/ekskul/{$this->ekskul->id}")) {
+            Storage::deleteDirectory("images/ekskul/{$this->ekskul->id}");
         }
 
         $this->ekskul->delete();
