@@ -1,5 +1,3 @@
-@use('App\Models\Ekskul')
-
 @extends('root')
 
 @section('content')
@@ -25,23 +23,34 @@
           </p>
         </div>
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          @forelse (Ekskul::all() as $ekskul)
+          @forelse ($ekskuls as $ekskul)
             <article
-              class="bg-base-100 group relative overflow-hidden rounded-3xl border shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-              <div class="bg-primary absolute left-0 top-0 h-full w-1"></div>
-              <figure class="relative overflow-hidden">
-                <a data-fancybox="{{ $ekskul->name }}" data-caption="{{ $ekskul->name }} - {{ $loop->iteration }}"
-                  href="{{ asset("storage/$ekskul->photo") }}">
-                  <img src="{{ asset("storage/$ekskul->photo") }}" alt="Thumbnail">
-                </a>
-              </figure>
-              <div class="space-y-3 p-6">
-                <h3 class="text-xl font-semibold">
-                  {{ $ekskul->name }}
-                </h3>
-                <p class="text-base-content/80 text-sm leading-relaxed">
-                  {{ $ekskul->description }}
-                </p>
+              class="bg-base-100 group rounded-3xl border shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+              <div class="relative overflow-hidden rounded-3xl">
+                <figure class="relative aspect-video overflow-hidden">
+                  <a class="block h-full w-full" data-fancybox="{{ $ekskul->name }}"
+                    href="{{ asset("storage/$ekskul->photo") }}">
+                    <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      src="{{ asset("storage/$ekskul->photo") }}" alt="{{ $ekskul->name }}" />
+                  </a>
+                  @if (Storage::directoryExists("images/ekskul/$ekskul->id/galeri"))
+                    @foreach (Storage::files("images/ekskul/$ekskul->id/galeri") as $file)
+                      <a class="block h-full w-full" data-fancybox="{{ $ekskul->name }}"
+                        href="{{ asset("storage/$file") }}">
+                        <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                          src="{{ asset("storage/$file") }}" alt="{{ $ekskul->name }}" />
+                      </a>
+                    @endforeach
+                  @endif
+                </figure>
+                <div class="space-y-3 p-6">
+                  <h3 class="text-xl font-semibold">
+                    {{ $ekskul->name }}
+                  </h3>
+                  <p class="text-base-content/80 text-sm leading-relaxed">
+                    {{ $ekskul->description }}
+                  </p>
+                </div>
               </div>
             </article>
           @empty
@@ -52,6 +61,11 @@
             </div>
           @endforelse
         </div>
+        @if ($ekskuls->hasPages())
+          <div class="mt-16 flex justify-center">
+            {{ $ekskuls->links() }}
+          </div>
+        @endif
       </div>
     </section>
   </main>

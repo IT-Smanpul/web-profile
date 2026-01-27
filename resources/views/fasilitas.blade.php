@@ -1,5 +1,3 @@
-@use('App\Models\Facility')
-
 @extends('root')
 
 @section('content')
@@ -24,12 +22,22 @@
           </p>
         </div>
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          @forelse (Facility::all() as $facility)
+          @forelse ($facilities as $facility)
             <div
               class="bg-base-100 group overflow-hidden rounded-3xl border shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
               <div class="relative h-56 overflow-hidden">
-                <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                  src="{{ asset("storage/$facility->image") }}" alt="{{ $facility->name }}" />
+                <a data-fancybox="{{ $facility->name }}" href="{{ asset("storage/$facility->photo") }}">
+                  <img class="h-full w-full object-cover" src="{{ asset("storage/$facility->photo") }}"
+                    alt="{{ $facility->name }}" />
+                </a>
+                @if (Storage::directoryExists("images/fasilitas/$facility->id/galeri"))
+                  @foreach (Storage::files("images/fasilitas/$facility->id/galeri") as $file)
+                    <a data-fancybox="{{ $facility->name }}" href="{{ asset("storage/$file") }}">
+                      <img class="h-full w-full object-cover" src="{{ asset("storage/$file") }}"
+                        alt="{{ $facility->name }}" />
+                    </a>
+                  @endforeach
+                @endif
               </div>
               <div class="space-y-3 p-6">
                 <h3 class="text-xl font-semibold">
@@ -48,6 +56,11 @@
             </div>
           @endforelse
         </div>
+        @if ($facilities->hasPages())
+          <div class="mt-16 flex justify-center">
+            {{ $facilities->links() }}
+          </div>
+        @endif
       </div>
     </section>
   </main>

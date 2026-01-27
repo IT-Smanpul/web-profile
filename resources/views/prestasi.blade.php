@@ -1,5 +1,3 @@
-@use('App\Models\Achievement')
-
 @extends('root')
 
 @section('content')
@@ -27,7 +25,7 @@
           </p>
         </div>
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          @forelse (Achievement::all() as $achievement)
+          @forelse ($achievements as $achievement)
             <div
               class="bg-base-100 group relative overflow-hidden rounded-3xl shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
               <figure class="relative h-52 overflow-hidden">
@@ -58,9 +56,13 @@
             </div>
           @endforelse
         </div>
+        @if ($achievements->hasPages())
+          <div class="mt-16 flex justify-center">
+            {{ $achievements->links() }}
+          </div>
+        @endif
       </div>
     </div>
-
   </main>
   <x-ui.footer />
 @endsection

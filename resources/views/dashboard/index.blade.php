@@ -3,5 +3,5 @@
 @section('main')
   <x-dashboard.index.metrics />
 
-  <livewire:dashboard::index.recent-article />
+  <livewire:dashboard.index.recent-article />
 @endsection

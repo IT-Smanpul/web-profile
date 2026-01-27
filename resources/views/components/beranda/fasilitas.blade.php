@@ -22,15 +22,22 @@
       </p>
     </div>
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      @forelse (Facility::all()->take(6) as $facility)
+      @forelse (Facility::take(6)->get() as $facility)
         <div
           class="bg-base-100 group relative overflow-hidden rounded-3xl shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-          <div class="absolute inset-0 opacity-0 transition group-hover:opacity-100">
-            <div class="bg-primary/20 absolute -right-20 -top-20 h-40 w-40 rounded-full blur-2xl"></div>
-          </div>
           <figure class="relative h-56 overflow-hidden">
-            <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-              src="{{ asset("storage/$facility->image") }}" alt="{{ $facility->name }}" />
+            <a data-fancybox="{{ $facility->name }}" href="{{ asset("storage/$facility->photo") }}">
+              <img class="h-full w-full object-cover transition duration-500"
+                src="{{ asset("storage/$facility->photo") }}" alt="{{ $facility->name }}" />
+            </a>
+            @if (Storage::directoryExists("images/fasilitas/$facility->id/galeri"))
+              @foreach (Storage::files("images/fasilitas/$facility->id/galeri") as $file)
+                <a data-fancybox="{{ $facility->name }}" href="{{ asset("storage/$file") }}">
+                  <img class="h-full w-full object-cover transition duration-500" src="{{ asset("storage/$file") }}"
+                    alt="{{ $facility->name }}" />
+                </a>
+              @endforeach
+            @endif
           </figure>
           <div class="relative space-y-4 p-6">
             <h3 class="text-xl font-semibold">
