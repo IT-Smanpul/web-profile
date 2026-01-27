@@ -28,9 +28,9 @@
             </a>
           </li>
           <li>
-            <a href="{{ route('dashboard.kritik-saran-masukkan') }}" @class([
+            <a href="{{ route('dashboard.kritik-saran-masukan') }}" @class([
                 'px-2',
-                'menu-active' => Route::is('dashboard.kritik-saran-masukkan'),
+                'menu-active' => Route::is('dashboard.kritik-saran-masukan'),
             ])>
               <span class="icon-[tabler--mail] size-4.5"></span>
               <span class="grow">Kritik Saran dan Masukkan</span>
