@@ -15,7 +15,7 @@ class Achievement extends Model
 
     public $incrementing = false;
 
-    protected $fillable = ['name', 'category', 'description', 'image'];
+    protected $fillable = ['name', 'category', 'description', 'photo'];
 
     #[Scope]
     protected function searchBy(Builder $query, string $column, string $keyword): Builder
