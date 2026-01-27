@@ -24,40 +24,40 @@ class Edit extends Component
 
     public ?Facility $facility = null;
 
-    public ?TemporaryUploadedFile $image = null;
+    public ?TemporaryUploadedFile $photo = null;
 
     public function mount(Facility $facility): void
     {
         $this->facility = $facility;
 
-        $this->fill($facility->except('image'));
+        $this->fill($facility->except('photo'));
     }
 
     public function save(): void
     {
         $data = Collection::make($this->validate());
 
-        if (! blank($data->get('image'))) {
-            if (Storage::exists($this->facility->image)) {
-                Storage::delete($this->facility->image);
+        if (! blank($data->get('photo'))) {
+            if (Storage::exists($this->facility->photo)) {
+                Storage::delete($this->facility->photo);
             }
 
-            $data->put('image', $this->image->store("images/fasilitas/{$this->facility->name}"));
+            $data->put('photo', $this->photo->store("images/fasilitas/{$this->facility->id}"));
         } else {
-            $data->forget(['image']);
+            $data->forget(['photo']);
         }
 
         if (! blank($data->get('galleries'))) {
-            if (Storage::directoryExists("images/fasilitas/{$this->facility->name}/galeri")) {
-                Storage::deleteDirectory("images/fasilitas/{$this->facility->name}/galeri");
+            if (Storage::directoryExists("images/fasilitas/{$this->facility->id}/galeri")) {
+                Storage::deleteDirectory("images/fasilitas/{$this->facility->id}/galeri");
             }
 
-            foreach ($data->get('galleries') as $gallery) {
-                Storage::putFile("images/fasilitas/{$this->facility->name}/galeri", $gallery);
+            foreach ($data->get('galleries', []) as $gallery) {
+                Storage::putFile("images/fasilitas/{$this->facility->id}/galeri", $gallery);
             }
-        } else {
-            $data->forget(['galleries']);
         }
+
+        $data->forget(['galleries']);
 
         $this->facility->update($data->all());
 
@@ -69,8 +69,9 @@ class Edit extends Component
         return [
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
-            'image' => ['nullable', File::image()->max(2048)],
-            'galleries.*' => ['nullable', File::image()->max('3mb')],
+            'photo' => ['nullable', File::image()->max(2048)],
+            'galleries' => ['nullable', 'array'],
+            'galleries.*' => File::image()->max('3mb'),
         ];
     }
 
