@@ -10,7 +10,7 @@
   <meta property="og:description"
     content="Fasilitas lengkap SMA Negeri 10 Pontianak untuk menunjang pembelajaran yang nyaman, aman, dan berkualitas." />
   <meta property="og:url" content="{{ url()->current() }}" />
-  <meta property="og:image" content="{{ asset('img/og-fasilitas.jpg') }}" />
+  <meta property="og:image" content="{{ asset('img/logo.png') }}" />
 @endsection
 
 @section('content')
