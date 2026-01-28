@@ -25,7 +25,7 @@
         <div class="card-body flex flex-col p-5">
           <div class="space-y-5">
             <div class="min-w-0">
-              <h5 class="card-title mb-0.5 break-all">
+              <h5 class="card-title mb-0.5 text-balance">
                 {{ $employee->name }}
               </h5>
               <p class="text-base-content/70 text-sm">
