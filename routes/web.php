@@ -1,24 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Dashboard\EkskulController;
 use App\Http\Controllers\Dashboard\ArticleController;
+use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\EmployeeController;
 use App\Http\Controllers\Dashboard\FacilityController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\AchievementController;
 use App\Http\Controllers\Dashboard\Setting\WakaController;
-
-if (! function_exists('setTitle')) {
-    function setTitle(string $title): string
-    {
-        return "$title - ".Config::get('app.name');
-    }
-}
 
 Route::view('/', 'index');
 Route::get('/profil', [HomeController::class, 'profil'])->name('profil');
@@ -27,7 +20,7 @@ Route::get('/fasilitas', [HomeController::class, 'fasilitas'])->name('fasilitas'
 Route::get('/ekskul', [HomeController::class, 'ekskul'])->name('ekskul');
 Route::get('/prestasi', [HomeController::class, 'prestasi'])->name('prestasi');
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
-Route::view('/kritik-saran-masukan', 'kritik-saran-masukan', ['title' => setTitle('Kritik Saran dan Masukan')])->name('kritik-saran-masukan');
+Route::get('/kritik-saran-masukan', [HomeController::class, 'kritikSaranMasukan'])->name('kritik-saran-masukan');
 
 Route::get('/berita/{article}', [ArticleController::class, 'show'])->name('berita.show');
 
@@ -62,18 +55,21 @@ Route::middleware('auth')->group(function () {
         // Pengaturan
         Route::prefix('setting')->group(function () {
             // Pengaturan Umum
-            Route::view('/general', 'dashboard.pengaturan.informasi-umum')->name('setting.general.edit');
+            Route::get('/informasi-umum', [SettingController::class, 'informasiUmum'])->name('setting.general.edit');
 
             // Visi Misi
-            Route::view('/visi-misi', 'dashboard.pengaturan.visi-misi')->name('setting.visi-misi.edit');
+            Route::get('/visi-misi', [SettingController::class, 'visiMisi'])->name('setting.visi-misi.edit');
 
-            // Struktur Sekolah
-            Route::view('/struktur/kepala-sekolah', 'dashboard.pengaturan.kepala-sekolah')->name('setting.struktur.kepala-sekolah.edit');
+            Route::prefix('struktur')->group(function () {
+                // Kepala Sekolah
+                Route::get('/kepala-sekolah', [SettingController::class, 'kepsek'])->name('setting.struktur.kepala-sekolah.edit');
 
-            Route::resource('/struktur/wakil-kepala-sekolah', WakaController::class)->parameter('wakil-kepala-sekolah', 'waka')->except(['store', 'update', 'show', 'destroy']);
+                // Wakil Kepala Sekolah
+                Route::resource('/struktur/wakil-kepala-sekolah', WakaController::class)->parameter('wakil-kepala-sekolah', 'waka')->except(['store', 'update', 'show', 'destroy']);
+            });
 
             // Akun
-            Route::view('/akun', 'dashboard.pengaturan.akun')->name('setting.akun.edit');
+            Route::get('/akun', [SettingController::class, 'akun'])->name('setting.akun.edit');
         });
     });
 
