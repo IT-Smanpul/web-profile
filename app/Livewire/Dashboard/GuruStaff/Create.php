@@ -29,7 +29,11 @@ class Create extends Component
     {
         $data = Collection::make($this->validate());
 
-        $data->put('photo', $this->photo->store('images/guru-staff'));
+        if (! blank($data->get('photo'))) {
+            $data->put('photo', $this->photo->store('images/guru-staff'));
+        } else {
+            $data->forget(['photo']);
+        }
 
         Employee::create($data->all());
 
@@ -43,7 +47,7 @@ class Create extends Component
             'name' => ['required', 'string', 'max:100'],
             'position' => ['required', 'string', 'max:100'],
             'nip' => ['nullable', 'string', 'max:255', Rule::unique('employees', 'nip')],
-            'photo' => ['required', File::image()->max(2048)],
+            'photo' => ['nullable', File::image()->max(2048)],
         ];
     }
 
