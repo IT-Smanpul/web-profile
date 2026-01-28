@@ -10,7 +10,7 @@
   <meta property="og:description"
     content="Kenali lebih dekat SMA Negeri 10 Pontianak melalui profil sekolah, visi misi, dan struktur organisasi." />
   <meta property="og:url" content="{{ url()->current() }}" />
-  <meta property="og:image" content="{{ asset('img/og-profil-sekolah.jpg') }}" />
+  <meta property="og:image" content="{{ asset('img/logo.png') }}" />
 @endsection
 
 @section('content')
