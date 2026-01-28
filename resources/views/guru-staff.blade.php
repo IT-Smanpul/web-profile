@@ -1,5 +1,3 @@
-@use('App\Models\Employee')
-
 @extends('root')
 
 @section('content')
@@ -37,7 +35,7 @@
         <div class="mt-3">
           <div id="tabs-basic-1" role="tabpanel" aria-labelledby="tabs-basic-item-1">
             <div class="grid gap-6 lg:grid-cols-3">
-              @forelse (Employee::guru()->latest()->get() as $employee)
+              @forelse ($gurus as $employee)
                 <div
                   class="bg-base-100/70 rounded-2xl border p-5 text-center shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md">
                   <img class="mx-auto h-32 w-32 rounded-full object-cover shadow"
@@ -50,9 +48,11 @@
                     <p class="text-primary text-sm font-medium">
                       {{ $employee->position }}
                     </p>
-                    <p class="text-base-content/50 text-xs">
-                      NIP {{ $employee->nip }}
-                    </p>
+                    @if ($employee->nip)
+                      <p class="text-base-content/50 text-xs">
+                        NIP {{ $employee->nip }}
+                      </p>
+                    @endif
                   </div>
                 </div>
               @empty
@@ -66,7 +66,7 @@
           </div>
           <div class="hidden" id="tabs-basic-2" role="tabpanel" aria-labelledby="tabs-basic-item-2">
             <div class="grid gap-6 lg:grid-cols-3">
-              @forelse (Employee::staff()->latest()->get() as $employee)
+              @forelse ($staffs as $employee)
                 <div
                   class="bg-base-100/70 rounded-2xl border p-5 text-center shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md">
                   <img class="mx-auto h-32 w-32 rounded-full object-cover shadow"
