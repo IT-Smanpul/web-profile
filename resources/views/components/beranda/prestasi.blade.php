@@ -31,7 +31,7 @@
           </div>
           <figure class="relative h-52 overflow-hidden">
             <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-              src="{{ asset("storage/$achievement->image") }}" alt="Gambar Prestasi {{ $achievement->name }}" />
+              src="{{ asset("storage/$achievement->photo") }}" alt="Gambar Prestasi {{ $achievement->name }}" />
             <span @class([
                 'absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-medium text-white backdrop-blur',
                 'bg-primary/90' => $achievement->category === 'Akademik',
