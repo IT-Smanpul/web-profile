@@ -58,4 +58,11 @@ class HomeController extends Controller
             'articles' => Article::published()->latest()->paginate(6),
         ]);
     }
+
+    public function kritikSaranMasukan(): View
+    {
+        return view('kritik-saran-masukan', [
+            'title' => "Kritik Saran dan Masukan - $this->appName",
+        ]);
+    }
 }
