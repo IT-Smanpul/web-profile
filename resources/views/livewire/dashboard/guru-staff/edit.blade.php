@@ -26,13 +26,10 @@
           ])>
             @if ($photo)
               <img class="h-full w-full object-cover" src="{{ $photo->temporaryUrl() }}" alt="preview foto" />
-            @elseif($employee->photo)
-              <img class="h-full w-full object-cover" src="{{ asset("storage/$employee->photo") }}"
-                alt="preview foto" />
             @else
-              <span class="text-base-content/40 text-sm">
-                Preview Foto
-              </span>
+              <img class="h-full w-full object-cover"
+                src="{{ $employee->photo ? asset("storage/$employee->photo") : asset('img/avatars/8.png') }}"
+                alt="preview foto" />
             @endif
           </div>
           <label @class([
