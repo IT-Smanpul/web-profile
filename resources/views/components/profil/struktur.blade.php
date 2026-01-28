@@ -19,7 +19,7 @@
         <div
           class="bg-base-200/60 rounded-3xl border p-8 text-center shadow-sm backdrop-blur transition hover:shadow-md">
           <img class="mx-auto mb-5 h-32 w-32 rounded-full object-cover shadow-md"
-            src="{{ Storage::exists($kepalaSekolah->photo) ? asset("storage/$kepalaSekolah->photo") : asset('img/avatars/1.png') }}"
+            src="{{ $kepalaSekolah->photo ? asset("storage/$kepalaSekolah->photo") : asset('img/avatars/1.png') }}"
             alt="Kepala Sekolah" />
           <p class="text-primary text-sm font-medium">
             Kepala Sekolah
