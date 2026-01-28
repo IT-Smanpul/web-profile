@@ -10,7 +10,7 @@
   <meta property="og:description"
     content="Berbagai prestasi akademik dan non-akademik yang diraih oleh siswa SMA Negeri 10 Pontianak di tingkat kota, provinsi, hingga nasional." />
   <meta property="og:url" content="{{ url()->current() }}" />
-  <meta property="og:image" content="{{ asset('img/og-prestasi.jpg') }}" />
+  <meta property="og:image" content="{{ asset('img/logo.png') }}" />
 @endsection
 
 @section('content')
@@ -43,7 +43,7 @@
               class="bg-base-100 group relative overflow-hidden rounded-3xl shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
               <figure class="relative h-52 overflow-hidden">
                 <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                  src="{{ asset("storage/$achievement->image") }}" alt="Gambar {{ $achievement->name }}" />
+                  src="{{ asset("storage/$achievement->photo") }}" alt="Gambar {{ $achievement->name }}" />
                 <span @class([
                     'absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-medium text-white backdrop-blur',
                     'bg-primary/90' => $achievement->category === 'Akademik',
