@@ -1,16 +1,16 @@
 @extends('root')
 
 @section('meta')
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow">
   <meta name="description"
-    content="Daftar kegiatan ekstrakurikuler SMA Negeri 10 Pontianak yang mendukung pengembangan minat, bakat, kepemimpinan, dan karakter peserta didik." />
+    content="Daftar kegiatan ekstrakurikuler SMA Negeri 10 Pontianak yang mendukung pengembangan minat, bakat, kepemimpinan, dan karakter peserta didik.">
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ekstrakurikuler | SMA Negeri 10 Pontianak" />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ekstrakurikuler | SMA Negeri 10 Pontianak">
   <meta property="og:description"
-    content="Beragam kegiatan ekstrakurikuler SMA Negeri 10 Pontianak untuk menyalurkan minat dan bakat siswa di bidang akademik maupun non-akademik." />
-  <meta property="og:url" content="{{ url()->current() }}" />
-  <meta property="og:image" content="{{ asset('img/og-ekskul.jpg') }}" />
+    content="Beragam kegiatan ekstrakurikuler SMA Negeri 10 Pontianak untuk menyalurkan minat dan bakat siswa di bidang akademik maupun non-akademik.">
+  <meta property="og:url" content="{{ url()->current() }}">
+  <meta property="og:image" content="{{ asset('img/logo.png') }}">
 @endsection
 
 @section('content')
@@ -44,15 +44,15 @@
                 <figure class="relative aspect-video overflow-hidden">
                   <a class="block h-full w-full" data-fancybox="{{ $ekskul->name }}"
                     href="{{ asset("storage/$ekskul->photo") }}">
-                    <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    <img class="h-full w-full object-cover transition duration-500"
                       src="{{ asset("storage/$ekskul->photo") }}" alt="{{ $ekskul->name }}" />
                   </a>
                   @if (Storage::directoryExists("images/ekskul/$ekskul->id/galeri"))
                     @foreach (Storage::files("images/ekskul/$ekskul->id/galeri") as $file)
                       <a class="block h-full w-full" data-fancybox="{{ $ekskul->name }}"
                         href="{{ asset("storage/$file") }}">
-                        <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                          src="{{ asset("storage/$file") }}" alt="{{ $ekskul->name }}" />
+                        <img class="h-full w-full object-cover transition duration-500" src="{{ asset("storage/$file") }}"
+                          alt="{{ $ekskul->name }}" />
                       </a>
                     @endforeach
                   @endif
