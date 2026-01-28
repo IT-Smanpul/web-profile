@@ -19,7 +19,8 @@
       <div
         class="card sm:card-side bg-base-100 overflow-hidden rounded-2xl border shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
         <figure class="relative h-48 w-full flex-shrink-0 overflow-hidden sm:h-auto sm:w-44">
-          <img class="h-full w-full object-cover" src="{{ asset('storage/' . $employee->photo) }}"
+          <img class="h-full w-full object-cover"
+            src="{{ $employee->photo ? asset("storage/$employee->photo") : asset('img/avatars/1.png') }}"
             alt="{{ $employee->name }}" />
         </figure>
         <div class="card-body flex flex-col p-5">
