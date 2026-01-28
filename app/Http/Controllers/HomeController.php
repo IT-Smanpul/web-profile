@@ -4,12 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Ekskul;
 use App\Models\Article;
+use App\Models\Employee;
 use App\Models\Facility;
 use App\Models\Achievement;
 use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
 {
+    public function profil(): View
+    {
+        return view('profil', [
+            'title' => "Profil - $this->appName",
+        ]);
+    }
+
+    public function guru(): View
+    {
+        return view('guru-staff', [
+            'title' => "Guru dan Staff - $this->appName",
+            'gurus' => Employee::guru()->latest()->get(),
+            'staffs' => Employee::staff()->latest()->get(),
+        ]);
+    }
+
     public function fasilitas(): View
     {
         return view('fasilitas', [
