@@ -1,11 +1,24 @@
 @extends('root')
 
+@section('meta')
+  <meta name="robots" content="index, follow" />
+  <meta name="description"
+    content="Sampaikan kritik, saran, dan masukan untuk SMA Negeri 10 Pontianak. Kami terbuka terhadap aspirasi demi peningkatan mutu pendidikan." />
+
+  <meta property="og:title" content="Kritik & Saran | SMA Negeri 10 Pontianak" />
+  <meta property="og:description"
+    content="Halaman kritik, saran, dan masukan untuk SMA Negeri 10 Pontianak sebagai bentuk keterbukaan dan evaluasi bersama." />
+  <meta property="og:url" content="{{ url()->current() }}" />
+  <meta property="og:image" content="{{ asset('img/logo.png') }}" />
+@endsection
+
 @section('content')
   <x-ui.navbar />
   <main>
     <section class="bg-base-200 relative overflow-hidden py-28 pb-20">
       <div class="bg-primary/20 pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full blur-3xl"></div>
-      <div class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-green-400/20 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-green-400/20 blur-3xl">
+      </div>
       <div class="relative mx-auto max-w-4xl px-4 text-center">
         <span class="bg-primary text-primary-content inline-block rounded-full px-4 py-1 text-sm font-medium shadow">
           Kritik & Saran
