@@ -102,7 +102,7 @@
           Batal
         </a>
         <button class="btn btn-primary btn-gradient" type="submit">
-          Tambah Guru / Staff
+          Simpan Guru / Staff
         </button>
       </div>
     </form>
