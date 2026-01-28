@@ -37,8 +37,8 @@ class Edit extends Component
     {
         $data = Collection::make($this->validate());
 
-        if (! is_null($data->get('photo'))) {
-            if (Storage::exists($this->waka->photo)) {
+        if (! blank($data->get('photo'))) {
+            if ($this->waka->photo && Storage::exists($this->waka->photo)) {
                 Storage::delete($this->waka->photo);
             }
 

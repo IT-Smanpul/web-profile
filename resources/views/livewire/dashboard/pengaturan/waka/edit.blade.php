@@ -13,13 +13,10 @@
           @if ($photo)
             <img class="h-full w-full object-cover" id="wakilPreview" src="{{ $photo->temporaryUrl() }}"
               alt="Preview Foto" />
-          @elseif($waka->photo)
-            <img class="h-full w-full object-cover" id="wakilPreview" src="{{ asset("storage/$waka->photo") }}"
-              alt="Preview Foto" />
           @else
-            <span class="text-base-content/40 px-3 text-xs" id="wakilPlaceholder">
-              Preview Foto
-            </span>
+            <img class="h-full w-full object-cover" id="wakilPreview"
+              src="{{ $waka->photo ? asset("storage/$waka->photo") : asset('img/avatars/2.png') }}"
+              alt="Preview Foto" />
           @endif
         </div>
         <label @class([
