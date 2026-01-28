@@ -45,7 +45,7 @@
         <div
           class="bg-base-200/50 rounded-2xl border p-6 text-center shadow-sm backdrop-blur transition hover:shadow-md">
           <img class="mx-auto mb-4 h-28 w-28 rounded-full object-cover shadow"
-            src="{{ Storage::exists($waka->photo) ? asset("storage/$waka->photo") : asset('img/avatars/3.png') }}"
+            src="{{ $waka->photo ? asset("storage/$waka->photo") : asset('img/avatars/2.png') }}"
             alt="Waka Kesiswaan" />
           <p class="text-primary text-sm font-medium">
             {{ $waka->position }}
