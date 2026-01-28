@@ -22,7 +22,7 @@ class Delete extends Component
 
     public function hapus(): void
     {
-        if (Storage::exists($this->waka->photo)) {
+        if ($this->waka->photo && Storage::exists($this->waka->photo)) {
             Storage::delete($this->waka->photo);
         }
 
