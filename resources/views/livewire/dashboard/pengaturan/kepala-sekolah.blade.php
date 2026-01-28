@@ -11,13 +11,10 @@
         <div class="bg-base-200 relative flex size-56 items-center justify-center overflow-hidden rounded-full border">
           @if ($photo)
             <img class="h-full w-full object-cover" src="{{ $photo->temporaryUrl() }}" alt="Preview Foto" />
-          @elseif ($kepalaSekolah?->photo && Storage::exists($kepalaSekolah->photo))
-            <img class="h-full w-full object-cover" src="{{ asset("storage/$kepalaSekolah->photo") }}"
-              alt="Preview Foto" />
           @else
-            <span class="text-base-content/40 px-4 text-center text-xs">
-              Preview Foto
-            </span>
+            <img class="h-full w-full object-cover"
+              src="{{ $kepalaSekolah?->photo ? asset("storage/$kepalaSekolah->photo") : asset('img/avatars/1.png') }}"
+              alt="Preview Foto" />
           @endif
         </div>
         <label @class([
@@ -33,7 +30,7 @@
           <span class="helper-text">{{ $message }}</span>
         @else
           <p class="helper-text text-center">
-            Foto Formal
+            Foto Formal max 2mb
           </p>
         @enderror
       </div>

@@ -29,8 +29,7 @@ class KepalaSekolah extends Component
         $this->kepalaSekolah = SchoolStructure::where('role', 'kepala')->first();
 
         if ($this->kepalaSekolah) {
-            $this->name = $this->kepalaSekolah->name;
-            $this->nip = $this->kepalaSekolah->nip;
+            $this->fill($this->kepalaSekolah->only(['name', 'nip']));
         }
     }
 
@@ -38,12 +37,12 @@ class KepalaSekolah extends Component
     {
         $data = Collection::make($this->validate());
 
-        if (! is_null($data->get('photo'))) {
-            if ($this->kepalaSekolah?->photo && Storage::exists($this->kepalaSekolah?->photo)) {
-                Storage::delete($this->kepalaSekolah?->photo);
+        if (! blank($data->get('photo'))) {
+            if ($this->kepalaSekolah->photo && Storage::exists($this->kepalaSekolah?->photo)) {
+                Storage::delete($this->kepalaSekolah->photo);
             }
 
-            $data->put('photo', $this->photo->storeAs('images/struktur', "Kepala Sekolah.{$this->photo->getClientOriginalExtension()}"));
+            $data->put('photo', $this->photo->store('images/struktur'));
         } else {
             $data->forget(['photo']);
         }
@@ -61,7 +60,7 @@ class KepalaSekolah extends Component
         return [
             'name' => ['required', 'string', 'max:255', Rule::unique('school_structures', 'name')->ignore($this->kepalaSekolah)],
             'nip' => ['required', 'string', 'max:255', Rule::unique('school_structures', 'nip')->ignore($this->kepalaSekolah)],
-            'photo' => [$this->kepalaSekolah?->photo ? 'nullable' : 'required', File::image()->max(2048)],
+            'photo' => ['nullable', File::image()->max(2048)],
         ];
     }
 
