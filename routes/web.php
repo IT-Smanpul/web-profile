@@ -21,12 +21,12 @@ if (! function_exists('setTitle')) {
 }
 
 Route::view('/', 'index');
-Route::view('/profil', 'profil', ['title' => setTitle('Profil')])->name('profil');
+Route::get('/profil', [HomeController::class, 'profil'])->name('profil');
+Route::get('/guru-staff', [HomeController::class, 'guru'])->name('guru-staff');
 Route::get('/fasilitas', [HomeController::class, 'fasilitas'])->name('fasilitas');
 Route::get('/ekskul', [HomeController::class, 'ekskul'])->name('ekskul');
 Route::get('/prestasi', [HomeController::class, 'prestasi'])->name('prestasi');
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
-Route::view('/guru-staff', 'guru-staff', ['title' => setTitle('Guru dan Staff')])->name('guru-staff');
 Route::view('/kritik-saran-masukan', 'kritik-saran-masukan', ['title' => setTitle('Kritik Saran dan Masukan')])->name('kritik-saran-masukan');
 
 Route::get('/berita/{article}', [ArticleController::class, 'show'])->name('berita.show');
