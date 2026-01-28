@@ -27,7 +27,11 @@ class Create extends Component
     {
         $data = Collection::make($this->validate());
 
-        $data->put('photo', $this->photo->store('images/struktur'));
+        if (! blank($data->get('photo'))) {
+            $data->put('photo', $this->photo->store('images/struktur'));
+        } else {
+            $data->forget(['photo']);
+        }
 
         SchoolStructure::create([
             ...$data->all(),
@@ -43,7 +47,7 @@ class Create extends Component
             'name' => ['required', 'string', 'max:255'],
             'nip' => ['required', 'string', 'max:255', Rule::unique('school_structures', 'nip')],
             'position' => ['required', 'string', 'max:255'],
-            'photo' => ['required', File::image()->max(2048)],
+            'photo' => ['nullable', File::image()->max(2048)],
         ];
     }
 
