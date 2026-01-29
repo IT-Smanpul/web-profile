@@ -17,8 +17,8 @@
         membimbing dan mengembangkan potensi peserta didik.
       </p>
     </div>
-    <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      @forelse(Employee::guru()->latest()->get() as $guru)
+    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+      @forelse(Employee::guru()->take(6)->latest()->get() as $guru)
         <div
           class="bg-base-100/70 rounded-2xl border p-5 text-center shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-md">
           <img class="mx-auto h-32 w-32 rounded-full object-cover shadow"
