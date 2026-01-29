@@ -15,7 +15,7 @@
         </div>
       </div>
     @endif
-    <form class="space-y-6" wire:submit="save">
+    <form class="space-y-6" autocomplete="off" wire:submit="save">
       @csrf
       <div class="grid gap-8 md:grid-cols-[320px_1fr]">
         <div>

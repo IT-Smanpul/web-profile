@@ -19,7 +19,7 @@
       </a>
     </div>
   </div>
-  <div class="grid gap-4 lg:grid-cols-3">
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
     @forelse ($this->employees as $employee)
       <div
         class="card sm:card-side bg-base-100 overflow-hidden rounded-2xl border shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
