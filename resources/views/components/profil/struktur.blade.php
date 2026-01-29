@@ -40,7 +40,7 @@
         </div>
       @endif
     </div>
-    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       @forelse ($wakas as $waka)
         <div
           class="bg-base-200/50 rounded-2xl border p-6 text-center shadow-sm backdrop-blur transition hover:shadow-md">
@@ -50,7 +50,7 @@
           <p class="text-primary text-sm font-medium">
             {{ $waka->position }}
           </p>
-          <p class="mt-1 text-lg font-semibold">
+          <p class="mt-1 text-base font-semibold">
             {{ $waka->name }}
           </p>
           <p class="text-base-content/60 mt-1 text-xs">
