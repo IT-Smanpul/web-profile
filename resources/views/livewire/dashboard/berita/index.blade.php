@@ -14,7 +14,7 @@
       </a>
     </div>
   </div>
-  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
     @forelse ($this->articles as $article)
       <div
         class="bg-base-100 group relative overflow-hidden rounded-2xl border shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">

@@ -14,7 +14,7 @@
       </a>
     </div>
   </div>
-  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
     @forelse ($this->ekskuls as $ekskul)
       <div
         class="bg-base-100 group overflow-hidden rounded-2xl border shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">

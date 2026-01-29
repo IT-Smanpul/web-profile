@@ -15,7 +15,7 @@
       </a>
     </div>
   </div>
-  <div class="grid gap-6 sm:grid-cols-3 2xl:grid-cols-4">
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
     @forelse ($this->achievements as $achievement)
       <div class="card card-border group rounded-2xl">
         <figure class="relative h-44 overflow-hidden">
@@ -43,7 +43,7 @@
             <div class="tooltip">
               <button class="btn btn-sm btn-error btn-soft" type="button"
                 @click="$dispatch('delete-prestasi', { achievement: '{{ $achievement->id }}'})">
-                <span class="icon-[tabler--x] size-4"></span>
+                <span class="icon-[tabler--trash] size-4"></span>
               </button>
               <span class="tooltip-content tooltip-shown:opacity-100 tooltip-shown:visible" role="tooltip">
                 <span class="tooltip-body tooltip-error">Hapus</span>
