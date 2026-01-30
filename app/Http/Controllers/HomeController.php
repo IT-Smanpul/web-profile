@@ -47,7 +47,7 @@ class HomeController extends Controller
     {
         return view('prestasi', [
             'title' => "Prestasi - $this->appName",
-            'achievements' => Achievement::paginate(6),
+            'achievements' => Achievement::latest()->paginate(6),
         ]);
     }
 
