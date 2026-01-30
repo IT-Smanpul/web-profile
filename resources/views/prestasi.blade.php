@@ -56,7 +56,7 @@
                 <h3 class="text-lg font-semibold leading-snug">
                   {{ $achievement->name }}
                 </h3>
-                <p class="text-base-content/70 line-clamp-3 text-sm">
+                <p class="text-base-content/70 text-sm">
                   {{ $achievement->description }}
                 </p>
               </div>
