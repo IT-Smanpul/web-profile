@@ -11,7 +11,7 @@ class WakaController extends Controller
     public function index(): View
     {
         return view('dashboard.pengaturan.waka.index', [
-            'title' => "Pengaturan Wakil Kepala Sekolah - $this->appName",
+            'title' => $this->setTitle('List Wakil Kepala Sekolah'),
             'wakilKepalaSekolah' => SchoolStructure::where('role', 'wakil')->get(),
         ]);
     }
@@ -19,14 +19,14 @@ class WakaController extends Controller
     public function create(): View
     {
         return view('dashboard.pengaturan.waka.create', [
-            'title' => "Tambah Wakil Kepala Sekolah - $this->appName",
+            'title' => $this->setTitle('Tambah Wakil Kepala Sekolah'),
         ]);
     }
 
     public function edit(SchoolStructure $waka): View
     {
         return view('dashboard.pengaturan.waka.edit', [
-            'title' => "Edit Wakil Kepala Sekolah - $this->appName",
+            'title' => $this->setTitle('Edit Wakil Kepala Sekolah'),
             'waka' => $waka,
         ]);
     }

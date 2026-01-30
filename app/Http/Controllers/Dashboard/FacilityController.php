@@ -11,21 +11,21 @@ class FacilityController extends Controller
     public function index(): View
     {
         return view('dashboard.fasilitas.index', [
-            'title' => "Fasilitas - $this->appName",
+            'title' => $this->setTitle('List Fasilitas'),
         ]);
     }
 
     public function create(): View
     {
         return view('dashboard.fasilitas.create', [
-            'title' => "Tambah Fasilitas - $this->appName",
+            'title' => $this->setTitle('Tambah Fasilitas'),
         ]);
     }
 
     public function edit(Facility $facility): View
     {
         return view('dashboard.fasilitas.edit', [
-            'title' => "Edit Fasilitas - $this->appName",
+            'title' => $this->setTitle('Edit Fasilitas'),
             'facility' => $facility,
         ]);
     }

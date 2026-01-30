@@ -10,28 +10,28 @@ class SettingController extends Controller
     public function informasiUmum(): View
     {
         return view('dashboard.pengaturan.informasi-umum', [
-            'title' => "Pengaturan Informasi Umum - $this->appName",
+            'title' => $this->setTitle('Pengaturan Informasi Umum'),
         ]);
     }
 
     public function visiMisi(): View
     {
         return view('dashboard.pengaturan.visi-misi', [
-            'title' => "Pengaturan Visi Misi - $this->appName",
+            'title' => $this->setTitle('Pengaturan Visi & Misi'),
         ]);
     }
 
     public function kepsek(): View
     {
         return view('dashboard.pengaturan.kepala-sekolah', [
-            'title' => "Pengaturan Kepala Sekolah - $this->appName",
+            'title' => $this->setTitle('Pengaturan Kepala Sekolah'),
         ]);
     }
 
     public function akun(): View
     {
         return view('dashboard.pengaturan.akun', [
-            'title' => "Pengaturan Akun - $this->appName",
+            'title' => $this->setTitle('Pengaturan Akun'),
         ]);
     }
 }
