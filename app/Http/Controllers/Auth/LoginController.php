@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function index(): View
     {
         return view('auth.login', [
-            'title' => "Login - $this->appName",
+            'title' => $this->setTitle('Login'),
         ]);
     }
 
