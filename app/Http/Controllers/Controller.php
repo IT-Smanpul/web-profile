@@ -12,4 +12,9 @@ abstract class Controller
     {
         $this->appName = Config::get('app.name', 'Laravel Application');
     }
+
+    protected function setTitle(string $title): string
+    {
+        return "$title - $this->appName";
+    }
 }
