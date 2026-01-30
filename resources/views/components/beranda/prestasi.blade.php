@@ -30,15 +30,17 @@
             <div class="bg-primary/20 absolute -right-20 -top-20 h-40 w-40 rounded-full blur-2xl"></div>
           </div>
           <figure class="relative h-52 overflow-hidden">
-            <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-              src="{{ asset("storage/$achievement->photo") }}" alt="Gambar Prestasi {{ $achievement->name }}" />
-            <span @class([
-                'absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-medium text-white backdrop-blur',
-                'bg-primary/90' => $achievement->category === 'Akademik',
-                'bg-secondary/90' => $achievement->category === 'Non-Akademik',
-            ])>
-              {{ $achievement->category }}
-            </span>
+            <a data-fancybox href="{{ asset("storage/$achievement->photo") }}">
+              <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                src="{{ asset("storage/$achievement->photo") }}" alt="Gambar Prestasi {{ $achievement->name }}" />
+              <span @class([
+                  'absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-medium text-white backdrop-blur',
+                  'bg-primary/90' => $achievement->category === 'Akademik',
+                  'bg-secondary/90' => $achievement->category === 'Non-Akademik',
+              ])>
+                {{ $achievement->category }}
+              </span>
+            </a>
           </figure>
           <div class="relative space-y-3 p-6">
             <h3 class="text-lg font-semibold">{{ $achievement->name }}</h3>
