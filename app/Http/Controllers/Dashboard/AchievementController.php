@@ -11,21 +11,21 @@ class AchievementController extends Controller
     public function index(): View
     {
         return view('dashboard.prestasi.index', [
-            'title' => "Prestasi - $this->appName",
+            'title' => $this->setTitle('List Prestasi'),
         ]);
     }
 
     public function create(): View
     {
         return view('dashboard.prestasi.create', [
-            'title' => "Tambah Prestasi - $this->appName",
+            'title' => $this->setTitle('Tambah Prestasi'),
         ]);
     }
 
     public function edit(Achievement $achievement): View
     {
         return view('dashboard.prestasi.edit', [
-            'title' => "Edit Prestasi - $this->appName",
+            'title' => $this->setTitle('Edit Prestasi'),
             'achievement' => $achievement,
         ]);
     }
