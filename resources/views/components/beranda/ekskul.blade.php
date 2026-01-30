@@ -23,7 +23,7 @@
     </div>
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       @forelse (Ekskul::take(6)->get() as $ekskul)
-        <article class="bg-base-100 group rounded-3xl border shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+        <article class="bg-base-100 group rounded-3xl shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
           <div class="relative overflow-hidden rounded-3xl">
             <figure class="relative aspect-video overflow-hidden">
               <a class="block h-full w-full" data-fancybox="{{ $ekskul->name }}"
