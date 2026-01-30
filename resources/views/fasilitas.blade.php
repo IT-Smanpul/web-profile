@@ -38,7 +38,7 @@
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           @forelse ($facilities as $facility)
             <div
-              class="bg-base-100 group overflow-hidden rounded-3xl border shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+              class="bg-base-100 group overflow-hidden rounded-3xl shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
               <div class="relative h-56 overflow-hidden">
                 <a data-fancybox="{{ $facility->name }}" href="{{ asset("storage/$facility->photo") }}">
                   <img class="h-full w-full object-cover" src="{{ asset("storage/$facility->photo") }}"
