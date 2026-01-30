@@ -14,14 +14,14 @@ class HomeController extends Controller
     public function profil(): View
     {
         return view('profil', [
-            'title' => "Profil - $this->appName",
+            'title' => $this->setTitle('Profil Sekolah'),
         ]);
     }
 
     public function guru(): View
     {
         return view('guru-staff', [
-            'title' => "Guru dan Staff - $this->appName",
+            'title' => $this->setTitle('Guru dan Staff'),
             'gurus' => Employee::guru()->latest()->get(),
             'staffs' => Employee::staff()->latest()->get(),
         ]);
@@ -30,23 +30,23 @@ class HomeController extends Controller
     public function fasilitas(): View
     {
         return view('fasilitas', [
-            'title' => "Fasilitas - $this->appName",
-            'facilities' => Facility::paginate(6),
+            'title' => $this->setTitle('Fasilitas'),
+            'facilities' => Facility::latest()->paginate(6),
         ]);
     }
 
     public function ekskul(): View
     {
         return view('ekskul', [
-            'title' => "Ekstrakurikuler - $this->appName",
-            'ekskuls' => Ekskul::paginate(6),
+            'title' => $this->setTitle('Ekstrakurikuler'),
+            'ekskuls' => Ekskul::latest()->paginate(6),
         ]);
     }
 
     public function prestasi(): View
     {
         return view('prestasi', [
-            'title' => "Prestasi - $this->appName",
+            'title' => $this->setTitle('Prestasi'),
             'achievements' => Achievement::latest()->paginate(6),
         ]);
     }
@@ -54,7 +54,7 @@ class HomeController extends Controller
     public function berita(): View
     {
         return view('berita.index', [
-            'title' => "Berita - $this->appName",
+            'title' => $this->setTitle('Berita'),
             'articles' => Article::published()->latest()->paginate(6),
         ]);
     }
@@ -62,7 +62,7 @@ class HomeController extends Controller
     public function kritikSaranMasukan(): View
     {
         return view('kritik-saran-masukan', [
-            'title' => "Kritik Saran dan Masukan - $this->appName",
+            'title' => $this->setTitle('Kritik, Saran, dan Masukan'),
         ]);
     }
 }
