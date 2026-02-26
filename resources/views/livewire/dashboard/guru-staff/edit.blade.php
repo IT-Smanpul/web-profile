@@ -39,7 +39,7 @@
           ])>
             <span class="icon-[tabler--upload] size-5"></span>
             Pilih Foto
-            <input class="@error('photo') is-invalid @enderror hidden" type="file" wire:model="photo" />
+            <input class="@error('photo') is-invalid @enderror hidden" type="file" wire:model.live="photo" />
           </label>
           @error('photo')
             <span class="helper-text">{{ $message }}</span>
