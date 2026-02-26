@@ -38,7 +38,7 @@ class KepalaSekolah extends Component
         $data = Collection::make($this->validate());
 
         if (! blank($data->get('photo'))) {
-            if ($this->kepalaSekolah->photo && Storage::exists($this->kepalaSekolah?->photo)) {
+            if ($this->kepalaSekolah?->photo && Storage::exists($this->kepalaSekolah?->photo)) {
                 Storage::delete($this->kepalaSekolah->photo);
             }
 
