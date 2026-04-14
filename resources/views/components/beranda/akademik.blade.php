@@ -24,13 +24,6 @@
             </p>
           </div>
           <div
-            class="intersect:motion-preset-slide-left motion-duration-1000 border-base-content/10 rounded-xl border p-5">
-            <h3 class="font-semibold">Peminatan IPA & IPS</h3>
-            <p class="text-base-content/70 mt-1 text-sm">
-              Jalur akademik sesuai minat dan bakat untuk persiapan pendidikan lanjut.
-            </p>
-          </div>
-          <div
             class="intersect:motion-preset-slide-right motion-duration-1000 border-base-content/10 rounded-xl border p-5">
             <h3 class="font-semibold">Metode Pembelajaran Aktif</h3>
             <p class="text-base-content/70 mt-1 text-sm">
@@ -48,7 +41,7 @@
       </div>
       <div
         class="intersect:opacity-100 intersect:scale-100 motion-preset-oscillate-sm motion-duration-2000 scale-50 opacity-0 transition-opacity duration-700">
-        <img class="relative rounded-3xl object-cover shadow-xl" src="{{ asset('img/profile-3.jpeg') }}"
+        <img class="relative rounded-3xl object-cover shadow-xl" src="{{ asset('img/p4.jpg') }}"
           alt="Kegiatan Akademik SMA Negeri 10 Pontianak" />
       </div>
     </div>
