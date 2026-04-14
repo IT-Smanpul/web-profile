@@ -32,13 +32,13 @@
         <div class="grid gap-6 lg:grid-cols-5">
           <div class="relative lg:col-span-3">
             <img class="intersect:motion-preset-expand relative h-full w-full rounded-3xl object-cover shadow-xl"
-              src="{{ asset('img/profile-1.webp') }}" alt="Suasana Pembelajaran SMA Negeri 10 Pontianak" />
+              src="{{ asset('img/p1.jpg') }}" alt="Suasana Pembelajaran SMA Negeri 10 Pontianak" />
           </div>
           <div class="grid gap-6 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-1">
             <img class="intersect:motion-preset-bounce h-full w-full rounded-2xl object-cover shadow-lg"
-              src="{{ asset('img/profile-2.jpeg') }}" alt="Pembelajaran di kelas" />
+              src="{{ asset('img/p2.jpg') }}" alt="Pembelajaran di kelas" />
             <img class="intersect:motion-preset-slide-right h-full w-full rounded-2xl object-cover shadow-lg"
-              src="{{ asset('img/ekskul.jpg') }}" alt="Kegiatan ekstrakurikuler" />
+              src="{{ asset('img/p3.jpg') }}" alt="Kegiatan ekstrakurikuler" />
           </div>
         </div>
         <div
