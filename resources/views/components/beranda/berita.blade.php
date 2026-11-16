@@ -67,7 +67,7 @@
                   {{ $article->title }}
                 </h4>
                 <p class="text-base-content/70 line-clamp-2 text-xs leading-relaxed">
-                  {!! Str::limit($featured->content) !!}
+                  {!! Str::limit($article->content) !!}
                 </p>
               </div>
             </a>
